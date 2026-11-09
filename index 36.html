@@ -1,0 +1,2674 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تجويد أ. نهى</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Noto+Kufi+Arabic:wght@500;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: one lesson per "slide" card, lesson index rail on the start side, gradient pink→violet identity */
+:root{
+  --bg:#fcf6fa; --surface:#ffffff; --surface2:#f7eff8; --ink:#3b2342; --muted:#86688c; --line:#ecd9ec;
+  --pink:#e0559a; --violet:#8a55d6; --rose:#f6c6dd; --lav:#e8dcfa; --blush:#fde7f1; --mint:#2f9e7a; --mint-bg:#e3f6ef; --red:#d23f63; --red-bg:#fde6ec;
+  --grad:linear-gradient(120deg,#f07bb0 0%,#c06ad8 55%,#8a55d6 100%);
+  --grad-soft:linear-gradient(135deg,#fde7f1 0%,#efe4fb 100%);
+  --head-ink:linear-gradient(90deg,#d6408c,#7f4bd0);
+  --shadow:0 10px 30px -12px rgba(138,85,214,.35);
+  --f-display:"Noto Kufi Arabic","Tajawal",system-ui,sans-serif;
+  --f-body:"Tajawal","Noto Kufi Arabic",system-ui,sans-serif;
+  --f-quran:"Amiri Quran","Amiri","Traditional Arabic",serif;
+  --r:22px; --maxw:1240px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1b1220; --surface:#261a2e; --surface2:#2f2238; --ink:#f6e8f4; --muted:#bfa3c4; --line:#463355;
+  --pink:#f58bbd; --violet:#b892f2; --rose:#5a2e48; --lav:#3a2b55; --blush:#3d2234; --mint:#6fd5ae; --mint-bg:#1d3a31; --red:#ff8aa6; --red-bg:#43202b;
+  --grad:linear-gradient(120deg,#c94b8d 0%,#9a4fbf 55%,#6c3fb8 100%);
+  --grad-soft:linear-gradient(135deg,#3a2233 0%,#2e2445 100%);
+  --head-ink:linear-gradient(90deg,#ff9ccb,#c6a2ff);
+  --shadow:0 10px 30px -12px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1b1220; --surface:#261a2e; --surface2:#2f2238; --ink:#f6e8f4; --muted:#bfa3c4; --line:#463355;
+  --pink:#f58bbd; --violet:#b892f2; --rose:#5a2e48; --lav:#3a2b55; --blush:#3d2234; --mint:#6fd5ae; --mint-bg:#1d3a31; --red:#ff8aa6; --red-bg:#43202b;
+  --grad:linear-gradient(120deg,#c94b8d 0%,#9a4fbf 55%,#6c3fb8 100%);
+  --grad-soft:linear-gradient(135deg,#3a2233 0%,#2e2445 100%);
+  --head-ink:linear-gradient(90deg,#ff9ccb,#c6a2ff);
+  --shadow:0 10px 30px -12px rgba(0,0,0,.6); color-scheme:dark}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--fs,17px);line-height:1.85;direction:rtl;
+  background-image:radial-gradient(circle at 100% 0,color-mix(in srgb,var(--pink) 14%,transparent),transparent 38%),radial-gradient(circle at 0 100%,color-mix(in srgb,var(--violet) 14%,transparent),transparent 40%);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--violet);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.5}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{display:flex;align-items:center;gap:12px;padding-block:10px;max-width:var(--maxw);margin:0 auto;flex-wrap:wrap;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-size:18px}
+.brand .mark{width:36px;height:36px;flex:none}
+.brand small{display:block;font-family:var(--f-body);font-weight:500;font-size:12px;color:var(--muted);line-height:1.2}
+.sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;background:var(--grad-soft);border:1px solid var(--line);font-size:14px;font-weight:700}
+.btn{border:0;border-radius:14px;padding:9px 16px;font-weight:700;background:var(--surface2);color:var(--ink);border:1px solid var(--line);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.pri{background:var(--grad);color:#fff;border-color:transparent;box-shadow:var(--shadow)}
+.btn.ghost{background:transparent}
+.btn.sm{padding:5px 12px;font-size:14px;border-radius:11px}
+.btn.danger{color:var(--red);border-color:color-mix(in srgb,var(--red) 40%,transparent)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* gate */
+.gate{max-width:960px;margin:0 auto;padding-block:40px 60px}
+.gate-hero{text-align:center;display:grid;gap:10px;justify-items:center;margin-bottom:28px}
+.gate-hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;background:var(--head-ink);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gate-hero p{color:var(--muted);margin:0;max-width:52ch}
+.star{width:84px;height:84px}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow)}
+.card h2{font-size:21px;margin-bottom:6px}
+.field{display:grid;gap:4px;margin-bottom:12px}
+.field label{font-size:14px;font-weight:700;color:var(--muted)}
+.inp{width:100%;padding:10px 14px;border-radius:13px;border:1.5px solid var(--line);background:var(--surface2);min-width:0}
+.inp:focus{border-color:var(--violet);outline:none}
+textarea.inp{min-height:180px;line-height:1.7;resize:vertical;font-size:15px}
+.err{color:var(--red);font-size:14px;min-height:1.5em;margin:4px 0 0}
+.note{font-size:14px;color:var(--muted)}
+.info{background:var(--grad-soft);border:1px dashed var(--violet);border-radius:16px;padding:12px 16px;font-size:15px}
+
+/* deck */
+.deck{display:grid;grid-template-columns:280px minmax(0,1fr);gap:22px;max-width:var(--maxw);margin:0 auto;padding-block:20px 110px}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);align-self:start;max-height:calc(100vh - 100px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px}
+.rail h4{font-size:13px;color:var(--muted);margin:12px 8px 4px;font-weight:700}
+.ritem{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:right;background:none;border:0;padding:8px 10px;border-radius:12px;font-size:15px;line-height:1.5}
+.ritem:hover{background:var(--surface2)}
+.ritem.on{background:var(--grad-soft);font-weight:700}
+.ritem .n{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;background:var(--lav);color:var(--violet)}
+.ritem.on .n{background:var(--grad);color:#fff}
+.ritem .sc{margin-inline-start:auto;flex:none;font-size:12px;font-weight:800;color:var(--mint);background:var(--mint-bg);border-radius:8px;padding:0 6px}
+.rail-toggle{display:none}
+.slide{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden;animation:in .35s ease}
+@keyframes in{from{transform:translateY(8px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.slide{animation:none}}
+.hero{background:var(--grad);color:#fff;padding:26px 28px 22px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -40px -60px auto;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero::before{content:"";position:absolute;inset:-50px auto auto -30px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.10)}
+.hero .unit{font-size:14px;opacity:.92;font-weight:700}
+.hero h2{font-size:clamp(22px,3.4vw,32px);font-weight:800;margin-top:4px;position:relative;z-index:1}
+.hero .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1}
+.hero .row a,.hero .row button{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:12px;padding:6px 14px;font-weight:700;font-size:14px;text-decoration:none}
+.jump{position:sticky;top:calc(env(safe-area-inset-top,0px) + 65px);z-index:5;display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:10px 22px;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.jump button{flex:none;white-space:nowrap;border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:3px 14px;font-size:14px;font-weight:700}
+.sbody{padding:8px 28px 30px;display:grid;gap:26px;container-type:inline-size}
+.ct{max-width:78ch}
+.scrim{position:fixed;inset:0;z-index:35;background:rgba(40,15,45,.35)}
+.blk>h3.bt{font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px;margin:18px 0 12px}
+.blk>h3.bt .ico{width:34px;height:34px;border-radius:12px;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none}
+.blk>h3.bt .ico svg{width:19px;height:19px}
+
+/* content */
+.ct h3.sec{font-size:19px;font-weight:800;margin:22px 0 8px;background:var(--head-ink);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content;max-width:100%}
+.ct p{margin:6px 0}
+.ct b{font-weight:800;color:var(--violet)}
+.ct ul,.ct ol{margin:6px 0;padding-inline-start:26px}
+.ct ul li{list-style:none;position:relative}
+.ct ul li::before{content:"";position:absolute;inset-inline-start:-18px;top:.78em;width:8px;height:8px;border-radius:50% 0 50% 50%;background:var(--pink);transform:rotate(45deg)}
+.ct ol li::marker{color:var(--pink);font-weight:800}
+.ayah{font-family:var(--f-quran);color:var(--violet);font-size:1.12em;white-space:nowrap}
+.ex{background:var(--blush);color:var(--pink);font-weight:700;border-radius:8px;padding:0 6px;white-space:nowrap}
+.box{border-radius:16px;padding:12px 16px 12px;margin:10px 0;border:1px solid var(--line)}
+.box .lbl{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-display);font-weight:800;font-size:14px;margin-bottom:2px}
+.box.tip{background:var(--lav)}
+.box.tip .lbl{color:var(--violet)}
+.box.nt{background:var(--blush)}
+.box.nt .lbl{color:var(--pink)}
+.qa{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:8px 0;background:var(--surface2);border-radius:14px;padding:10px 14px}
+.qa .k{font-weight:800;color:var(--pink)}
+.qa .k.a{color:var(--violet)}
+.poem{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;font-family:var(--f-quran);font-size:1.08em;text-align:center;background:var(--grad-soft);border-radius:14px;padding:10px 14px;margin:8px 0}
+.tbl{overflow-x:auto;margin:10px 0;border-radius:14px;border:1px solid var(--line)}
+.tbl table{border-collapse:collapse;width:100%;min-width:420px;font-size:15px}
+.tbl th{background:var(--grad);color:#fff;font-family:var(--f-display);font-weight:700;padding:8px 10px}
+.tbl td{padding:7px 10px;border-top:1px solid var(--line);text-align:center}
+.tbl tr:nth-child(even) td{background:var(--surface2)}
+
+/* mind map */
+.mm{display:grid;grid-template-columns:1fr auto 1fr;gap:16px 26px;align-items:center;padding:18px;border-radius:22px;background:var(--grad-soft);position:relative}
+.mm .col{display:grid;gap:14px;min-width:0}
+.mm .center{width:min(200px,40vw);aspect-ratio:1;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;text-align:center;padding:16px;font-family:var(--f-display);font-weight:800;font-size:17px;line-height:1.5;box-shadow:0 0 0 8px color-mix(in srgb,var(--pink) 22%,transparent),var(--shadow);max-width:100%}
+.br{background:var(--surface);border-radius:18px;border:2px solid var(--c);padding:10px 12px;position:relative;min-width:0}
+.col.r .br::after,.col.l .br::after{content:"";position:absolute;top:50%;width:26px;height:2px;background:var(--c)}
+.col.r .br::after{left:-28px}
+.col.l .br::after{right:-28px}
+.br>button{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:800;color:var(--c);font-size:16px;width:100%}
+.br>button .dot{width:12px;height:12px;border-radius:50%;background:var(--c);flex:none}
+.br>button .car{margin-inline-start:auto;font-size:12px;transition:transform .2s}
+.br.closed>button .car{transform:rotate(90deg)}
+.br .kids{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.br.closed .kids{display:none}
+.br .kids span{font-size:14px;line-height:1.5;padding:3px 10px;border-radius:10px;background:color-mix(in srgb,var(--c) 14%,var(--surface))}
+.mm-hint{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* video */
+.vid{display:grid;gap:10px}
+.vid video{width:100%;border-radius:18px;background:#000;max-height:460px}
+.ytcard{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:14px 16px;border-radius:18px;border:1px solid var(--line);background:var(--surface2)}
+.ytcard .play{width:52px;height:52px;border-radius:16px;background:var(--grad);display:grid;place-items:center;flex:none}
+.ytcard .tx{flex:1;min-width:200px}
+.ytcard a{color:#fff;background:var(--grad);text-decoration:none;font-weight:800;border-radius:12px;padding:8px 16px}
+
+/* quiz */
+.quiz{display:grid;gap:14px}
+.qc{border:1.5px solid var(--line);border-radius:20px;padding:14px 16px;background:var(--surface)}
+.qc .qh{display:flex;gap:10px;align-items:flex-start}
+.qc .qn{flex:none;width:30px;height:30px;border-radius:10px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+.qc .qt{font-weight:700;flex:1}
+.qc .ty{font-size:12px;color:var(--violet);font-weight:800;background:var(--lav);border-radius:8px;padding:0 8px;flex:none;white-space:nowrap}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-top:10px}
+.opt{display:flex;gap:8px;align-items:center;padding:8px 12px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface2);text-align:right;font-weight:600;line-height:1.5}
+.opt .bul{width:18px;height:18px;border-radius:50%;border:2px solid var(--violet);flex:none}
+.opt.sel{border-color:var(--violet);background:var(--lav)}
+.opt.sel .bul{background:var(--violet);box-shadow:inset 0 0 0 3px var(--lav)}
+.opt.ok{border-color:var(--mint);background:var(--mint-bg)}
+.opt.bad{border-color:var(--red);background:var(--red-bg)}
+.qc.ok{border-color:var(--mint)}
+.qc.bad{border-color:var(--red)}
+.fb{margin-top:10px;border-radius:12px;padding:8px 12px;font-size:15px}
+.fb.ok{background:var(--mint-bg);color:var(--ink)}
+.fb.bad{background:var(--red-bg);color:var(--ink)}
+.fb b{font-weight:800}
+.fillin{margin-top:10px;max-width:360px}
+.qfoot{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.score{display:flex;gap:18px;align-items:center;padding:16px 18px;border-radius:22px;background:var(--grad-soft);border:1px solid var(--line);flex-wrap:wrap}
+.ring{width:96px;height:96px;flex:none}
+.score .msg{flex:1;min-width:200px}
+.score .msg h4{font-size:19px;font-weight:800;color:var(--violet)}
+
+/* teacher q */
+.tqlist{display:grid;gap:10px}
+.tqi{border:1px dashed var(--violet);border-radius:16px;padding:10px 14px;background:var(--surface2)}
+.tqi .ans{font-size:14px;color:var(--mint);font-weight:700;margin-top:4px}
+.secret{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--pink);background:var(--blush);border-radius:999px;padding:2px 10px}
+
+/* bottom nav */
+.nav{position:fixed;inset:auto 0 0 0;z-index:15;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav .in{display:flex;align-items:center;gap:12px;max-width:var(--maxw);margin:0 auto;padding-block:10px}
+.dots{flex:1;display:flex;gap:5px;justify-content:center;flex-wrap:wrap}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--pink);width:22px;border-radius:6px}
+.dots i.done{background:var(--mint)}
+.cnt{font-weight:800;font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(40,15,45,.45);display:grid;place-items:center;padding:16px}
+.modal .box2{background:var(--surface);border-radius:24px;width:min(980px,100%);max-height:calc(100vh - 32px);overflow:auto;box-shadow:var(--shadow);border:1px solid var(--line)}
+.modal .mh{position:sticky;top:0;z-index:2;display:flex;gap:10px;align-items:center;padding:14px 18px;background:var(--surface);border-bottom:1px solid var(--line)}
+.modal .mh h3{font-size:19px;flex:1}
+.modal .mb{padding:16px 18px;display:grid;gap:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:4px 14px;font-weight:700;font-size:14px}
+.tabs button.on{background:var(--grad);color:#fff;border-color:transparent}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.prev{border:1px solid var(--line);border-radius:16px;padding:10px 14px;max-height:420px;overflow:auto;background:var(--bg)}
+.qed{border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:8px;background:var(--surface2)}
+.qed .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.qed .row>*{min-width:0}
+.panel{max-width:var(--maxw);margin:0 auto;padding-block:20px 60px;display:grid;gap:18px}
+.dtable{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+.dtable table{width:100%;border-collapse:collapse;min-width:520px}
+.dtable th{background:var(--grad-soft);padding:8px 12px;text-align:right;font-family:var(--f-display);font-size:14px}
+.dtable td{padding:8px 12px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.badge{display:inline-block;border-radius:8px;padding:0 8px;font-weight:800;font-size:14px}
+.badge.g{background:var(--mint-bg);color:var(--mint)}
+.badge.m{background:var(--lav);color:var(--violet)}
+.badge.b{background:var(--red-bg);color:var(--red)}
+.pwd{font-family:ui-monospace,monospace;background:var(--blush);padding:0 6px;border-radius:6px}
+.sheetprev{display:flex;justify-content:center}
+.sheetprev img{width:min(420px,100%);border-radius:10px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.tnav{display:flex;gap:4px;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:4px;margin-inline:auto;flex-wrap:wrap}
+.tnav button{border:0;background:none;border-radius:999px;padding:6px 16px;font-weight:700;font-size:15px;color:var(--muted);white-space:nowrap}
+.tnav button.on{background:var(--grad);color:#fff;box-shadow:var(--shadow)}
+.who{display:flex;align-items:center;gap:8px}
+.who .av{width:38px;height:38px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:17px;flex:none}
+.who .nm{display:grid;line-height:1.25;font-weight:800;font-size:15px;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.who .nm small{font-weight:500;font-size:12px;color:var(--muted)}
+.page{max-width:var(--maxw);margin:0 auto;padding-block:24px 60px;display:grid;gap:18px}
+.welcome{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--grad);color:#fff;border-radius:28px;padding:28px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.welcome::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.12);inset:auto auto -110px -60px}
+.welcome .wtx{flex:1;min-width:260px;position:relative;z-index:1}
+.welcome h1{font-size:clamp(24px,4vw,36px);font-weight:800}
+.welcome p{margin:6px 0 14px;opacity:.95;max-width:56ch}
+.welcome .row{display:flex;gap:10px;flex-wrap:wrap}
+.wbtn{background:#fff;color:#5b2a86;border:0}
+.wbtn2{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.45)}
+.kpis{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.kpi{display:grid;justify-items:center;gap:2px;min-width:110px;padding:12px 16px;border-radius:20px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
+.kpi b{font-family:var(--f-display);font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;font-weight:700;opacity:.92;white-space:nowrap}
+.psum .kpi{background:var(--surface2);border-color:var(--line)}
+.psum .kpi b{color:var(--violet)}
+.ph{font-size:21px;font-weight:800;background:var(--head-ink);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content;margin-top:6px}
+.ugrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.ucard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:16px;display:grid;gap:10px}
+.ucard .uh{display:flex;align-items:baseline;gap:8px;justify-content:space-between}
+.ucard h3{font-size:18px;font-weight:800;color:var(--violet)}
+.bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--grad);border-radius:99px}
+.ul{display:grid;gap:4px}
+.li{display:flex;gap:10px;align-items:center;text-align:right;border:0;background:none;padding:7px 8px;border-radius:12px;line-height:1.45;font-size:15px}
+.li:hover{background:var(--surface2)}
+.li .n{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:800;background:var(--lav);color:var(--violet)}
+.li .n.ok{background:var(--mint-bg);color:var(--mint)}
+.li .t{flex:1;min-width:0}
+.li .sc{font-size:12px;font-weight:800;color:var(--mint);background:var(--mint-bg);border-radius:8px;padding:0 6px}
+.psum{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:var(--shadow)}
+.psum .pt{flex:1;min-width:240px;display:grid;gap:8px}
+.psum h1{font-size:clamp(22px,3.5vw,30px);font-weight:800}
+.psum p{margin:0;color:var(--muted)}
+.ubars{display:grid;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px}
+.ub{display:grid;grid-template-columns:minmax(120px,220px) 1fr auto;gap:12px;align-items:center;font-weight:700}
+.ub b{font-variant-numeric:tabular-nums;color:var(--violet)}
+@media (max-width:900px){.tnav{order:5;width:100%;justify-content:center;margin:0}.who .nm{max-width:110px}.ub{grid-template-columns:1fr auto}.ub>span{grid-column:1/-1}}
+@media (max-width:600px){.tnav button{padding:6px 10px;font-size:14px}.who .nm small{display:none}}
+.roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:760px;margin:0 auto;width:100%}
+.role{display:grid;justify-items:center;gap:10px;text-align:center;padding:30px 22px;border-radius:28px;border:2px solid var(--line);background:var(--surface);box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+.role:hover{transform:translateY(-3px);border-color:var(--violet)}
+.role b{font-family:var(--f-display);font-size:20px;font-weight:800}
+.role span:last-child{color:var(--muted);font-size:15px;line-height:1.6}
+.ri{width:72px;height:72px;border-radius:24px;background:var(--grad);color:#fff;display:grid;place-items:center;box-shadow:var(--shadow)}
+.ri svg{width:38px;height:38px}
+.ri.sm{width:48px;height:48px;border-radius:16px}.ri.sm svg{width:26px;height:26px}
+.lform{max-width:480px;margin:0 auto;width:100%}
+.lh{display:flex;gap:12px;align-items:center;margin:6px 0 14px}
+.linkb{border:0;background:none;color:var(--violet);font-weight:700;padding:4px 0;text-decoration:underline;text-underline-offset:4px}
+.back{text-decoration:none}
+.guestl{text-align:center;margin:18px 0 0}
+.btn.big{width:100%;padding:12px;font-size:17px}
+@media (max-width:600px){.roles{grid-template-columns:minmax(0,1fr)}.role{padding:22px 18px}}
+.sets{display:grid;gap:18px}
+.sets .card h2{display:flex;align-items:center;gap:8px}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.sw{display:grid;gap:4px;justify-items:center;border:2px solid var(--line);background:var(--surface2);border-radius:16px;padding:8px 10px;font-size:13px;font-weight:700;min-width:96px}
+.sw.on{border-color:var(--violet);box-shadow:var(--shadow)}
+.sw i{display:block;width:64px;height:26px;border-radius:9px}
+.colors{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.colors label{display:flex;gap:8px;align-items:center;font-weight:700}
+.colors input[type=color]{width:46px;height:36px;border:1px solid var(--line);border-radius:10px;background:var(--surface2);padding:2px}
+.seg{display:inline-flex;width:fit-content;max-width:100%;justify-self:start;border:1px solid var(--line);border-radius:12px;overflow:hidden;flex-wrap:wrap}
+.seg button{border:0;background:var(--surface2);padding:6px 14px;font-weight:700}
+.seg button.on{background:var(--grad);color:#fff}
+.tgl{display:flex;gap:10px;align-items:center;font-weight:700}
+.tgl input{width:20px;height:20px;accent-color:var(--violet)}
+.lrow{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:12px;border:1px solid var(--line);background:var(--surface2)}
+.lrow .t{flex:1;min-width:0}
+.lrow.hid .t{opacity:.55;text-decoration:line-through}
+.savebar{position:static;margin-top:6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px 14px;box-shadow:var(--shadow)}
+.toast{position:fixed;z-index:60;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:14px;font-weight:700;max-width:calc(100vw - 32px)}
+.loading{display:grid;place-items:center;padding:60px 0;color:var(--muted)}
+
+@container (max-width:760px){
+  .mm{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mm .col{display:contents}
+  .mm .center{grid-column:1/-1;order:-1;justify-self:center;width:150px}
+  .col.r .br::after,.col.l .br::after{display:none}
+}
+@container (max-width:500px){ .mm{grid-template-columns:minmax(0,1fr);padding:14px} .mm .center{width:130px;font-size:15px} }
+@media (max-width:1100px){
+  .deck{grid-template-columns:minmax(0,1fr)}
+  .rail{position:fixed;inset:0 0 0 auto;width:min(320px,86vw);max-height:none;z-index:40;border-radius:24px 0 0 24px;transform:translateX(105%);transition:transform .25s;padding-top:calc(env(safe-area-inset-top,0px) + 14px);padding-bottom:calc(env(safe-area-inset-bottom,0px) + 14px)}
+  .rail.open{transform:none}
+  .rail-toggle{display:inline-flex}
+}
+@media (max-width:900px){
+  .ugrid{grid-template-columns:minmax(0,1fr)}
+  .who{margin-inline-start:auto}
+  .two{grid-template-columns:1fr}
+  .hero{padding:22px 18px 18px}
+  .sbody{padding:6px 16px 24px}
+  .jump{padding:8px 14px}
+  .poem{grid-template-columns:1fr}
+}
+@media (max-width:600px){.dots{display:none}.brand small{display:none}.brand{font-size:16px}.brand .mark{width:30px;height:30px}.top{position:relative;top:0}.top .in{gap:8px;min-height:0}.jump{top:env(safe-area-inset-top,0px)}.nav .in{justify-content:space-between}.lo-t{display:none}.who .nm{max-width:84px}.top .in{flex-wrap:wrap;row-gap:8px}.who .av{width:32px;height:32px;font-size:15px}.welcome{padding:20px}.psum{padding:18px}.kpi{min-width:90px;padding:10px}.kpi b{font-size:20px}.page{padding-block:16px 40px}}
+</style>
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<div id="app"><div class="loading">جارٍ تحميل الدروس…</div></div>
+
+<script>
+/* ================= إعداد Supabase =================
+   ضعي هنا رابط مشروعكِ ومفتاح anon public من Supabase:
+   Project Settings ← API (أو Data API)                         */
+window.SUPABASE_URL = "https://xxrplmdgzymgyekehdcl.supabase.co";
+window.SUPABASE_KEY = "sb_publishable_VAFHlqg_3NqE7RlZuP1Pyg_nVzb5mji";
+/* ================================================== */
+/* ===== Google Apps Script bridge: provides window.claude.use(...) on top of google.script.run ===== */
+window.GAS = true; window.STANDALONE = true; window.SUPABASE = true; window.USERNAME_LOGIN = true;
+(function(){ try{ var se=JSON.parse(localStorage.getItem("tj_session")); var au=JSON.parse(localStorage.getItem("tj_auth"))||{};
+  if(se && ((se.role==="teacher"&&!au.t)||(se.role==="student"&&!au.s))) localStorage.removeItem("tj_session"); }catch(e){} })();
+var AUTH = (function(){ try{ return JSON.parse(localStorage.getItem("tj_auth"))||{}; }catch(e){ return {}; } })();
+function saveAuth(){ try{ localStorage.setItem("tj_auth", JSON.stringify(AUTH)); }catch(e){} }
+function gasRun(op, args){
+  if(!window.SUPABASE_URL || /ضعي|PASTE/.test(window.SUPABASE_URL)) return Promise.reject({code:"unavailable", message:"not configured"});
+  return fetch(window.SUPABASE_URL.replace(/\/+$/,"") + "/rest/v1/rpc/api", {method:"POST", cache:"no-store",
+      headers:Object.assign({"Content-Type":"application/json", "apikey":window.SUPABASE_KEY}, /^eyJ/.test(window.SUPABASE_KEY)?{"Authorization":"Bearer "+window.SUPABASE_KEY}:{}),
+      body: JSON.stringify({req: Object.assign({op:op, auth:AUTH}, args||{})})})
+    .then(function(r){ return r.text().then(function(t){ return {ok:r.ok, t:t}; }); }, function(e){ throw {code:"unavailable", message:String(e)}; })
+    .then(function(x){ var r; try{ r=JSON.parse(x.t); }catch(e){ throw {code:"unavailable", message:"bad response"}; }
+      if(!x.ok) throw {code:"unavailable", message:(r&&r.message)||"error"};
+      if(r && r.error){ if(r.error==="auth") gasExpired(); throw {code:r.error, message:r.error}; } return r; });
+}
+function gasExpired(){
+  AUTH = {}; saveAuth();
+  try{ localStorage.removeItem("tj_session"); }catch(e){}
+  if(typeof S!=="undefined" && S.session){ S.session=null; S.view="gate"; if(typeof render==="function") render(); if(typeof toast==="function") toast("انتهت الجلسة، سجّلي الدخول مرة أخرى"); }
+}
+(function(){
+  var subs = [], last = {}, timer = null;
+  function snapDoc(id, r){ return {id:id, exists:!!(r&&r.exists), data:function(){ return r&&r.exists ? r.data : undefined; }, metadata:{fromCache:false,hasPendingWrites:false}}; }
+  function deliver(s, r){
+    var key = JSON.stringify(r); if(last[s.uid]===key) return; last[s.uid]=key;
+    try{
+      if(s.type==="doc") s.cb(snapDoc(s.path.split("/").pop(), r));
+      else { var docs=(r||[]).map(function(d){ return snapDoc(d.id,{exists:true,data:d.data}); }); s.cb({docs:docs,size:docs.length,empty:!docs.length,metadata:{fromCache:false,hasPendingWrites:false},docChanges:function(){return [];}}); }
+    }catch(e){ console.error(e); }
+  }
+  var busy = false, again = false;
+  function poll(){
+    if(!subs.length) return;
+    if(busy){ again = true; return; }
+    busy = true;
+    var list = subs.slice();
+    gasRun("multi", {reqs: list.map(function(s,i){ return {k:String(i), type:s.type, path:s.path}; })})
+      .then(function(r){ list.forEach(function(s,i){ if(subs.indexOf(s)>=0) deliver(s, r[String(i)]); }); })
+      .catch(function(){})
+      .then(function(){ busy=false; if(again){ again=false; poll(); } });
+  }
+  function kick(){ clearTimeout(timer); timer = setTimeout(poll, 120); }
+  setInterval(function(){ if(document.visibilityState!=="hidden") poll(); }, 20000);
+  document.addEventListener("visibilitychange", function(){ if(document.visibilityState==="visible") kick(); });
+  var uidc = 0;
+  function sub(type, path, cb, err){ var s={type:type,path:path,cb:cb,err:err,uid:++uidc}; subs.push(s); kick(); return function(){ var i=subs.indexOf(s); if(i>=0) subs.splice(i,1); delete last[s.uid]; }; }
+  function doc(path){
+    return { id:path.split("/").pop(), path:path,
+      get: function(){ return gasRun("get",{path:path}).then(function(r){ return snapDoc(path.split("/").pop(), r); }); },
+      set: function(d){ return gasRun("set",{path:path,data:d}).then(kick); },
+      update: function(d){ return gasRun("update",{path:path,data:d}).then(kick); },
+      delete: function(){ return gasRun("delete",{path:path}).then(kick); },
+      onSnapshot: function(cb, err){ return sub("doc", path, cb, err); } };
+  }
+  function collection(path){ return { path:path, doc:function(id){ return doc(path+"/"+id); }, onSnapshot:function(cb,err){ return sub("col", path, cb, err); } }; }
+  var DB = { doc:doc, collection:collection, refresh:kick };
+  var USER = { canEdit:function(){ return Promise.resolve(true); }, isOwner:function(){ return Promise.resolve(true); }, id:function(){ return Promise.resolve(AUTH.sid||null); } };
+  function b64(blob){ return new Promise(function(res){ var r=new FileReader(); r.onload=function(){ res(String(r.result).split(",")[1]); }; r.readAsDataURL(blob); }); }
+  var DL = { save: function(req){
+    var blob = req.data instanceof Blob ? req.data : new Blob([req.data], {type:"application/pdf"});
+    var url = URL.createObjectURL(blob), a = document.createElement("a");
+    a.href = url; a.download = req.filename || "file.pdf"; document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 4000);
+    return Promise.resolve({status:"saved"});
+  } };
+  window.claude = { use: function(n){ return Promise.resolve(n==="db"?DB : n==="user"?USER : n==="downloads"?DL : null); } };
+})();
+
+</script>
+<script>
+const L1 = [
+{
+id:"l01", unit:"التفخيم والترقيق", title:"التفخيم والترقيق: الاستعلاء والاستفال",
+content:`## تقسيم الحروف الهجائية
+الحروف الهجائية وهي (٢٩) حرفاً تنقسم من حيث كيفية ضغط الهواء في الفم عند النطق بها إلى قسمين:
+- **حروف استعلاء:** حروف «خص ضغط قظ» فقط، يتجه ضغط الحرف عند النطق به إلى قبة غار الحنك الأعلى.
+- **حروف استفال:** باقي الحروف (٢٢) حرفاً، يتجه ضغط الحرف عند النطق به إلى الحنك الأسفل.
+
+## أولاً: الاستعلاء
+- **لغة:** العلو والارتفاع.
+- **اصطلاحاً:** اتجاه ضغط الحرف عند النطق به إلى الحنك الأعلى.
+!! **تنبيه:** المعتبر في الاستعلاء هو ارتفاع أقصى اللسان إلى الحنك الأعلى في المنطقة الرخوة.
+
+## ثانياً: الاستفال
+- **لغة:** الانخفاض.
+- **اصطلاحاً:** اتجاه ضغط الحرف عند النطق به إلى الحنك الأسفل.
+? ما هي علاقة الاستعلاء والاستفال بالتفخيم والترقيق؟
+= قبل أن نعرف العلاقة لابد من معرفة آلية التفخيم والترقيق.
+
+## أولاً: آلية التفخيم
+عند النطق بالحرف المستعلي يتجه ضغط الهواء إلى الحنك الأعلى فيصطدم بقبة الحنك، وبما أنه مكور (محدب) يرتد الصوت بعد الاصطدام فينشأ سمن في الحرف ويربو، ويسمى ذلك بالتفخيم.
+- **تعريف التفخيم لغة:** التسمين.
+- **اصطلاحاً:** سمن يعتري الحرف فيمتلئ الفم بصداه.
+
+## ثانياً: آلية الترقيق
+عند النطق بالحرف المستفل يتجه ضغط الهواء إلى الأسفل فلا يمتلئ الفم بصدى الحرف، فيطرأ على الحرف نحول يسمى الترقيق.
+- **تعريف الترقيق لغة:** النحول.
+- **اصطلاحاً:** نحول يعتري الحرف فلا يمتلئ الفم بصداه.
+
+## العلاقة بين الاستعلاء والتفخيم
+حرف الاستعلاء:
+- **حقه:** اتجاه ضغط الحرف عند النطق به إلى الحنك الأعلى.
+- **مستحقه:** أن يكون مفخماً.
+
+## العلاقة بين الاستفال والترقيق
+حرف الاستفال:
+- **حقه:** اتجاه ضغط الحرف عند النطق به إلى الحنك الأسفل.
+- **مستحقه:** أن يكون مرققاً.
+>> **قاعدة:** كل مستعلٍ مفخم وليس كل مستفل مرقق؛ لأن هناك حروف استفال تفخم أحياناً (الراء، لام لفظ الجلالة، الألف المدية)، أو بمعنى آخر: كل مستعل مفخم وليس كل مفخم مستعل.
+
+## تقسيم الحروف الهجائية من حيث التفخيم والترقيق
+- **حروف تفخم دائماً:** خص ضغط قظ.
+- **حروف تفخم تارة وترقق تارة أخرى:** الألف المدية، لام لفظ الجلالة، الراء.
+- **حروف ترقق دائماً:** باقي الحروف.`,
+map:`التفخيم والترقيق
+- حروف الاستعلاء
+  - خص ضغط قظ
+  - الضغط إلى الحنك الأعلى
+  - مستحقها التفخيم
+- حروف الاستفال
+  - باقي الحروف (٢٢)
+  - الضغط إلى الحنك الأسفل
+  - مستحقها الترقيق
+- التفخيم
+  - لغة: التسمين
+  - سمن يعتري الحرف فيمتلئ الفم بصداه
+- الترقيق
+  - لغة: النحول
+  - نحول يعتري الحرف فلا يمتلئ الفم بصداه
+- أقسام الحروف
+  - تفخم دائماً: خص ضغط قظ
+  - تفخم تارة وترقق أخرى: الألف المدية، لام الجلالة، الراء
+  - ترقق دائماً: باقي الحروف`,
+quiz:[
+["tf","حروف الاستعلاء يجمعها قولك: (خص ضغط قظ).",true,"حروف الاستعلاء سبعة: خص ضغط قظ."],
+["tf","كل حرف مستفل يكون مرققاً دائماً.",false,"كل مستعل مفخم وليس كل مستفل مرقق؛ فالراء ولام الجلالة والألف المدية تفخم أحياناً."],
+["mc","التفخيم اصطلاحاً هو:",["سمن يعتري الحرف فيمتلئ الفم بصداه","نحول يعتري الحرف فلا يمتلئ الفم بصداه","اتجاه ضغط الحرف إلى الحنك الأسفل","إخراج الحرف من مخرجه بغنة"],0],
+["mc","عدد حروف الاستفال:",["٧ أحرف","١٥ حرفاً","٢٢ حرفاً","٢٩ حرفاً"],2],
+["fill","الترقيق لغةً هو ________.",["النحول"]]
+]},
+
+{
+id:"l02", unit:"التفخيم والترقيق", title:"الحروف التي تفخم دائماً ومراتب التفخيم",
+content:`## أولاً: الحروف التي تفخم دائماً
+وهي حروف «خص ضغط قظ»، وتفخم في جميع الأحوال سواء كانت ساكنة أو متحركة، ولكن بمراتب مختلفة.
+
+## مراتب التفخيم (يوجد لها مذهبان)
+| مذهب أهل مصر | مذهب أهل الشام |
+| (١) في المفتوح {طَبع} والساكن ما قبله مفتوح {يَضْرب} | (١) المفتوح وبعده ألف مد {خالدين} |
+| (٢) في المضموم {خُذ} والساكن ما قبله مضموم {مُخْتلفون} | (٢) المفتوح وليس بعده ألف مد {صَدق} |
+| (٣) في المكسور {أخِيه} والساكن ما قبله مكسور {سِخْريا} | (٣) المضموم {ضُربت} |
+| يلاحظ أن الساكن في هذا المذهب ليس له مرتبة خاصة بل يتبع مرتبة ما قبله. | (٤) الساكن بغض النظر عما قبله {يطْبع} |
+| — | (٥) المكسور {أخِيه} |
+| — | الساكن في هذا المذهب له مرتبة خاصة به. |
+
+## التفخيم النسبي
+التفخيم النسبي هو أدنى مرتبة من مراتب التفخيم، لقول العلامة المتولي:
+~ فهي وإن تكن بأدنى منزلة || فخيمة قطعاً من المستفلة
+~ فلا يقال: إنها رقيقة || كضدها تلك هي الحقيقة
+? هل التفخيم النسبي يكون في جميع حروف (خص ضغط قظ)؟
+= يكون التفخيم النسبي واضحاً في الحروف المستعلية المنفتحة (ق، خ، غ)؛ وذلك لأن قوة الاستعلاء تشد الحرف لأعلى وقوة الكسر تشد الحرف إلى أسفل فتتعادل القوتان.
+
+## ملخص التفخيم النسبي
+- **مذهب أهل الشام:** حروف (ق، غ، خ) المكسورة.
+- **مذهب أهل مصر:** حروف (ق، غ، خ) المكسورة، و(غ، خ) الساكنة وما قبلها مكسور {سِخْريا} أو ما قبلها ياء ساكنة {شيخ}.
+- **استثناء:** القاف الساكنة ما قبلها مكسور لا يكون تفخيمها نسبياً بسبب وجود القلقلة.
+? متى يتجلى الفرق بين مذهبي أهل مصر وأهل الشام؟
+= يتجلى الفرق في حالة الغين والخاء الساكنة ما قبلها مكسور أو ما قبلها ياء ساكنة، نحو: (سِخْريا، شيخ).
+
+## ترتيب حروف الاستعلاء من حيث قوة التفخيم
+1. **الطاء:** أكثر الحروف تفخيماً لأنها أقوى الحروف.
+2. **الضاد:** لما فيها من جهر واستطالة.
+3. **الصاد:** لما فيها من صفير.
+4. **الظاء:** لأنها أضعف حروف الإطباق لكون مخرجها أقرب إلى خارج الفم من الصاد، لذا يكون إطباقها أقل لاتجاه الصوت ناحية طرف اللسان فيقل التفخيم، وإن تساوت صفات القوة بينها وبين الصاد فقد تميزت الصاد بالصفير والظاء بالجهر.
+5. **القاف:** أكثر تفخيماً من الغين لما فيها من جهر وشدة وقلقلة.
+6. **الغين:** لما فيها من جهر.
+7. **الخاء:** أضعفهم لعدم اتصافها بصفة قوية سوى الاستعلاء.
+>> فيكون ترتيب الحروف: ط > ض > ص > ظ > ق > غ > خ
+
+## تنبيهات عند النطق بالحرف المفخم
+1. الحذر من خروج الصوت خارج الفم عند النطق بالحرف مما يضعف تفخيم الحرف، فلابد من أن يمتلئ الفم بصدى صوت الحرف.
+2. يجب مراعاة الفرق بين تفخيم الحرف المطبق وتفخيم الحرف المنفتح، وهذا يظهر بوضوح في المرتبة الأخيرة من مراتب التفخيم كما ذكر في مراتب التفخيم نحو {طِباقاً} و{غِل}، فالغين يكون تفخيمها نسبياً.`,
+map:`مراتب التفخيم
+- الحروف المفخمة دائماً
+  - خص ضغط قظ
+  - ساكنة أو متحركة بمراتب مختلفة
+- مذهب أهل مصر (٣ مراتب)
+  - المفتوح والساكن بعد فتح
+  - المضموم والساكن بعد ضم
+  - المكسور والساكن بعد كسر
+  - الساكن يتبع ما قبله
+- مذهب أهل الشام (٥ مراتب)
+  - مفتوح بعده ألف
+  - مفتوح ليس بعده ألف
+  - المضموم
+  - الساكن
+  - المكسور
+- التفخيم النسبي
+  - أدنى مراتب التفخيم
+  - واضح في (ق، غ، خ) المكسورة
+  - استثناء القاف الساكنة بعد كسر
+- ترتيب القوة
+  - ط > ض > ص > ظ > ق > غ > خ`,
+quiz:[
+["tf","التفخيم النسبي هو أعلى مراتب التفخيم.",false,"التفخيم النسبي هو أدنى مرتبة من مراتب التفخيم."],
+["tf","في مذهب أهل مصر الساكن ليس له مرتبة خاصة بل يتبع مرتبة ما قبله.",true,"هذا هو الفرق: الساكن عند أهل الشام له مرتبة خاصة."],
+["mc","أقوى حروف الاستعلاء تفخيماً هو:",["الخاء","الطاء","القاف","الظاء"],1],
+["mc","عدد مراتب التفخيم عند أهل الشام:",["ثلاث","أربع","خمس","سبع"],2],
+["fill","أضعف حروف الاستعلاء تفخيماً حرف ________.",["الخاء","خ","الخا"]]
+]},
+
+{
+id:"l03", unit:"التفخيم والترقيق", title:"المرققة دائماً، والألف المدية ولام الجلالة",
+content:`## ثانياً: الحروف المرققة دائماً
+وهي حروف الاستفال بعد استثناء (الراء، لام لفظ الجلالة، الألف المدية).
+
+## ثالثاً: الحروف التي تفخم تارة وترقق تارة أخرى
+- الألف المدية.
+- لام اسم الجلالة.
+- الراء.
+
+## أولاً: الألف المدية
+تتبع ما قبلها تفخيماً وترقيقاً:
+- ما قبلها مفخم مثل {قال} تفخم.
+- ما قبلها مرقق مثل {السماء} ترقق.
+
+## ثانياً: لام اسم الجلالة
+اللام دائماً مرققة إلا إذا أتت في اسم الجلالة فإنها ترقق أحياناً وتفخم أحياناً أخرى.
+- **تفخم:** إذا كان ما قبلها مفتوحاً فتحاً حقيقياً {قالَ الله}، أو مفتوحاً فتحاً حكمياً {ءالله} {الله}، أو مضموماً ضماً أصلياً أو عارضاً {عبدُ الله} {دعوُا الله}.
+- **ترقق:** إذا كان ما قبلها مكسوراً، سواء كان كسراً أصلياً أو عارضاً، وسواء كان في كلمة واحدة أو كلمتين {بسمِ الله} {بالله} {أحدٌ اللهُ} {قلِ اللهم}.
+
+## ما هو الفتح الحكمي؟
+1. عند البدء باسم الجلالة نبدأ بهمزة الوصل مفتوحة لأنها في (ال) التعريف فيسمى فتحاً حكمياً.
+2. في لفظ {ءالله} في سورتي النمل ويونس قرأ حفص بوجهي الإبدال والتسهيل:
+- **إبدال:** تقع لام اسم الجلالة بعد ألف مدية وهي في حكم الفتحة.
+- **تسهيل:** تقع لام اسم الجلالة بعد همزة الوصل المسهلة وهي في حكم الفتحة لأننا لو كنا بدأنا بها لفتحت.`,
+map:`تفخم تارة وترقق أخرى
+- الألف المدية
+  - تتبع ما قبلها
+  - بعد مفخم تفخم {قال}
+  - بعد مرقق ترقق {السماء}
+- لام اسم الجلالة: تفخم
+  - بعد فتح حقيقي {قال الله}
+  - بعد فتح حكمي {ءالله}
+  - بعد ضم أصلي أو عارض {عبدُ الله}
+- لام اسم الجلالة: ترقق
+  - بعد كسر أصلي أو عارض
+  - في كلمة أو كلمتين {بسم الله}
+- الفتح الحكمي
+  - همزة الوصل عند البدء
+  - {ءالله}: إبدال أو تسهيل
+- المرققة دائماً
+  - حروف الاستفال
+  - عدا الراء ولام الجلالة والألف المدية`,
+quiz:[
+["tf","الألف المدية تتبع ما قبلها تفخيماً وترقيقاً.",true,"بعد المفخم تفخم مثل {قال}، وبعد المرقق ترقق مثل {السماء}."],
+["tf","لام اسم الجلالة في {بسم الله} مفخمة.",false,"ما قبلها مكسور فترقق."],
+["mc","حكم لام اسم الجلالة في {عبدُ الله}:",["ترقيق","تفخيم","يجوز الوجهان","إخفاء"],1],
+["mc","في {ءالله} في سورتي يونس والنمل قرأ حفص بوجهي:",["الإظهار والإدغام","الإبدال والتسهيل","القصر والتوسط","التفخيم والترقيق فقط"],1],
+["fill","عند البدء باسم الجلالة تكون همزة الوصل مفتوحة فيسمى ذلك فتحاً ________.",["حكمياً","حكميا","حكمي"]]
+]},
+
+{
+id:"l04", unit:"التفخيم والترقيق", title:"الراء: التفخيم والترقيق قولاً واحداً",
+content:`## ثالثاً: الراء — حالاتها من حيث التفخيم والترقيق
+- تفخم قولاً واحداً.
+- ترقق قولاً واحداً.
+- يجوز فيها الوجهان.
+
+## (١) حالات تفخيم الراء قولاً واحداً
+1. إذا كانت الراء مفتوحة {رَبي}.
+2. إذا كانت الراء ساكنة قبلها مفتوح {البَرْق}.
+3. إذا كانت الراء ساكنة قبلها ساكن قبلها مفتوح {والعصر} وقفاً.
+4. إذا كانت الراء مضمومة {رُزقوا}.
+5. إذا كانت الراء ساكنة قبلها مضموم {قُرْءانا}.
+6. إذا كانت الراء ساكنة قبلها ساكن قبلها مضموم {خُسر} وقفاً.
+7. إذا كانت الراء ساكنة قبلها مكسور وبعدها حرف استعلاء غير مكسور في كلمة واحدة، وذلك في خمس كلمات: قرطاس (الأنعام)، مرصاداً (النبأ)، لبالمرصاد (الفجر)، إرصاداً وفرقة (التوبة).
+8. إذا كانت الراء ساكنة قبلها همزة وصل {ارتابوا} سواء كانت ملفوظة (عند البدء بها) أو مقدرة (في وسط الكلام).
+
+## (٢) حالات ترقيق الراء قولاً واحداً
+1. أن تكون الراء مكسورة {رِجال}.
+2. أن تكون الراء ساكنة قبلها مكسور ولا يقع بعدها حرف استعلاء في نفس الكلمة {فِرْعون}.
+3. أن تكون الراء ساكنة قبلها ساكن قبله مكسور {حِجر} وقفاً.
+4. أن تكون الراء ساكنة قبلها ياء ساكنة مدية كانت أم لينية، نحو: {قدير}، {لا ضير} وقفاً.
+5. أن تكون الراء بعدها ألف ممالة، ولم يرد هذا إلا في كلمة واحدة عند حفص وهي ﴿مَجْرِاهَا﴾ في سورة هود.
+
+## شرح كلمة ﴿مَجْرِاهَا﴾
+- **تعريف الإمالة الكبرى:** أن تقترب بالفتحة نحو الكسرة وبالألف نحو الياء من غير قلب خالص ولا إشباع مبالغ فيه.
+- **الإمالة الصغرى (التقليل):** هي ما بين الفتح والإمالة الكبرى، ويقال لها: بين بين.
+قرأ حفص كلمة ﴿مَجْرِاهَا﴾ بالإمالة الكبرى، أي إمالة الألف نحو الياء وفتحة الراء نحو الكسرة؛ لذلك أصبحت الراء في هذه الكلمة مرققة قولاً واحداً.
+? ما العلة إذا أميلت الألف نحو الياء فلابد من إمالة فتحة ما قبلها نحو الكسرة؟
+= لأن الألف عبارة عن إشباع وتمطيط لفتحة ما قبلها، فلكي تمال الألف لابد من إمالة الفتحة.`,
+map:`أحوال الراء
+- تفخم قولاً واحداً
+  - مفتوحة أو مضمومة
+  - ساكنة بعد فتح أو ضم
+  - ساكنة بعد ساكن بعد فتح أو ضم (وقفاً)
+  - ساكنة بعد كسر وبعدها استعلاء (٥ كلمات)
+  - ساكنة بعد همزة وصل {ارتابوا}
+- ترقق قولاً واحداً
+  - مكسورة {رجال}
+  - ساكنة بعد كسر بلا استعلاء {فرعون}
+  - ساكنة بعد ساكن بعد كسر {حجر}
+  - بعد ياء ساكنة {قدير}
+  - ﴿مجراها﴾ بالإمالة
+- الإمالة
+  - كبرى: الفتحة نحو الكسرة
+  - صغرى (تقليل): بين بين
+- يجوز فيها الوجهان
+  - كلمات مخصوصة (الدرس التالي)`,
+quiz:[
+["tf","الراء في {رِجال} مرققة قولاً واحداً.",true,"الراء المكسورة ترقق قولاً واحداً."],
+["tf","الراء في {فرعون} مفخمة لأن قبلها كسرة.",false,"الراء ساكنة قبلها مكسور ولا يقع بعدها حرف استعلاء في نفس الكلمة فترقق."],
+["mc","حكم الراء في {قرطاس}:",["ترقق قولاً واحداً","تفخم قولاً واحداً","يجوز الوجهان","تقرأ بالإمالة"],1],
+["mc","الكلمة الوحيدة التي قرأها حفص بالإمالة الكبرى:",["﴿مَجْرِاهَا﴾","{فرق}","{مصر}","{القطر}"],0],
+["fill","الإمالة الصغرى تسمى التقليل ويقال لها: ________.",["بين بين","بينبين"]]
+]},
+
+{
+id:"l05", unit:"التفخيم والترقيق", title:"الراء التي يجوز فيها الوجهان",
+content:`## (٤) الراء التي يجوز فيها وجها التفخيم والترقيق
+وذلك في كلمات مخصوصة: منها ما يجوز فيها الوجهان وقفاً، ومنها ما يجوز فيها الوجهان وصلاً.
+
+## أولاً: ما يجوز فيها الوجهين وقفاً
+- {مصر} — {القطر} — {يسر} — {نذر} — {أسر (فأسر)}
+
+## كلمة {مصر}
+- **تفخم:** من قال بالتفخيم على اعتبار أن الراء ساكنة وقفاً ما قبلها ساكن حصين أي [مطبق مستعلٍ] يشد الراء إلى أعلى ويفخمها، ووجدها مفخمة وصلاً ففضّل التفخيم.
+- **ترقق:** من قال بالترقيق على اعتبار أنها ساكنة ما قبلها ساكن قبله مكسور، ولم ينظر إلى حرف الاستعلاء.
+
+## كلمة {القطر}
+- **تفخم:** من قال بالتفخيم على اعتبار أن الراء ساكنة وقفاً ما قبلها ساكن حصين أي [مطبق مستعلٍ] يشد الراء إلى أعلى ويفخمها.
+- **ترقق:** من قال بالترقيق على اعتبار أنها ساكنة ما قبلها ساكن قبله مكسور ولم ينظر إلى حرف الاستعلاء، ووجدها مرققة وصلاً فرققها.
+
+## رأي ابن الجزري
+1. يفضل في {مصر} التفخيم وقفاً لأنها مفخمة وصلاً.
+2. يفضل في {القطر} الترقيق لأنها مرققة وصلاً.
+وهذا رأي غير ملزم.
+
+!! **تنبيه:** أما في كلمة {بالنذر} المعرفة بأل التعريف حيث وردت فلا يوجد بها ياء محذوفة، فالراء تفخم قولاً واحداً في حالة الوقف لأنها ساكنة ما قبلها مضموم، وترقق وصلاً لأنها مكسورة، نحو: (كذبت ثمود بالنذر) [القمر].
+!! **تنبيه:** كل ما ذكر عن حالات الراء في حركة ما قبلها وما بعدها لابد أن يكون في كلمة واحدة، فإذا كانت الراء الساكنة في آخر الكلمة الأولى وقبلها مكسور وحرف الاستعلاء في أول الكلمة الثانية فلا خلاف في ترقيقها، وأتى ذلك في ثلاثة مواضع:
+1. ﴿أَنْ أَنذِرْ قَوْمَكَ﴾ [نوح ١]
+2. ﴿وَلَا تُصَعِّرْ خَدَّكَ﴾ [لقمان ١٨]
+3. ﴿فَاصْبِرْ صَبْرًا جَمِيلًا﴾ [المعارج ٥]
+
+## ثانياً: ما يجوز فيها الوجهين وصلاً: {فِرْقٍ} في سورة الشعراء
+- **تفخم:** ساكنة بعدها حرف استعلاء مكسور، وقوة الاستعلاء تشد القاف إلى أعلى وقوة الكسر تشدها إلى أسفل، ولكن قوة الاستعلاء أكبر فتؤثر في الراء وتفخمها.
+- **ترقق:** قوة الاستعلاء تشد القاف إلى أعلى وقوة الكسر تشدها إلى أسفل فتتفانيان بعضهما، فأصبحت راء ساكنة ما قبلها مكسور.
+>> **ملحوظة:** راء {فرق} في الوقف مفخمة.`,
+map:`يجوز فيها الوجهان
+- وقفاً
+  - مصر
+  - القطر
+  - يسر
+  - نذر
+  - أسر (فأسر)
+- مصر
+  - التفخيم أفضل (مفخمة وصلاً)
+- القطر
+  - الترقيق أفضل (مرققة وصلاً)
+- وصلاً
+  - {فِرْقٍ} في الشعراء
+  - وقفاً: مفخمة
+- تنبيهات
+  - {بالنذر}: تفخم وقفاً وترقق وصلاً
+  - الحالات في كلمة واحدة
+  - أنذر قومك، تصعر خدك، فاصبر صبراً: ترقق`,
+quiz:[
+["tf","يجوز في راء {مصر} التفخيم والترقيق وقفاً.",true,"والتفخيم أفضل عند ابن الجزري لأنها مفخمة وصلاً."],
+["tf","راء {فرق} في الشعراء مرققة في الوقف.",false,"راء {فرق} في الوقف مفخمة، والوجهان في الوصل."],
+["mc","يفضل ابن الجزري في {القطر}:",["التفخيم","الترقيق","الإمالة","الروم"],1],
+["mc","الراء في ﴿فَاصْبِرْ صَبْرًا﴾:",["مفخمة قولاً واحداً","مرققة بلا خلاف","يجوز الوجهان","مفخمة وقفاً فقط"],1],
+["fill","الكلمة التي يجوز فيها الوجهان وصلاً هي ________ في سورة الشعراء.",["فرق","فِرق","فرقٍ"]]
+]},
+
+{
+id:"l06", unit:"أحكام النون الساكنة والتنوين", title:"النون الساكنة والتنوين",
+content:`## تعريف النون الساكنة
+هي النون الخالية من الحركة، الثابتة وصلاً ووقفاً، خطاً ولفظاً.
+- تكون في الأسماء (سندس، سنبلات).
+- تكون في الأفعال (أنعم، ينظر).
+- تكون في الحروف (عن، من).
+- تكون متوسطة أو متطرفة.
+- تكون من بنية الكلمة (ينهون) أصلها نهى.
+- وتكون زائدة عن بنية الكلمة (فانفلق) أصلها فلق.
+>> **ملحوظة:** النون المقصودة هنا هي النون الساكنة سكوناً ثابتاً، وليست المتحركة مثل (نَعبد)، ولا المشددة مثل (النّور)، ولا التي تسكن سكوناً عارضاً عند الوقف مثل (تعلمون)، ولا التي حركتها حركة عارضة للتخلص من التقاء الساكنين مثل (إنِ ارتبتم).
+
+## تعريف التنوين
+هو نون ساكنة زائدة لغير توكيد تلحق بآخر الأسماء لفظاً ووصلاً وتفارقه خطاً ووقفاً. وقد كانت العرب في لغتها تلحق التنوين بآخر الأسماء النكرات مثل {سميعٌ} {عليمٌ}.
+!! **تنبيه:**
+1. قولنا: إن التنوين هو نون ساكنة، أي خرج منه نون التنوين المتحركة بالكسر للتخلص من التقاء الساكنين (نوحٌ ابنه).
+2. قولنا: لغير التوكيد، أي خرج منه نون التوكيد الخفيفة التي وردت في القرآن في موضعين فقط وهما: ﴿وَلَيَكُونًا مِّنَ الصَّاغِرِينَ﴾ (يوسف ٣٢)، ﴿لَنَسْفَعًا بِالنَّاصِيَةِ﴾ (العلق ١٥)؛ فهي ليست تنويناً لأنها تلحق بآخر الأفعال وليست الأسماء، وإن كانت تشبه التنوين وتعامل معاملته ويطبق عليها نفس الأحكام.
+3. التنوين ثابت لفظاً دون خط (ينطق ولا يكتب).
+4. التنوين ثابت وصلاً دون وقف، أما عند الوقف عليه فهو:
+- إما يحذف إن كان بالضم أو الكسر، نحو: رحيمٌ ← رحيم.
+- أو يبدل بألف مدية إن كان مفتوحاً، نحو: عليماً ← عليما.
+- كما يحذف إن كان مفتوحاً على هاء التأنيث، نحو: شجرةً ← شجرة.
+**علامة التنوين:** فتحتان ـً ، أو ضمتان ـٌ ، أو كسرتان ـٍ .
+
+## الفرق بين النون الساكنة والتنوين
+| النون الساكنة | التنوين |
+| أصلية في الكلمة أو زائدة. | زائدة في الكلمة. |
+| تقع متوسطة أو متطرفة. | متطرفة فقط. |
+| في الأسماء والأفعال والحروف. | في الأسماء فقط. |
+| ثابتة لفظاً وخطاً ووصلاً ووقفاً. | ثابتة وصلاً ولفظاً وساقطة وقفاً وخطاً. |
+
+## أحكام النون الساكنة والتنوين
+للنون الساكنة والتنوين أربعة أحكام: ١- إظهار ٢- إدغام ٣- قلب ٤- إخفاء.
+وقد أشار ابن الجزري لذلك بقوله:
+~ وحكم تنوين ونون يلفى || إظهار ادغام وقلب اخفا
+>> **ملحوظة:** القلب هو الإقلاب، والقلب هي الأصح لغة، والقدامى كانوا يكثرون من كلمة القلب، والمعاصرون من كلمة الإقلاب.`,
+map:`النون الساكنة والتنوين
+- النون الساكنة
+  - خالية من الحركة
+  - ثابتة وصلاً ووقفاً، خطاً ولفظاً
+  - في الأسماء والأفعال والحروف
+  - متوسطة أو متطرفة
+- التنوين
+  - نون ساكنة زائدة لغير توكيد
+  - في آخر الأسماء
+  - يثبت لفظاً ووصلاً
+  - يسقط خطاً ووقفاً
+- عند الوقف على التنوين
+  - ضم أو كسر: يحذف
+  - فتح: يبدل ألفاً
+  - فتح على تاء مربوطة: يحذف
+- الأحكام الأربعة
+  - إظهار
+  - إدغام
+  - قلب (إقلاب)
+  - إخفاء`,
+quiz:[
+["tf","التنوين يقع في الأسماء والأفعال والحروف.",false,"التنوين في الأسماء فقط، أما النون الساكنة ففي الأسماء والأفعال والحروف."],
+["tf","التنوين ثابت لفظاً ووصلاً، ساقط خطاً ووقفاً.",true,"هذا من أهم الفروق بينه وبين النون الساكنة."],
+["mc","عند الوقف على {عليماً} يصبح التنوين:",["محذوفاً تماماً","ألفاً مدية","نوناً ساكنة","هاءً"],1],
+["mc","عدد أحكام النون الساكنة والتنوين:",["ثلاثة","أربعة","خمسة","ستة"],1],
+["fill","نون التوكيد الخفيفة وردت في القرآن في ________ فقط.",["موضعين","موضعان","٢","2","موضعين اثنين"]]
+]},
+
+{
+id:"l07", unit:"أحكام النون الساكنة والتنوين", title:"أولاً: الإظهار الحلقي",
+content:`## تعريفه
+- **لغة:** البيان والوضوح.
+- **اصطلاحاً:** إخراج الحرف المظهر من مخرجه بدون غنة كاملة.
+
+## ما هو الحرف المظهر؟
+هو النون الساكنة أو التنوين الواقعتان قبل أحرف الإظهار.
+
+## ما هي أحرف الإظهار؟
+هي ستة أحرف (الهمزة والهاء والعين والحاء والغين والخاء)، جمعها الشيخ الجمزوري في قوله:
+~ همز فهاء ثم عين حاء || مهملتان ثم غين خاء
+{مهملتان أي بدون تنقيط}. وجمعها البعض في أوائل كلمات البيت: (أخي هاك علماً حازه غير خاسر).
+
+## ما سبب تسميتها أحرف الإظهار؟
+لأن وقوع واحد منها عقب النون الساكنة أو التنوين سبب في إظهارهما.
+>> **ملحوظة:** الإظهار الحلقي يكون في كلمة أو كلمتين.
+
+## ما سبب تسميته إظهاراً حلقياً؟
+- **سمي إظهاراً:** لظهور النون الساكنة والتنوين إذا أتت قبل أحد هذه الأحرف الستة.
+- **سمي حلقياً:** لأن الحروف الستة تخرج من الحلق.
+
+## ما سبب الإظهار؟
+بُعد مخرج النون عن مخرج هذه الأحرف، فالنون من طرف اللسان والأحرف الستة من الحلق.
+
+## كيفية الإظهار
+النطق بالنون الساكنة نطقاً واضحاً من غير غنة ظاهرة، ومن غير فصل أو سكت، مع إعطائها زمن التوسط، ثم النطق بالحرف الذي يليها.
+
+## مراتب الإظهار
+1. مرتبة عليا: عند الهمزة والهاء.
+2. مرتبة وسطى: عند العين والحاء.
+3. مرتبة دنيا: عند الغين والخاء.
+
+## علامته في المصحف
+1. وضع رأس الخاء الصغيرة بدون نقطة فوق النون ﴿مَنْ ءَامَنَ﴾.
+2. وضع حركتي التنوين مركبتين فوق بعضهما ﴿عَلِيمًا حَكِيمًا﴾ ، ﴿سَمِيعٌ عَلِيمٌ﴾ ، ﴿يَوْمَئِذٍ ءَامِنُونَ﴾.
+
+## أمثلة على الإظهار
+| حرف الإظهار | مع النون في كلمة | مع النون في كلمتين | مع التنوين |
+| ء | وينئون | فمن أسلم | حاسدٍ إذا حسد |
+| هـ | فلا تنهر | إن هذا | سلامٌ هي |
+| ع | الأنعام | من علق | وليالٍ عشر |
+| ح | وانحر | ومن حيث | غفورٌ حليم |
+| غ | فسينغضون (لا ثاني لها) | من غل | لعفوٌ غفور |
+| خ | والمنخنقة (لا ثاني لها) | من خير | عليمٌ خبير |`,
+map:`الإظهار الحلقي
+- التعريف
+  - لغة: البيان والوضوح
+  - إخراج الحرف من مخرجه بدون غنة كاملة
+- حروفه الستة
+  - ء هـ ع ح غ خ
+  - أخي هاك علماً حازه غير خاسر
+- السبب
+  - بعد مخرج النون عن حروف الحلق
+- المراتب
+  - عليا: الهمزة والهاء
+  - وسطى: العين والحاء
+  - دنيا: الغين والخاء
+- العلامة في المصحف
+  - رأس خاء صغيرة فوق النون
+  - تنوين مركب
+- يكون في
+  - كلمة أو كلمتين`,
+quiz:[
+["tf","سمي الإظهار حلقياً لأن حروفه تخرج من الحلق.",true,"الحروف الستة تخرج من الحلق."],
+["tf","الإظهار الحلقي لا يكون إلا في كلمتين.",false,"الإظهار الحلقي يكون في كلمة أو كلمتين."],
+["mc","المرتبة العليا للإظهار تكون عند:",["العين والحاء","الغين والخاء","الهمزة والهاء","الخاء والهمزة"],2],
+["mc","سبب الإظهار الحلقي:",["قرب المخرجين","بعد مخرج النون عن مخرج حروف الحلق","التماثل","التجانس"],1],
+["fill","الإظهار لغة: البيان و________.",["الوضوح"]]
+]}
+];
+
+const L2 = [
+{
+id:"l08", unit:"أحكام النون الساكنة والتنوين", title:"ثانياً: الإدغام (بغنة وبدون غنة)",
+content:`## تعريفه
+- **لغة:** إدخال الشيء في الشيء.
+- **اصطلاحاً:** إدخال حرف ساكن في حرف متحرك بحيث يصيران حرفاً واحداً مشدداً من جنس الثاني.
+**حروفه:** ستة أحرف مجموعة في كلمة {يرملون}.
+>> **ملحوظة:** تسمى النون الساكنة الحرف المدغم، ويسمى أحد حروف كلمة (يرملون) مدغماً فيه.
+
+## فائدة الإدغام
+التخفيف، حيث أن المدغم والمدغم فيه يصيران حرفاً واحداً مشدداً.
+
+## كيفية الإدغام
+جعل الحرف المراد إدغامه مثل المدغم فيه، وكما قال ابن الجزري في النشر: النطق بالحرفين حرفاً كالثاني مشدداً.
+
+## شرط الإدغام
+أن يكون في كلمتين، أي النون الساكنة في آخر الكلمة الأولى وحرف الإدغام في أول الكلمة الثانية.
+
+## أقسام الإدغام
+- **إدغام بغنة:** مع حروف {ينمو} أو {يومن}.
+- **إدغام بدون غنة:** مع (ل، ر).
+
+## أولاً: الإدغام بغنة
+يختص هذا الإدغام بأربعة أحرف من حروف يرملون مجموعة في كلمة (ينمو) أو (يومن).
+- **سمي إدغاماً:** لإدغام النون والتنوين في حروف (ينمو).
+- **سمي بغنة:** لأن الغنة مصاحبة له، سواء كانت غنة المدغم أو غنة المدغم فيه.
+| حرف الإدغام | مع النون | مع التنوين |
+| ي | من يعمل — من يطع | وجوهٌ يومئذ |
+| ن | لن ندخلها — من نعمة | أمشاجٍ نبتليه |
+| م | من ماء — من مال | قومٌ مسرفون |
+| و | من وال — من واق | وليٍّ ولا نصير |
+
+## ثانياً: الإدغام بدون غنة
+يختص هذا الإدغام بحرفين هما اللام والراء، فتدغم النون الساكنة في اللام والراء ولا يصاحبها غنة.
+? ما سبب حذف الغنة؟
+= للتخفيف، حيث أن في بقائها بعض الثقل.
+| الحرف | مع النون | مع التنوين |
+| ل | أن لن | مالاً لُبدا |
+| ر | من ربهم | غفورٌ رحيم |
+
+## ما سبب الإدغام في حروف يرملون؟
+1. مع (النون): للتماثل.
+2. مع (الميم): الميم تشارك النون في جميع الصفات وفي مخرج الغنة، فهما متجانسان في الصفات.
+3. مع (و، ي): النون مشتركة مع الواو والياء في الجهر والاستفال والانفتاح، والواو تخرج من مخرج الميم، فلما أدغمت النون في الميم أدغمت في الواو ومثلها، ثم أدغمت في الياء لشبهها بالواو.
+4. مع (اللام): للتقارب.
+5. مع (الراء): للتقارب.`,
+map:`الإدغام
+- التعريف
+  - لغة: إدخال الشيء في الشيء
+  - حرف ساكن في متحرك فيصيران حرفاً مشدداً
+- حروفه
+  - يرملون
+- شرطه
+  - في كلمتين
+- بغنة
+  - ينمو / يومن
+  - الغنة مصاحبة له
+- بدون غنة
+  - اللام والراء
+  - حذف الغنة للتخفيف
+- سببه
+  - النون: التماثل
+  - الميم: التجانس
+  - الواو والياء: الاشتراك في الصفات
+  - اللام والراء: التقارب`,
+quiz:[
+["tf","يشترط في إدغام النون الساكنة أن يكون في كلمتين.",true,"النون في آخر الكلمة الأولى وحرف الإدغام في أول الثانية."],
+["tf","حروف الإدغام بغنة هي اللام والراء.",false,"اللام والراء للإدغام بدون غنة، والإدغام بغنة حروفه (ينمو)."],
+["mc","حكم النون في {من ربهم}:",["إدغام بغنة","إدغام بدون غنة","إظهار","إخفاء"],1],
+["mc","سبب الإدغام مع النون:",["التقارب","التماثل","التجانس","التباعد"],1],
+["fill","حروف الإدغام ستة مجموعة في كلمة ________.",["يرملون"]]
+]},
+
+{
+id:"l09", unit:"أحكام النون الساكنة والتنوين", title:"الإدغام الكامل والناقص والإظهار المطلق",
+content:`## علامة الإدغام في المصحف
+كما ذكر من قبل تعرى النون الساكنة من الحركة، أو في حالة التنوين توضع الحركتان متتابعتين، ويوضع التشديد على المدغم فيه إذا كان إدغاماً كاملاً، ولا يوضع تشديد إذا كان إدغاماً ناقصاً.
+
+? ماذا يحدث إذا أتت النون الساكنة وبعدها حرف من حروف يرملون في كلمة واحدة؟
+= إذا حدث هذا وجب الإظهار ويسمى إظهاراً مطلقاً، ولم يقع هذا في القرآن إلا مع الواو والياء فقط.
+
+## إذن فالإظهار المطلق هو
+أن يقع بعد النون الساكنة حرف من حروف يرملون في كلمة واحدة، ولم يقع في القرآن إلا في ٤ كلمات: {الدنيا} {بنيان} {صنوان} {قنوان}.
+**سبب التسمية:**
+- سمي إظهاراً: لإظهار النون الساكنة عند ملاقاتها لهذه الحروف في كلمة واحدة.
+- سمي مطلقاً: لعدم تقييده بحلقي أو شفوي أو قمري.
+
+## الإدغام الكامل
+هو سقوط المدغم في المدغم فيه ذاتاً وصفة مع استكمال التشديد.
+- **حروفه:** نرمل (النون، الراء، الميم، اللام).
+- **علامته في المصحف:** تعرية المدغم من الحركة ووضع التشديد على المدغم فيه، نحو: (مِن رَّبهم).
+>> **ملحوظة:** اختلف العلماء في إدغام النون الساكنة والتنوين في (النون والميم): هل هو كامل أم ناقص؟ أي هل الغنة غنة المدغم فيه (الميم) أم غنة المدغم (النون)؟ والأرجح أنه إدغام كامل (أي أن الغنة غنة الميم)، وعليه رسم المصحف.
+
+## الإدغام الناقص
+هو سقوط المدغم في المدغم فيه ذاتاً لا صفة، وعدم استكمال التشديد.
+- **حروفه:** الواو والياء.
+- **علامته في المصحف:** تعرية المدغم من الحركة وعدم وضع تشديد على المدغم فيه، نحو: (مِن وَاق).`,
+map:`الإدغام: كامل وناقص
+- الإدغام الكامل
+  - ذاتاً وصفة مع استكمال التشديد
+  - حروفه: نرمل
+  - تشديد على المدغم فيه
+- الإدغام الناقص
+  - ذاتاً لا صفة
+  - حروفه: الواو والياء
+  - بلا تشديد {من واق}
+- الإظهار المطلق
+  - يرملون في كلمة واحدة
+  - الدنيا، بنيان، صنوان، قنوان
+  - مطلق: لا حلقي ولا شفوي ولا قمري
+- النون والميم
+  - خلاف: كامل أم ناقص
+  - الأرجح كامل (غنة الميم)`,
+quiz:[
+["tf","الإظهار المطلق يكون في كلمة واحدة.",true,"أن يقع بعد النون الساكنة حرف من حروف يرملون في كلمة واحدة."],
+["tf","الإدغام في الواو والياء إدغام كامل.",false,"الإدغام في الواو والياء ناقص لبقاء صفة الغنة وعدم استكمال التشديد."],
+["mc","من كلمات الإظهار المطلق:",["من يعمل","الدنيا","من ربهم","أنبئوني"],1],
+["mc","حروف الإدغام الكامل:",["ينمو","نرمل","الواو والياء","الهمزة والهاء"],1],
+["fill","الإدغام الناقص هو سقوط المدغم في المدغم فيه ذاتاً لا ________.",["صفة","صفه"]]
+]},
+
+{
+id:"l10", unit:"أحكام النون الساكنة والتنوين", title:"ثالثاً: القلب (الإقلاب)",
+content:`## تعريفه
+- **لغة:** تحويل الشيء عن وجهه.
+- **اصطلاحاً:** قلب النون الساكنة أو التنوين ميماً مخفاة عند الباء مع مراعاة الغنة وعدم التشديد.
+- **حرفه:** حرف الباء.
+>> **ملحوظة:** القلب يكون في كلمة أو كلمتين.
+
+## كيفية القلب
+1. قلب النون الساكنة أو التنوين ميماً لفظاً لا خطاً.
+2. إخفاء الميم عند الباء بإطباق الشفتين إطباقاً خفيفاً بدون كز.
+3. إظهار الغنة وهي غنة الميم.
+4. بعد ذلك يجب تقوية إطباق الشفتين للنطق بالباء.
+قال المرعشي: معنى إخفاء الميم ليس إعدامها بالكلية، بل إضعافها وستر ذاتها، وذلك بتقليل الاعتماد على مخرجها.
+!! **تنبيهات هامة:**
+- عدم كز الشفتين بقوة حتى لا تتولد ميم مظهرة.
+- عدم ترك فرجة بين الشفتين حتى لا تتحول إلى لفظ مبهم أو تتحول إلى نون مخفاة.
+
+## سبب القلب
+- لم يحسن الإظهار لما فيه من كلفة على اللسان.
+- لم يحسن الإدغام للتباعد في المخرج والصفات.
+- لم يحسن الإخفاء لأنه سوف يتولد معه صوت الميم.
+فتُوصِّل إلى القلب لما يكون معه من سهولة ويسر على اللسان.
+
+## سبب اختيار الميم بالذات لتقلب إليها النون
+الميم تشترك مع النون في جميع الصفات، وتشترك مع الباء في المخرج و٤ صفات (الجهر، الاستفال، الانفتاح، الذلاقة).
+
+## علامته في المصحف
+1. وضع ميم قائمة فوق النون الساكنة (م) ﴿لَيُنۢبَذَنَّ﴾.
+2. إبدال الحركة الثانية من التنوين بميم قائمة ﴿عَلِيمٌۢ بِذَاتِ﴾.
+
+## أمثلة
+| الحرف | مع النون في كلمة | مع النون في كلمتين | مع التنوين |
+| ب | أنبئوني — أنبتنا | من بخل — أن بورك | سميعٌ بصير — عليمٌ بذات |`,
+map:`القلب (الإقلاب)
+- التعريف
+  - لغة: تحويل الشيء عن وجهه
+  - قلب النون ميماً مخفاة عند الباء
+- حرفه
+  - الباء
+  - في كلمة أو كلمتين
+- كيفيته
+  - قلبها ميماً لفظاً لا خطاً
+  - إطباق خفيف بلا كز
+  - إظهار غنة الميم
+- سببه
+  - الإظهار كلفة
+  - الإدغام تباعد
+  - الإخفاء يولد ميماً
+- لماذا الميم؟
+  - تشارك النون في الصفات
+  - تشارك الباء في المخرج
+- العلامة
+  - ميم صغيرة قائمة`,
+quiz:[
+["tf","حرف القلب هو الباء.",true,"القلب: قلب النون الساكنة أو التنوين ميماً مخفاة عند الباء."],
+["tf","يجب كز الشفتين بقوة عند القلب.",false,"الإطباق خفيف بدون كز حتى لا تتولد ميم مظهرة."],
+["mc","علامة القلب في المصحف:",["رأس خاء صغيرة","ميم صغيرة قائمة","تشديد الحرف التالي","تنوين مركب"],1],
+["mc","اختيرت الميم لأنها تشترك مع الباء في:",["المخرج","الصفير","الاستعلاء","القلقلة فقط"],0],
+["fill","القلب لغة: ________ الشيء عن وجهه.",["تحويل"]]
+]},
+
+{
+id:"l11", unit:"أحكام النون الساكنة والتنوين", title:"رابعاً: الإخفاء الحقيقي",
+content:`## تعريفه
+- **لغة:** الستر.
+- **اصطلاحاً:** النطق بالحرف الساكن عارٍ عن التشديد على صفة بين الإظهار والإدغام، مع بقاء الغنة في الحرف الأول وهو النون الساكنة أو التنوين.
+- **حروفه:** خمسة عشر حرفاً، وهي الباقية من الحروف بعد حذف حروف الإظهار والإدغام والقلب.
+
+## جمعها الشيخ الجمزوري في أوائل كلمات البيت التالي
+~ صف ذا ثنا كم جاد شخص قد سما || دم طيباً زد في تقى ضع ظالما
+
+## سببه
+عدم قرب مخرج النون من مخرج هذه الحروف القرب الذي يجب مع الإدغام، وعدم بعد المخرج البعد الذي يجب مع الإظهار.
+
+## سبب التسمية
+1. سمي إخفاء: لإخفاء النون الساكنة عند هذه الحروف.
+2. سمي حقيقياً: لأنه متحقق في النون أكثر من غيرها من الحروف؛ فذات النون تكاد تكون معدومة تماماً، بخلاف إخفاء الميم التي لا تكون معدومة تماماً ولكن تكون مستورة بعض الشيء.
+
+## كيفية الإخفاء
+النطق بالنون الساكنة (أو التنوين) غير مظهرة إظهاراً محضاً ولا مدغمة إدغاماً محضاً، ولكن بحالة وسط بين الإظهار والإدغام بدون تشديد مع بقاء الغنة.
+
+## أمثلة
+| حرف الإخفاء | مع النون في الكلمة | مع النون في كلمتين | مع التنوين |
+| ص | أنصارا | ولمن صبر | عملاً صالحا |
+| ذ | لينذر | من ذهب | وكيلاً ذرية |
+| ث | الأنثى | فمن ثقلت | أزواجاً ثلاثة |
+| ك | أنكالا | من كتاب | كراماً كاتبين |
+| ج | أنجيتنا | وإن جنحوا | ولكلٍ جعلنا |
+| ش | وينشئ | فمن شهد | عليمٍ شيئا |
+| ق | ينقلب | من قرار | بتابعٍ قبلتهم |
+| س | الإنسان | أن سيكون | ورجلاً سلما |
+| د | أندادا | من دابة | عملاً دون |
+| ط | ينطق | من طين | صعيداً طيبا |
+| ز | أنزلناه | من زوال | نفساً زكية |
+| ف | ينفق | من فضله | خالداً فيها |
+| ت | كنتم | ومن تاب | جناتٍ تجري |
+| ض | منضود | من ضعف | وكلاً ضربنا |
+| ظ | انظر | من ظهير | ظلاً ظليلا |
+
+## ما الفرق بين الإدغام والإخفاء؟
+| الإدغام | الإخفاء |
+| يصحبه تشديد | بدون تشديد |
+| يكون في الحرف | يكون عند الحرف |
+| من كلمتين | من كلمة أو كلمتين |
+| بغنة وبغير غنة | بغنة دائماً |
+| غنته أكمل ما تكون | غنته كاملة |
+| الغنة مرققة تماماً | الغنة إما مرققة أو مفخمة |
+| حروفه (يرملون) | له ١٥ حرفاً |`,
+map:`الإخفاء الحقيقي
+- التعريف
+  - لغة: الستر
+  - حالة بين الإظهار والإدغام بلا تشديد مع الغنة
+- حروفه
+  - ١٥ حرفاً
+  - صف ذا ثنا كم جاد شخص قد سما...
+- سببه
+  - لا قرب كالإدغام
+  - ولا بعد كالإظهار
+- سمي حقيقياً
+  - ذات النون تكاد تنعدم
+- يختلف عن الإدغام
+  - بلا تشديد
+  - عند الحرف لا فيه
+  - كلمة أو كلمتين
+  - بغنة دائماً`,
+quiz:[
+["tf","عدد حروف الإخفاء الحقيقي خمسة عشر حرفاً.",true,"هي الباقية بعد حروف الإظهار والإدغام والقلب."],
+["tf","الإخفاء يصحبه تشديد مثل الإدغام.",false,"الإدغام يصحبه تشديد، أما الإخفاء فبدون تشديد."],
+["mc","حكم النون في {من ذهب}:",["إظهار","إدغام","إخفاء","قلب"],2],
+["mc","سمي الإخفاء حقيقياً لأن:",["ذات النون تكاد تكون معدومة","النون تظهر تماماً","يقع في كلمة واحدة فقط","حروفه من الحلق"],0],
+["fill","الإخفاء لغة: ________.",["الستر"]]
+]},
+
+{
+id:"l12", unit:"أحكام الميم الساكنة", title:"الميم الساكنة: الإخفاء الشفوي",
+content:`## تعريف الميم الساكنة
+هي الميم الخالية من الحركة وسكونها ثابت وصلاً ووقفاً.
+!! **تنبيه:** المقصود بالميم الساكنة هي الميم الساكنة سكوناً أصلياً وصلاً ووقفاً؛ فخرج بذلك السكون العارض لأجل الوقف [عليمٌ — عليمْ]، وخرج أيضاً الميم الساكنة أصلاً وتحركت منعاً من التقاء الساكنين [قمِ الليل].
+
+## مواضعها
+1. تقع متوسطة ومتطرفة [الحمد] [منكم].
+2. تأتي في الأسماء [الحمد]، والأفعال [قمتم]، والحروف [أم]، وتكون للجمع [عليكم].
+
+## أحكامها
+- إخفاء شفوي.
+- إدغام شفوي.
+- إظهار شفوي.
+
+## أولاً: الإخفاء الشفوي
+- **لغة:** الستر.
+- **اصطلاحاً:** النطق بالميم الساكنة عارية عن التشديد على صفة بين الإظهار والإدغام مع بقاء الغنة فيها.
+- **حرفه:** الباء.
+
+## سبب التسمية
+- سمي شفوياً: بسبب خروج الميم والباء من الشفتين.
+- سمي إخفاءً: لإخفاء الميم عند الباء.
+!! **تنبيه:** لا يكون إلا من كلمتين.
+
+- **سبب الإخفاء:** ثقل الإظهار نتيجة لاتحاد الميم والباء في المخرج.
+- **علامته في المصحف:** تعرية الميم من الحركة وعدم تشديد الباء.
+- **كيفية الأداء:** ملامسة الشفتين بدون كز.
+
+## الفرق بين الإخفاء الشفوي والقلب
+| الإخفاء الشفوي | القلب |
+| إخفاء الميم عند الباء | قلب النون ميماً ثم إخفاء الميم عند الباء |
+| في كلمتين | في كلمة أو كلمتين |
+أما في الأداء فلا فرق بينهما.
+
+## الفرق بين الإخفاء الحقيقي والإخفاء الشفوي
+| الإخفاء الحقيقي | الإخفاء الشفوي |
+| يتم إعدام جسم النون تماماً ويبقى منها الغنة فقط | لا يتم إعدام جسم الميم تماماً ولكن يتم سترها فقط |
+| في كلمة أو كلمتين | في كلمتين |
+| اتفق عليه القراء | اختلف فيه |
+
+!! **تنبيه:** ذهب البعض إلى إظهار الميم عند الباء، ولكن الإخفاء هو الأولى. قال ابن الجزري:
+~ والميم إن تسكن بغنة لدى || باء على المختار من أهل الأدا
+**أمثلة:** {فاحكم بينهم} — {يوم هم بارزون} — {ربهم بهم}`,
+map:`الميم الساكنة
+- تعريفها
+  - خالية من الحركة
+  - سكونها ثابت وصلاً ووقفاً
+- أحكامها
+  - إخفاء شفوي
+  - إدغام شفوي
+  - إظهار شفوي
+- الإخفاء الشفوي
+  - حرفه: الباء
+  - في كلمتين فقط
+  - ملامسة الشفتين بلا كز
+- سببه
+  - اتحاد الميم والباء في المخرج
+- علامته
+  - تعرية الميم وعدم تشديد الباء
+- مقارنة
+  - مع القلب: لا فرق في الأداء
+  - مع الحقيقي: الميم تستر ولا تنعدم`,
+quiz:[
+["tf","الإخفاء الشفوي لا يكون إلا من كلمتين.",true,"بخلاف القلب الذي يكون في كلمة أو كلمتين."],
+["tf","في الإخفاء الشفوي يُعدم جسم الميم تماماً.",false,"الميم لا تعدم تماماً بل تستر فقط، بخلاف النون في الإخفاء الحقيقي."],
+["mc","حرف الإخفاء الشفوي:",["الميم","الباء","الواو","الفاء"],1],
+["mc","حكم الميم في {ربهم بهم}:",["إظهار شفوي","إدغام شفوي","إخفاء شفوي","إقلاب"],2],
+["fill","سبب الإخفاء الشفوي: ثقل الإظهار لاتحاد الميم والباء في ________.",["المخرج"]]
+]},
+
+{
+id:"l13", unit:"أحكام الميم الساكنة", title:"الإدغام الشفوي والإظهار الشفوي",
+content:`## ثانياً: الإدغام الشفوي
+- **لغة:** الإدخال.
+- **اصطلاحاً:** هو إدخال ميم ساكنة في ميم متحركة بحيث يصيران ميماً واحدة مشددة.
+- **حروفه:** الميم.
+- **اسمه:** إدغام متماثلين صغير شفوي بغنة.
+
+## سبب التسمية
+- **سمي إدغاماً:** لإدغام الميم في الميم.
+- **سمي متماثلين:** لأن المدغم والمدغم فيه متحدان اسماً ورسماً.
+- **سمي صغيراً:** لأن الأول ساكن والثاني متحرك.
+- **سمي شفوياً:** لخروج الميم من الشفتين.
+- **سمي بغنة:** لمصاحبة الغنة له.
+!! **تنبيه:** يقع في كلمتين أو في الحروف المتقطعة.
+
+**علامته في المصحف:** تعرية الميم الأولى من الحركة وتشديد الميم الثانية.
+| في الحروف المتقطعة | في كلمتين |
+| الم | كم من فئة |
+| المر | لكم ما |
+| المص | أم من أسس |
+
+## ثالثاً: الإظهار الشفوي
+- **لغة:** الظهور والبيان.
+- **اصطلاحاً:** إخراج الميم الساكنة من مخرجها بدون غنة كاملة، وبدون وقف أو سكت أو تشديد.
+- **حروفه:** الستة والعشرون حرفاً الباقية بعد إسقاط الباء والميم.
+!! **تنبيه:** يكون من كلمة أو من كلمتين.
+
+## سبب التسمية
+- سمي إظهاراً: لإظهار الميم عند هذه الأحرف.
+- سمي شفوياً: لخروج الميم من الشفتين.
+>> **ملحوظة:** في حالة الإظهار الحلقي نُسبت التسمية إلى حروفه الستة الباقية لأن مخرجها واحد وهو الحلق، أما في حالة الإظهار الشفوي نسبت التسمية إلى مخرج الميم لأن الأحرف الستة والعشرين مختلفة في المخرج.
+
+## كيفية الأداء
+النطق بالميم ساكنة من الشفتين بانطباقهما مع إعطاء الميم صفة التوسط بدون أن تتحول إلى ميم مشددة، ثم النطق بالحرف الذي يليها.
+- إذا جاء بعد الميم الساكنة (فاء) أو (واو) يجب تحقيق الإظهار حتى لا يسبق اللسان إلى إخفائها عند هذين الحرفين؛ لاتحاد الواو مع الميم في المخرج وقرب مخرج الفاء من مخرج الميم.
+- لا تدغم الميم في الواو على الرغم من اتحادهما في المخرج منعاً من اللبس، فلا يعرف هل المدغم نون أم ميم.
+- لا تدغم الميم في مقاربها وهي الفاء حتى لا تذهب غنتها فيكون إجحافاً بها، ولأن الفاء أضعف من الميم، ولا يدغم القوي في الضعيف إدغاماً كاملاً على وجه الدراية.
+
+## أمثلة
+| الحرف | مثال | الحرف | مثال |
+| ت | أسلمت | ث | الأمثال |
+| ح | وفي أموالهم حق | ج | عند ربهم جنات |
+| خ | ربكم خالق كل شيء | د | الحمد |
+| ذ | الله أنزل إليكم ذكرا | ر | إليكم رسولا |
+| ز | منهم زهرة | س | يمسك |
+| ش | فما تنفعهم شفاعة | ص | فوقهم صافات |
+| ض | أراد بكم ضرا | ط | وأرسل عليهم طيرا |
+| ظ | عليهم ظلالها | ع | ولهم عذاب |
+| غ | فإنهم غير ملومين | ف | ذرأكم في الأرض |
+| ق | ومهلهم قليلا | ك | فجعلهم كعصف |
+| ل | وهم لا يشعرون | ن | ألم نشرح لك صدرك |
+| هـ | واهجرهم هجرا | و | أموالهم |
+| ي | لم يلد | ء | وكنتم أمواتا |`,
+map:`أحكام الميم الساكنة (٢)
+- الإدغام الشفوي
+  - ميم ساكنة في ميم متحركة
+  - إدغام متماثلين صغير شفوي بغنة
+  - في كلمتين أو الحروف المتقطعة
+- علامته
+  - تعرية الأولى وتشديد الثانية
+- الإظهار الشفوي
+  - ٢٦ حرفاً (عدا الباء والميم)
+  - في كلمة أو كلمتين
+  - بلا غنة كاملة
+- الأداء
+  - انطباق الشفتين مع التوسط
+  - احذري الإخفاء عند الواو والفاء
+- لماذا لا تدغم
+  - في الواو: منعاً للبس
+  - في الفاء: حفظاً للغنة`,
+quiz:[
+["tf","الإدغام الشفوي اسمه: إدغام متماثلين صغير شفوي بغنة.",true,"متماثلين لاتحاد الحرفين، وصغير لأن الأول ساكن والثاني متحرك."],
+["tf","حروف الإظهار الشفوي ستة أحرف فقط.",false,"حروف الإظهار الشفوي ستة وعشرون حرفاً، الباقية بعد إسقاط الباء والميم."],
+["mc","يجب تحقيق إظهار الميم الساكنة بشدة عند حرفي:",["الواو والفاء","الهمزة والهاء","اللام والراء","الباء والميم"],0],
+["mc","حكم الميم في {كم من فئة}:",["إظهار شفوي","إخفاء شفوي","إدغام شفوي","إدغام ناقص"],2],
+["fill","سمي الإدغام الشفوي صغيراً لأن الأول ساكن والثاني ________.",["متحرك"]]
+]},
+
+{
+id:"l14", unit:"أحكام الميم الساكنة", title:"النون والميم المشددتان ومراتب الغنة",
+content:`## تعريف الحرف المشدد
+الحرف المشدد هو ما كان أصله حرفين: أولهما ساكن وثانيهما متحرك، وأدغم الأول في الثاني.
+
+## حكم النون والميم المشددتين
+من أهم الصفات اللازمة للنون والميم هي صفة الغنة، فإذا وقع التشديد في هذين الحرفين ظهرت فيهما الغنة بأعلى مراتبها.
+
+## مواضعهما
+تقع النون والميم المشددتان متوسطتين أو متطرفتين في:
+1. **الأسماء:** الجنّة — أمّتكم — عيهنّ.
+2. **الأفعال:** دمّر — يمنّيهم — تعضلوهنّ.
+3. **الحروف:** أنّ — ثمّ.
+
+## صفة النون والميم
+وضعهما العلماء مع حروف التوسط، أي حالة وسط بين جريان الصوت وعدم جريانه، وما قيل عن النون يقال عن الميم.
+? ومن هنا نفهم أنه ما دام النون والميم فيهما نصف رخو فصوتهما قابل للمط والزيادة، فكم نمطه؟
+= يتضح هذا من معرفة مراتب الغنة.
+
+## مراتب الغنة
+1. **أكمل ما تكون:** في النون والميم المشددتين والمدغمتين، سواء كان إدغاماً كاملاً أو ناقصاً، نحو: إنّ — عمّ — من ولي — من نذير — لكم ما كسبتم.
+2. **غنة كاملة:** في النون والميم المخفاتين {إخفاء شفوي أو حقيقي أو قلب}، نحو: الأنثى — ترميهم بحجارة — من بعد.
+3. **غنة ناقصة:** في النون والميم الساكنتين المظهرتين، ولابد من توافر هذين الشرطين [شرط السكون وشرط الإظهار]، نحو: أنعمت، العالمين (غنة النون وقفاً).
+4. **غنة أنقص ما تكون:** في النون والميم المتحركتين، نحو: المؤمنين — نصير. والدليل على وجود الغنة في النون والميم المتحركتين أننا لو أغلقنا الخيشوم لاختل الصوت.
+
+!! **تنبيهات:**
+1. تمتاز الغنة عن باقي الصفات بوجود مخرج خاص بها.
+2. تتبع الغنة ما بعدها تفخيماً وترقيقاً مع مراعاة مراتب التفخيم.
+
+## مقدار الغنة
+قال البعض: إن الغنة مقدارها حركتان، ولكن الصواب أن زمن الغنة يتناسب مع سرعة القارئ ويضبط بالمشافهة، ويختلف زمنها حسب مرتبتها.
+
+## كيفية أداء الغنة
+تؤدى سلسة بدون تمطيط أو تطنين أو زيادة أو نقص عن مرتبتها.`,
+map:`الغنة
+- المشدد
+  - حرفان: ساكن ثم متحرك
+  - النون والميم المشددتان: أعلى الغنة
+- أكمل ما تكون
+  - المشدد والمدغم {إنّ، عمّ}
+- كاملة
+  - المخفاة {الأنثى}
+- ناقصة
+  - الساكنة المظهرة {أنعمت}
+- أنقص ما تكون
+  - المتحركة {نصير}
+- تنبيهات
+  - لها مخرج خاص (الخيشوم)
+  - تتبع ما بعدها تفخيماً وترقيقاً
+- مقدارها
+  - يضبط بالمشافهة حسب مرتبتها`,
+quiz:[
+["tf","الغنة في النون والميم المشددتين تكون في أعلى مراتبها.",true,"أكمل ما تكون الغنة في المشدد والمدغم."],
+["tf","الغنة في النون الساكنة المظهرة غنة كاملة.",false,"الساكنة المظهرة غنتها ناقصة، والكاملة في المخفاة."],
+["mc","مرتبة الغنة في {الأنثى}:",["أكمل ما تكون","كاملة","ناقصة","أنقص ما تكون"],1],
+["mc","الغنة تتبع ما بعدها:",["طولاً وقصراً","تفخيماً وترقيقاً","جهراً وهمساً","وصلاً ووقفاً"],1],
+["fill","تمتاز الغنة عن باقي الصفات بوجود ________ خاص بها.",["مخرج"]]
+]}
+];
+
+const L3 = [
+{
+id:"l15", unit:"المد والقصر", title:"المد والقصر وحروف المد والمد الطبيعي",
+content:`## تعريف المد
+- **لغة:** الزيادة، قال تعالى: ﴿وَيُمْدِدْكُم بِأَمْوَالٍ وَبَنِينَ﴾ أي يزدكم.
+- **اصطلاحاً:** إطالة الصوت بحرف المد واللين عند وجود سبب لذلك.
+
+## تعريف القصر
+- **لغة:** الحبس أو المنع، قال تعالى: ﴿حُورٌ مَّقْصُورَاتٌ﴾ أي محبوسات.
+- **اصطلاحاً:** إثبات حرف المد بدون زيادة.
+>> **ملحوظة:**
+1. القصر هو الأصل لأنه لا يحتاج إلى سبب.
+2. المد فرع منه لأنه يحتاج إلى سبب.
+3. إذا أطلق لفظ قصر يعني المد الطبيعي.
+
+## الدليل على المد من السنة
+ما نقل عن ابن مسعود رضي الله عنه أنه كان يقرئ رجلاً، فقرأ الرجل: ﴿إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ﴾ مرسلة أي بدون مد، فقال ابن مسعود: ما هكذا أقرأنيها رسول الله ﷺ. فقال: كيف أقرأكها يا أبا عبد الرحمن؟ فقال: أقرأنيها هكذا ﴿إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ﴾ فمدها. رواه الطبراني، وأخرجه سعيد بن منصور، وصححه السيوطي والألباني.
+قال الإمام ابن الجزري: «وهذا حديث جليل حجة ونص في هذا الباب، رجال إسناده ثقات».
+
+## حروف المد واللين — حروف المد
+1. الألف الساكنة المفتوح ما قبلها {قال}.
+2. الواو الساكنة المضموم ما قبلها {يقول}.
+3. الياء الساكنة المكسور ما قبلها {قيل}.
+وقد جمعت بشروطها في كلمة {نوحيها} {أوتينا} {أوذينا}.
+
+## أقسام المدود
+- **ما يمد حركتين:** مد طبيعي، مد عوض، مد بدل، مد صلة صغرى.
+- **ما يمد أكثر من حركتين:** مد لازم، مد واجب متصل، مد جائز منفصل (ويلحق به مد الصلة الكبرى)، مد عارض للسكون (ويلحق به مد اللين).
+
+## المد الطبيعي
+**تعريفه:** هو أبو المدود وأولها، وهو المد الذي لا تقوم ذات الحرف إلا به ولا يتوقف على سبب.
+إذا قال الإنسان (قَ) وسألنا سامعاً: ماذا سمعت؟ يقول: قاف مفتوحة. ولو قلنا (قا) يقول: قاف مفتوحة بعدها ألف مد، فهذه الألف نشأت وبرزت إلى الوجود من إشباع صوت الفتحة.
+**أسماؤه:** مد طبيعي، مد أصلي، مد ذاتي، مد صيغة.
+
+## سبب التسمية
+1. **طبيعي:** لأن صاحب الطبيعة السليمة لا يزيده ولا ينقصه عن مقداره.
+2. **أصلي:** لأنه أصل لجميع المدود ولا يتوقف على سبب.
+3. **ذاتي:** لأن ذات الحرف لا تقوم إلا به.
+4. **صيغة:** لأن صيغة حرف المد أي بنيته لا تقوم إلا عليه.`,
+map:`المد والقصر
+- المد
+  - لغة: الزيادة
+  - إطالة الصوت بحرف المد لسبب
+- القصر
+  - لغة: الحبس
+  - إثبات حرف المد بلا زيادة
+  - هو الأصل
+- حروف المد
+  - ألف بعد فتح
+  - واو بعد ضم
+  - ياء بعد كسر
+  - نوحيها
+- يمد حركتين
+  - طبيعي، عوض، بدل، صلة صغرى
+- أكثر من حركتين
+  - لازم، متصل، منفصل، عارض
+- المد الطبيعي
+  - أبو المدود
+  - طبيعي، أصلي، ذاتي، صيغة`,
+quiz:[
+["tf","القصر هو الأصل لأنه لا يحتاج إلى سبب.",true,"والمد فرع منه لأنه يحتاج إلى سبب."],
+["tf","حروف المد يجمعها قولك: (يرملون).",false,"حروف المد جمعت بشروطها في كلمة (نوحيها)."],
+["mc","المد لغة:",["الحبس","الزيادة","الستر","البيان"],1],
+["mc","من أسماء المد الطبيعي:",["المد الفرعي","المد الذاتي","المد اللازم","المد العارض"],1],
+["fill","المد الطبيعي هو ________ المدود وأولها.",["أبو","ابو"]]
+]},
+
+{
+id:"l16", unit:"المد والقصر", title:"مد الصلة الصغرى والكبرى",
+content:`## مد الصلة الصغرى
+**تعريفه:** صلة هاء الضمير الدالة على المفرد المذكر الغائب المتحركة بالضم أو الكسر، والواقعة بين متحركين، الثاني منهما ليس همزة قطع.
+!! **تنبيهات:**
+1. إذا وقعت همزة قطع بعد صلة هاء الضمير يصبح مداً فرعياً ويسمى مد صلة كبرى، وإذا لم تقع الهمزة بعده يسمى مد صلة صغرى.
+2. يسمى حرف المد (صلة هاء الضمير)، وتسمى الهاء (هاء الصلة) {بعباده بصيراً} {له ملك السموات والأرض}.
+
+? ما العلاقة بين مد الصلة وبين المد الطبيعي؟
+= مد الصلة يلحق بالمد الطبيعي لأنه ثابت في الوصل فقط، أما عند الوقف نقف بسكون الهاء.
+- **سبب التسمية:** لأنه ثابت حال الوصل فقط.
+- **مقداره:** يمد بمقدار حركتين.
+- **شروط هاء الصلة:** ١- متحركة. ٢- واقعة بين متحركين.
+
+## ما يلحق بهاء الضمير
+يلحق بهاء الضمير اسم الإشارة (هذه)، ويطبق عليها نفس الحكم وبنفس الشروط.
+? ما الفرق بين هاء اسم الإشارة وهاء الضمير؟
+= هاء اسم الإشارة لم تقع مضمومة، ولم تقع ساكنة وصلاً.
+? ماذا يحدث إذا انتفت شروط هاء الصلة؟
+= في هذه الحالة لا يوجد مد صلة.
+
+## مد الصلة الكبرى
+**تعريفه:** هو أن تأتي هاء الضمير الدالة على المفرد المذكر الغائب (المتحركة والواقعة بين متحركين) في آخر الكلمة الأولى، وهمزة القطع في أول الكلمة الثانية.
+- **مقداره:** يتبع المد المنفصل.
+- **علامة مد الصلة في المصحف:** وضع واو صغيرة ﴿إِنَّهُۥ هُوَ﴾ أو ياء صغيرة لفظية ﴿هَٰذِهِۦٓ أَبَدًا﴾، وترسم الياء هكذا مثل رسمها في خط الثلث.`,
+map:`مد الصلة
+- هاء الضمير
+  - للمفرد المذكر الغائب
+  - متحركة بين متحركين
+- الصلة الصغرى
+  - بعدها ليس همزة قطع
+  - تمد حركتين
+  - تلحق بالطبيعي
+  - تثبت وصلاً فقط
+- الصلة الكبرى
+  - بعدها همزة قطع
+  - تتبع المنفصل
+- يلحق بها
+  - اسم الإشارة (هذه)
+- العلامة
+  - واو صغيرة أو ياء صغيرة`,
+quiz:[
+["tf","مد الصلة يثبت في الوصل فقط، وعند الوقف نقف بسكون الهاء.",true,"لذلك سمي صلة."],
+["tf","مد الصلة الصغرى يمد أربع حركات.",false,"مد الصلة الصغرى يمد بمقدار حركتين."],
+["mc","إذا وقع بعد هاء الضمير همزة قطع يسمى:",["مد صلة صغرى","مد صلة كبرى","مد بدل","مد عوض"],1],
+["mc","يلحق بهاء الضمير:",["اسم الإشارة (هذه)","هاء التأنيث","هاء السكت","الهاء الأصلية"],0],
+["fill","مقدار مد الصلة الكبرى يتبع المد ________.",["المنفصل","الجائز المنفصل","منفصل"]]
+]},
+
+{
+id:"l17", unit:"المد والقصر", title:"المد الفرعي والمد بسبب الهمز",
+content:`## المد الفرعي
+**تعريفه:** هو المد الزائد عن المد الطبيعي لوجود سبب ما.
+## ينقسم المد الفرعي إلى قسمين
+- **المد الفرعي اللفظي:** هو إطالة الصوت بسبب همز أو سكون.
+- **المد الفرعي المعنوي:** هو إطالة الصوت بسبب معنوي.
+
+## المد الفرعي المعنوي
+ليس لحفص من الشاطبية منه شيء، وهو قسمان:
+- **المبالغة في النفي:** {لا ريب فيه}.
+- **المبالغة في التعظيم:** {لا إله إلا الله} (مذهبهم قصر المنفصل).
+
+## المد الفرعي اللفظي
+- **بسبب الهمزة:** (١) مد واجب متصل. (٢) مد جائز منفصل (ويلحق به مد الصلة الكبرى).
+- **بسبب السكون:** (١) المد اللازم. (٢) المد العارض للسكون. (٣) ويلحق به مد اللين.
+
+## أولاً: المد بسبب الهمزة — المد الواجب المتصل
+- **تعريفه:** أن يأتي حرف المد وبعده همزة في كلمة واحدة.
+- **مقداره:** يمد بمقدار [٤ أو ٥] حركات لحفص من الشاطبية (٤ توسط، ٥ فويق المتوسط).
+- **حكمه:** واجب.
+**سبب التسمية:**
+1. سمي واجباً لوجوب مده فوق المد الطبيعي عند جميع القراء، وإن اختلفوا في عدد الحركات.
+2. سمي متصلاً لاتصال حرف المد بالهمزة في كلمة واحدة.
+- **سبب مده:** لأن حرف المد ضعيف خفي والهمز قوي، فزيد في المد لتقوية حرف المد.
+- **أمثلة:** {جاءكم} {هنيئاً} {سوءاً}
+
+## المد الجائز المنفصل
+- **تعريفه:** أن يأتي حرف المد في آخر الكلمة الأولى وهمزة القطع في أول الكلمة الثانية.
+- **مقداره:** يمد بمقدار [٤ أو ٥] حركات لحفص من الشاطبية.
+- **حكمه:** جائز لجواز قصره عند بعض القراء.
+- **سبب التسمية:** سمي جائزاً لجواز قصره عند بعض القراء، وسمي منفصلاً لانفصال حرف المد عن الهمز.
+- **سبب مده:** لتقوية حرف المد عند مجاورته للهمز.
+- **سبب قصره في بعض الروايات:** بسبب قصر حرف المد عند الوقف.
+
+## أقسام المد المنفصل
+- **انفصال حقيقي:** حرف المد ثابت رسماً ولفظاً {في أرض الله}.
+- **انفصال حكمي:** حرف المد ثابت لفظاً دون رسم، ويكون في: (١) ها التنبيه {ها أنتم} {هؤلاء}. (٢) يا النداء {يأيها}.
+| المنفصل الحقيقي | المنفصل الحكمي |
+| حرف المد ثابت لفظاً ورسماً | حرف المد ثابت لفظاً دون رسم |
+| نقف على حرف المد بالقصر | لا يجوز الوقف على حرف المد |`,
+map:`المد الفرعي
+- تعريفه
+  - زائد عن الطبيعي لسبب
+- معنوي
+  - المبالغة في النفي
+  - المبالغة في التعظيم
+  - ليس لحفص من الشاطبية
+- لفظي بسبب الهمز
+  - واجب متصل
+  - جائز منفصل
+- المتصل
+  - مد وهمزة في كلمة
+  - ٤ أو ٥ حركات
+  - واجب
+- المنفصل
+  - مد آخر كلمة وهمزة أول التالية
+  - ٤ أو ٥ حركات
+  - جائز
+- أقسام المنفصل
+  - حقيقي {في أرض الله}
+  - حكمي {ها أنتم} {يأيها}`,
+quiz:[
+["tf","المد الواجب المتصل: أن يأتي حرف المد وبعده همزة في كلمة واحدة.",true,"مثل {جاءكم} {سوءاً}."],
+["tf","المد الفرعي المعنوي يقرأ به حفص من الشاطبية.",false,"المد الفرعي المعنوي ليس لحفص من الشاطبية منه شيء."],
+["mc","مقدار المد المتصل لحفص من الشاطبية:",["حركتان","٤ أو ٥ حركات","٦ حركات لزوماً","٢ أو ٤ أو ٦"],1],
+["mc","{ها أنتم} مثال على:",["منفصل حقيقي","منفصل حكمي","متصل","صلة كبرى"],1],
+["fill","سمي المد المنفصل جائزاً لجواز ________ عند بعض القراء.",["قصره","القصر"]]
+]},
+
+{
+id:"l18", unit:"المد والقصر", title:"المد بسبب السكون: العارض للسكون ومد اللين",
+content:`## ثانياً: المد بسبب السكون — المد العارض للسكون
+- **تعريفه:** هو أن يكون حرف المد هو الحرف القبل الأخير من الكلمة، ونقف على الحرف الأخير بالسكون العارض.
+- **سبب التسمية:** لعروض السكون عند الوقف.
+- **مقداره:** يمد [٢ أو ٤ أو ٦] حركات، أما عند الوصل يسقط المد العارض ويمد الحرف حركتان كمد طبيعي.
+- **حكمه:** جائز.
+- **علة القصر [٢]:** مراعاة لأصله وهو القصر، وعدم الاعتداد بالعارض.
+- **علة التوسط [٤]:** لاجتماع ساكنين، ولكون الساكن الثاني سكونه عارض فجعل أدنى من المد اللازم.
+- **علة الإشباع [٦]:** تشبيهاً باللازم لاجتماع ساكنين.
+- **أمثلة:** عند الوقف على كل من {العالمين — الرحيم — الظالمون}.
+
+## مد اللين
+- **تعريفه:** هو أن يكون حرف اللين هو الحرف القبل الأخير من الكلمة، ونقف على الحرف الأخير بالسكون العارض.
+- **مقداره:** يمد [٢ أو ٤ أو ٦] حركات، أما عند الوصل يسقط مد اللين ويمد حرف اللين مداً ما دون المد الطبيعي ويضبط بالمشافهة.
+- **حكمه:** جائز.
+- **سبب التسمية:** لأن الحرف قبل الأخير هو حرف لين.
+- **أمثلة:** عند الوقف على كل من {خوف — بيت — السَّوء}.
+
+## الفرق بين المد العارض ومد اللين
+| مد اللين | المد العارض |
+| حرفان فقط وهما حرفا اللين | ثلاثة أحرف وهي أحرف المد |
+| الأحرف ساكنة ما قبلها مفتوح | الأحرف ساكنة ما قبلها حركة مجانسة لها |
+| حال الوصل يمد مداً ما دون الطبيعي | حال الوصل يكون مداً طبيعياً |
+
+? لماذا يمد حرف اللين مداً ما دون الطبيعي؟
+= زمن الحروف المدية يبدأ من أول النطق بحركة ما قبلها لأنها مجانسة لها [قال]، بينما زمن حرف اللين يبدأ من بعد الانتهاء من فتحة ما قبله.
+>> **ملحوظة:** المد العارض أقوى من مد اللين لأن حرف المد أقوى من حرف اللين، فيكون مد اللين هو المشبه والمد العارض مشبه به، فيكون عدد حركات العارض أكبر من أو تساوي اللين كما سيرد ذكره بإذن الله في مراتب المدود.`,
+map:`المد بسبب السكون العارض
+- المد العارض للسكون
+  - حرف مد قبل الأخير
+  - وقف بالسكون العارض
+  - ٢ أو ٤ أو ٦
+  - وصلاً: مد طبيعي
+- علله
+  - القصر: مراعاة الأصل
+  - التوسط: ساكن عارض
+  - الإشباع: تشبيهاً باللازم
+- مد اللين
+  - حرف لين قبل الأخير
+  - ٢ أو ٤ أو ٦
+  - وصلاً: دون الطبيعي
+- الفرق
+  - اللين: حرفان، قبلهما فتح
+  - العارض: ثلاثة، قبلها مجانس
+- القوة
+  - العارض أقوى من اللين`,
+quiz:[
+["tf","المد العارض للسكون حكمه جائز.",true,"يجوز فيه القصر والتوسط والإشباع."],
+["tf","عند الوصل يبقى المد العارض ست حركات.",false,"عند الوصل يسقط المد العارض ويمد الحرف حركتين كمد طبيعي."],
+["mc","الوقف على {خوف} مثال على:",["المد العارض","مد اللين","المد اللازم","المد المتصل"],1],
+["mc","علة الإشباع في المد العارض:",["مراعاة الأصل","تشبيهاً باللازم لاجتماع ساكنين","لأن السكون أصلي","لوجود الهمز"],1],
+["fill","حرفا اللين هما الواو و________ الساكنتان المفتوح ما قبلهما.",["الياء","ي"]]
+]},
+
+{
+id:"l19", unit:"المد والقصر", title:"المد اللازم الكلمي ومد الفرق",
+content:`## المد اللازم
+- **تعريفه:** هو أن يأتي حرف المد وبعده حرف ساكن سكوناً أصلياً.
+- **معنى السكون الأصلي:** ثابت وصلاً ووقفاً.
+- **مقداره:** يمد ٦ حركات لزوماً عند جميع القراء.
+- **سبب التسمية:** ١- للزوم مده ٦ حركات عند جميع القراء. ٢- للزوم سببه وهو السكون الأصلي وصلاً ووقفاً.
+- **حكمه:** لزوم مده ٦ حركات لجميع القراء، وعدم جواز القصر والتوسط.
+
+## أقسام المد اللازم
+- **مد لازم كلمي:** كلمي مثقل — كلمي مخفف.
+- **مد لازم حرفي:** حرفي مثقل — حرفي مخفف.
+
+## المد اللازم الكلمي المثقل
+- **تعريفه:** هو أن يأتي حرف المد وبعده حرف ساكن سكوناً أصلياً مشدداً في كلمة.
+- **أمثلة:** {الحاقّة} — {صوافّ} — {الضالّين} — {ءالذّكرين} — {ءاللّه}
+>> **ملحوظة:** الحرف المشدد عبارة عن حرفين أولهما ساكن.
+- **مقداره:** يمد ٦ حركات لزوماً عند جميع القراء.
+- **حكمه:** لزوم مده ٦ حركات لجميع القراء، وعدم جواز القصر والتوسط.
+- **سبب التسمية:** سمي لازماً للزوم مده ٦ حركات ولزوم سببه وهو السكون وصلاً ووقفاً، وسمي كلمياً لاجتماع حرف المد والسكون في كلمة، وسمي مثقلاً لأن الحرف الساكن مشدد.
+
+## المد اللازم الكلمي المخفف
+- **تعريفه:** هو أن يأتي حرف المد وبعده ساكن سكوناً أصلياً مخففاً.
+- **موضعه:** في كلمة واحدة في موضعين ﴿ءَآلْـَٔنَ﴾ في سورة يونس [٥١، ٩١].
+- **مقداره:** يمد ٦ حركات لزوماً لجميع القراء.
+- **سبب التسمية:** سمي مخففاً لأن الحرف الساكن ليس مدغماً.
+
+!! **تنبيه — صورة من صور المد اللازم: مد الفرق**
+مد الفرق هو صورة من صور المد اللازم، وذلك في ٣ كلمات في ٦ مواضع فقط.
+**الشرح:** عندما تدخل همزة القطع للاستفهام على همزة الوصل في الاسم المعرف بـ(أل) التعريف، فلا يجوز حذف همزة الوصل حتى لا يلتبس الاستفهام بالخبر، ولا يجوز النطق بالهمزتين معاً، ولكن يجوز لحفص وجهان:
+1. إبدال همزة الوصل بألف مدية تمد ٦ حركات لزوماً، وذلك لملاقاتها لام التعريف الساكنة (مد لازم كلمي).
+2. تسهيل همزة الوصل بين الهمزة والألف مع عدم المد مطلقاً.
+? لماذا لقب بمد الفرق؟
+= لأنه يفرق بين الاستفهام والخبر.
+
+## مواضعه: في ٣ كلمات في ٦ مواضع
+| الكلمة | الموضع | نوعه |
+| ﴿ءَآلذَّكَرَيْنِ﴾ | الأنعام ١٤٣ — ١٤٤ | لازم كلمي مثقل |
+| ﴿ءَآللَّهُ﴾ | يونس ٥٩ — النمل ٥٩ | لازم كلمي مثقل |
+| ﴿ءَآلْـَٔنَ﴾ | يونس ٥١ — ٩١ | لازم كلمي مخفف |`,
+map:`المد اللازم الكلمي
+- المد اللازم
+  - حرف مد بعده سكون أصلي
+  - ٦ حركات لزوماً
+  - لا قصر ولا توسط
+- أقسامه
+  - كلمي: مثقل ومخفف
+  - حرفي: مثقل ومخفف
+- كلمي مثقل
+  - ساكن مشدد في كلمة
+  - الحاقة، الضالين، صواف
+- كلمي مخفف
+  - ساكن غير مدغم
+  - ﴿ءآلآن﴾ يونس ٥١، ٩١
+- مد الفرق
+  - ٣ كلمات في ٦ مواضع
+  - إبدال (٦ حركات) أو تسهيل
+  - يفرق بين الاستفهام والخبر`,
+quiz:[
+["tf","المد اللازم يمد ست حركات لزوماً عند جميع القراء.",true,"ولا يجوز فيه القصر ولا التوسط."],
+["tf","{الضالّين} مثال على المد اللازم الكلمي المخفف.",false,"{الضالّين} لازم كلمي مثقل لأن الساكن مشدد."],
+["mc","المد اللازم الكلمي المخفف ورد في كلمة:",["﴿ءَآلْـَٔنَ﴾","{الحاقة}","{صواف}","{ءالذكرين}"],0],
+["mc","سمي مد الفرق بهذا الاسم لأنه:",["يفرق بين المد والقصر","يفرق بين الاستفهام والخبر","يفرق بين الوصل والوقف","يفرق بين القراء"],1],
+["fill","مد الفرق ورد في ٣ كلمات في ________ مواضع.",["٦","6","ستة","ست"]]
+]},
+
+{
+id:"l20", unit:"المد والقصر", title:"المد اللازم الحرفي والأحرف المتقطعة",
+content:`## مقدمة
+جرت عادة القراء عندما يصلون إلى هذا المبحث، وهو مبحث المد اللازم، أن يتعرضوا للحروف المتقطعة التي بدأ الله عز وجل بها بعض السور في القرآن الكريم، وتسمى هذه الأحرف بالأحرف النورانية، وعددها أربعة عشر حرفاً، وأتت في بداية تسع وعشرين سورة.
+وقد جمعها الشيخ سليمان الجمزوري في منظومة تحفة الأطفال بقوله: [صله سحيراً من قطعك].
+والأجمل من هذا من قال: [نص حكيم له سر قاطع]، أي أن هذه الأحرف ليست عبثاً. وهذا من التوفيق أنه جمع هذه الأحرف في هذه العبارة، فبعض الناس يسألون عن معنى هذه الحروف ولكن معناها عند الله.
+قال تعالى: ﴿وَالرَّاسِخُونَ فِي الْعِلْمِ يَقُولُونَ آمَنَّا بِهِ كُلٌّ مِّنْ عِندِ رَبِّنَا﴾ (آل عمران ٧)
+- هناك فرق بين نطق الحرف واسم الحرف. **مثال:** ق [اسمه قاف] و[نطقه أَقْ].
+- وفي الأحرف المتقطعة نقرأ اسمها الذي يتكون دائماً إما من حرفين أو ثلاثة أحرف.
+
+## تقسيم الأحرف المتقطعة من حيث المد
+1. **الألف:** تقرأ (ألف) وليس بها مد.
+2. **حي طهر:** تقرأ (حا — يا — طا — ها — را). في اللغة العربية وردت مهموزة وغير مهموزة [حاء أو حا]، أما في القرآن فقد وردت بترك الهمزة فقط، فهي عبارة عن حرفين ثانيهما حرف مد يمد حركتين، ويسمى مداً **طبيعياً حرفياً**.
+3. **سنقص لكم:** تنطق على ثلاثة أحرف أوسطها حرف مد وثالثها ساكن أصلي، نحو [سين — نون — قاف]:
+- إذا كان ثالثها ساكناً مخففاً ← مد لازم حرفي مخفف يمد ٦ حركات.
+- إذا كان ثالثها ساكناً مشدداً ← مد لازم حرفي مثقل يمد ٦ حركات.
+4. **العين:** تنطق على ثلاثة أحرف أوسطها حرف لين وثالثها ساكن أصلي، تمد [٤ أو ٦] حركات لحفص من الشاطبية، وتمد [٢ أو ٤ أو ٦] حركات لحفص من طيبة النشر.
+
+## تعريف المد اللازم الحرفي المثقل
+أن يأتي حرف المد وبعده ساكن أصلي مشدد ← **مقداره:** يمد ٦ حركات لزوماً.
+## تعريف المد اللازم الحرفي المخفف
+أن يأتي حرف المد وبعده ساكن أصلي مخفف ← **مقداره:** يمد ٦ حركات لزوماً.
+
+? علمنا أن المد في (حي طهر) يسمى مداً طبيعياً حرفياً، وأن المد في (سنقص لكم) يسمى مداً لازماً حرفياً، فماذا يسمى المد في العين؟
+= لكي نجيب على هذا السؤال لابد من معرفة وجه الشبه والاختلاف بين العين وكل من مد اللين والمد اللازم.
+
+## أولاً: وجه الشبه والاختلاف بين العين والمد اللازم
+- **وجه الشبه:** الحرف الأخير ساكن أصلي.
+- **وجه الاختلاف:** ١- الحرف الممدود لين وليس مد. ٢- المد اللازم يمد ٦ حركات لزوماً، أما العين ففيها مد [٤ أو ٦] من الشاطبية، [٢، ٤، ٦] من طيبة النشر.
+
+## ثانياً: وجه الشبه والاختلاف بين العين ومد اللين
+- **وجه الشبه:** ١- الحرف الممدود حرف لين. ٢- عدد حركات اللين [٢ أو ٤ أو ٦] وعدد الحركات في العين من طيبة النشر [٢ أو ٤ أو ٦].
+- **وجه الاختلاف:** الحرف الأخير ساكن أصلي وليس عارضاً.
+وبذلك يكون المد في العين قريباً إلى مد اللين أكثر من المد اللازم، فيسمى **مد ملحق بمد اللين**.
+>> **ملحوظة:** وبعضهم يسميه: مد اللين اللازم، والبعض يسميه: المد الحرفي الشبيه بالمثقل (فتح المجيد شرح كتاب العميد للشيخ محمود علي بسة).`,
+map:`الأحرف المتقطعة
+- عددها
+  - ١٤ حرفاً في ٢٩ سورة
+  - صله سحيراً من قطعك
+  - نص حكيم له سر قاطع
+- الألف
+  - لا مد فيها
+- حي طهر
+  - مد طبيعي حرفي
+  - حركتان
+- سنقص لكم
+  - لازم حرفي ٦ حركات
+  - مثقل أو مخفف
+- العين
+  - ٤ أو ٦ من الشاطبية
+  - ٢ أو ٤ أو ٦ من الطيبة
+  - مد ملحق بمد اللين`,
+quiz:[
+["tf","المد في حروف (حي طهر) يسمى مداً طبيعياً حرفياً.",true,"فهي حرفان ثانيهما حرف مد يمد حركتين."],
+["tf","حرف الألف في فواتح السور يمد ست حركات.",false,"الألف تقرأ (ألف) وليس بها مد."],
+["mc","عدد الأحرف النورانية (المتقطعة):",["١٤ حرفاً","٢٩ حرفاً","٦ أحرف","٨ أحرف"],0],
+["mc","يسمى المد في (عين):",["مد لازم حرفي مثقل","مد ملحق بمد اللين","مد طبيعي حرفي","مد بدل"],1],
+["fill","جمع الجمزوري الأحرف المتقطعة في قوله: (صله ________ من قطعك).",["سحيراً","سحيرا","سحيرًا"]]
+]},
+
+{
+id:"l21", unit:"المد والقصر", title:"مراتب المدود",
+content:`## مراتب المدود
+للمدود مراتب خمسة متفاوتة تبعاً لقوتها وضعفها وهي:
+1. المد اللازم.
+2. المد المتصل.
+3. المد العارض للسكون.
+4. المد المنفصل.
+5. مد البدل.
+وجمعها الشيخ السمنودي في قوله:
+~ أقوى المدود لازم فما اتصل || فعارض فذو انفصال فبدل
+
+## السبب في هذا الترتيب
+- **المد اللازم:** السكون أصلي — حرف المد والسكون في كلمة واحدة — لزوم مده ٦ حركات عند جميع القراء.
+- **المتصل:** أصالة سببه وهو الهمز — حرف المد والهمز في كلمة واحدة — وجوب مده.
+- **العارض:** حرف المد وسببه (الساكن) في كلمة واحدة — اختلاف مقدار مده (قصر وتوسط وإشباع).
+- **المنفصل:** حرف المد والهمزة في كلمتين — مختلف في مقدار مده.
+- **البدل:** السبب وهو الهمز متقدم على حرف المد — حرف المد مبدل عن الهمزة غالباً.
+
+>> **ملحوظة:** لم يذكر مد اللين مع المراتب لأن الحرف الممدود حرف لين وليس حرف مد، ولكن يراعى أن العارض أقوى كما سبق ذكره.`,
+map:`مراتب المدود
+- ١- اللازم
+  - سكون أصلي
+  - في كلمة واحدة
+  - ٦ حركات لزوماً
+- ٢- المتصل
+  - سببه الهمز الأصيل
+  - في كلمة واحدة
+  - واجب
+- ٣- العارض
+  - في كلمة واحدة
+  - قصر وتوسط وإشباع
+- ٤- المنفصل
+  - في كلمتين
+  - مختلف في مقداره
+- ٥- البدل
+  - الهمز قبل حرف المد
+  - مبدل عن الهمزة غالباً
+- اللين
+  - لا يذكر في المراتب
+  - العارض أقوى منه`,
+quiz:[
+["tf","أقوى المدود هو المد اللازم.",true,"أقوى المدود لازم فما اتصل فعارض فذو انفصال فبدل."],
+["tf","المد المنفصل أقوى من المد المتصل.",false,"المتصل أقوى لأن حرف المد والهمز في كلمة واحدة وسببه أصيل."],
+["mc","أضعف المدود في المراتب الخمسة:",["العارض","المنفصل","البدل","المتصل"],2],
+["mc","المرتبة الثالثة من مراتب المدود:",["المنفصل","العارض للسكون","المتصل","البدل"],1],
+["fill","لم يذكر مد ________ مع المراتب لأن الحرف الممدود حرف لين وليس حرف مد.",["اللين","لين"]]
+]}
+];
+
+</script>
+<script>
+"use strict";
+if(!window.GAS) window.USERNAME_LOGIN = true;
+/* ============ helpers ============ */
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const AR = "٠١٢٣٤٥٦٧٨٩";
+const toAr = n => String(n).replace(/\d/g, d => AR[d]);
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
+  del(k){ try{ localStorage.removeItem(k); }catch(e){} }
+};
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.textContent=msg; document.body.appendChild(t); setTimeout(()=>t.remove(),2800); }
+async function sha(s){
+  try{ const b=await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""); }
+  catch(e){ return sha256js(s); }
+}
+function sha256js(str){
+  const b=new TextEncoder().encode(str), K=[], H=[]; let n=2,c=0;
+  const isP=x=>{for(let i=2;i*i<=x;i++) if(x%i===0) return false; return true;};
+  const fr=x=>((x-Math.floor(x))*4294967296)|0;
+  while(c<64){ if(isP(n)){ if(c<8) H[c]=fr(Math.pow(n,1/2)); K[c]=fr(Math.pow(n,1/3)); c++; } n++; }
+  const l=b.length, m=new Uint8Array(((l+9+63)>>6)<<6); m.set(b); m[l]=0x80;
+  const dv=new DataView(m.buffer); dv.setUint32(m.length-4,l*8); dv.setUint32(m.length-8,Math.floor(l/536870912));
+  const w=new Int32Array(64), r=(x,k)=>(x>>>k)|(x<<(32-k));
+  for(let o=0;o<m.length;o+=64){
+    for(let i=0;i<16;i++) w[i]=dv.getInt32(o+i*4);
+    for(let i=16;i<64;i++){ const s0=r(w[i-15],7)^r(w[i-15],18)^(w[i-15]>>>3), s1=r(w[i-2],17)^r(w[i-2],19)^(w[i-2]>>>10); w[i]=(w[i-16]+s0+w[i-7]+s1)|0; }
+    let [A,B,C,D,E,F,G,Hh]=H;
+    for(let i=0;i<64;i++){ const t1=(Hh+(r(E,6)^r(E,11)^r(E,25))+((E&F)^(~E&G))+K[i]+w[i])|0, t2=((r(A,2)^r(A,13)^r(A,22))+((A&B)^(A&C)^(B&C)))|0; Hh=G;G=F;F=E;E=(D+t1)|0;D=C;C=B;B=A;A=(t1+t2)|0; }
+    H[0]=(H[0]+A)|0;H[1]=(H[1]+B)|0;H[2]=(H[2]+C)|0;H[3]=(H[3]+D)|0;H[4]=(H[4]+E)|0;H[5]=(H[5]+F)|0;H[6]=(H[6]+G)|0;H[7]=(H[7]+Hh)|0;
+  }
+  return H.map(x=>(x>>>0).toString(16).padStart(8,"0")).join("");
+}
+const uid = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
+function norm(s){
+  return String(s||"").replace(/[ً-ٰٟـ]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي").replace(/ؤ/g,"و").replace(/ئ/g,"ي")
+    .replace(/[٠-٩]/g,d=>AR.indexOf(d)).replace(/[^\p{L}\p{N}]/gu,"").trim();
+}
+const ICON = {
+  map:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M6 6l4 4M18 6l-4 4M6 18l4-4M18 18l-4-4"/></svg>',
+  book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>',
+  quiz:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg>',
+  lock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+  bulb:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>',
+  pin:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>'
+};
+const STAR = '<svg class="star" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="sg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f07bb0"/><stop offset="1" stop-color="#8a55d6"/></linearGradient></defs><g fill="url(#sg)"><rect x="22" y="22" width="56" height="56" rx="6"/><rect x="22" y="22" width="56" height="56" rx="6" transform="rotate(45 50 50)"/></g><circle cx="50" cy="50" r="15" fill="#fff" opacity=".9"/><circle cx="50" cy="50" r="7" fill="url(#sg)"/></svg>';
+const MARK = STAR.replace('class="star"','class="mark"').replace(/sg/g,"sg2");
+
+const MOTIVE = {
+  5:["ما شاء الله تبارك الله! علامة كاملة، زادكِ الله علماً ونوراً.","أحسنتِ يا متقنة! هكذا تكون حاملات القرآن.","إتقان يفرح القلب، بارك الله فيكِ ونفع بكِ."],
+  4:["رائع جداً! خطوة واحدة وتصلين للكمال بإذن الله.","أداء جميل! راجعي الموضع الذي أخطأتِ فيه وستتقنينه.","ممتاز! أنتِ على الطريق الصحيح، استمري."],
+  3:["جهد طيب! راجعي مواضع الخطأ وأعيدي المحاولة، فأنتِ قادرة.","بداية موفقة، ومع المراجعة ستصلين للعلامة الكاملة."],
+  0:["لا بأس يا غالية، العلم بالتعلم. اقرئي الشرح مرة أخرى ثم أعيدي المحاولة.","كل محاولة تقربكِ من الإتقان. «خيركم من تعلم القرآن وعلمه»، فاستمري."]
+};
+const SHEET_MOTIVE0 = ["«خيركم من تعلم القرآن وعلمه»","اجعلي القرآن ربيع قلبكِ ونور صدركِ","بالتجويد يزدان الترتيل، ثابري يا غالية","أنتِ من أهل القرآن بإذن الله، فاجتهدي","كل حرف تتقنينه نور في صحيفتكِ"];
+const pick = a => a[Math.floor(Math.random()*a.length)];
+
+/* ============ site settings ============ */
+const PRESETS = [
+  {n:"وردي وبنفسجي", c1:"#f07bb0", c2:"#8a55d6"},
+  {n:"زهري ناعم", c1:"#f59ac0", c2:"#d9468a"},
+  {n:"لافندر", c1:"#b9a2ea", c2:"#7a4fc9"},
+  {n:"وردي ومرجاني", c1:"#f78fb3", c2:"#ef8a62"},
+  {n:"بنفسجي وفيروزي", c1:"#5fc4c8", c2:"#8a55d6"},
+  {n:"توتي غامق", c1:"#c2417e", c2:"#5b2a86"}
+];
+const SITE_DEF = {
+  name:"تجويد أ. نهى", sub:"هدي المجيد في أحكام التجويد", teacher:"أ. نهى",
+  welcomeT:"أهلاً بكِ في فصل التجويد",
+  welcomeP:"دروس «هدي المجيد في أحكام التجويد» بالخرائط الذهنية والاختبارات التفاعلية. سجّلي دخولكِ للبدء.",
+  quizT:"اختبري معلوماتك", mapT:"الخريطة الذهنية", contentT:"شرح الدرس", vidT:"مقطع الدرس",
+  sheikh:"أيمن سويد", sheikhLbl:"د. أيمن سويد",
+  sheetT:"اختبار قصير · أحكام التجويد",
+  c1:"#f07bb0", c2:"#8a55d6", fs:"17", theme:"auto",
+  showMap:true, showVid:true, showDots:true,
+  m5:MOTIVE[5].join("\n"), m4:MOTIVE[4].join("\n"), m3:MOTIVE[3].join("\n"), m0:MOTIVE[0].join("\n"),
+  sheetM:SHEET_MOTIVE0.join("\n")
+};
+let SITE = {...SITE_DEF};
+const lines = s => String(s||"").split("\n").map(x=>x.trim()).filter(Boolean);
+const motiveFor = band => { const l = lines(SITE["m"+band]); return l.length?l:MOTIVE[band]; };
+const sheetMotives = () => { const l=lines(SITE.sheetM); return l.length?l:SHEET_MOTIVE0; };
+function mix(a,b){ const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)); const x=p(a),y=p(b); return "#"+x.map((v,i)=>Math.round((v+y[i])/2).toString(16).padStart(2,"0")).join(""); }
+function shade(h,f){ const v=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)); return "#"+v.map(c=>Math.max(0,Math.min(255,Math.round(c*f))).toString(16).padStart(2,"0")).join(""); }
+function applySite(st){
+  const r=document.documentElement.style, def = st.c1===SITE_DEF.c1 && st.c2===SITE_DEF.c2;
+  ["--pink","--violet","--grad","--head-ink"].forEach(k=>r.removeProperty(k));
+  if(!def && /^#[0-9a-f]{6}$/i.test(st.c1) && /^#[0-9a-f]{6}$/i.test(st.c2)){
+    r.setProperty("--grad",`linear-gradient(120deg,${st.c1} 0%,${mix(st.c1,st.c2)} 55%,${st.c2} 100%)`);
+    r.setProperty("--head-ink",`linear-gradient(90deg,${shade(st.c1,.9)},${st.c2})`);
+    r.setProperty("--pink",shade(st.c1,.92)); r.setProperty("--violet",st.c2);
+  }
+  r.setProperty("--fs",(+st.fs||17)+"px");
+  const de=document.documentElement;
+  if(st.theme==="light"||st.theme==="dark"){ if(!applySite.setTheme) applySite.hostTheme=de.dataset.theme; de.dataset.theme=st.theme; applySite.setTheme=true; }
+  else if(applySite.setTheme){ if(applySite.hostTheme) de.dataset.theme=applySite.hostTheme; else delete de.dataset.theme; applySite.setTheme=false; }
+}
+
+/* ============ lessons model ============ */
+function quizFromCompact(arr){
+  return (arr||[]).map(x => Array.isArray(x) ? (
+    x[0]==="tf" ? {t:"tf",q:x[1],a:!!x[2],ex:x[3]||""} :
+    x[0]==="mc" ? {t:"mc",q:x[1],o:x[2],a:x[3],ex:x[4]||""} :
+    {t:"fill",q:x[1],a:x[2],ex:x[3]||""}) : x);
+}
+const DEFAULTS = [...L1,...L2,...L3].map((l,i)=>({...l, quiz:quizFromCompact(l.quiz), order:i+1, video:{yt:"",url:"",asset:""}, isDefault:true}));
+const DEF_MAP = Object.fromEntries(DEFAULTS.map(l=>[l.id,l]));
+const ytSearch = t => "https://www.youtube.com/results?search_query=" + encodeURIComponent((SITE.sheikh||"أيمن سويد") + " " + t);
+
+/* ============ state ============ */
+const S = { db:null, user:null, dl:null, assets:null, canEdit:false, uid:null, ready:false,
+  over:{}, pwch:{}, students:[], studentsLoaded:false, tq:{}, results:[], myRes:{}, pw:{},
+  session: store.get("tj_session"), idx: store.get("tj_idx") || 0, view:"gate", quizState:{}, panelTab:"students", railOpen:false };
+
+function lessons(){
+  const list = DEFAULTS.map(d => S.over[d.id] ? {...d, ...S.over[d.id], isDefault:true, edited:true} : d);
+  Object.entries(S.over).forEach(([id,l]) => { if(!DEF_MAP[id] && !l.deleted) list.push({...l, id, isDefault:false}); });
+  const isT = S.session&&S.session.role==="teacher";
+  return list.filter(l=>!l.deleted && l.title && (isT||!l.hidden)).sort((a,b)=>(a.order||999)-(b.order||999));
+}
+
+/* ============ markup → html ============ */
+function inline(s){
+  let h = esc(s);
+  h = h.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+  h = h.replace(/﴿([^﴾]+)﴾/g, '<span class="ayah">﴿$1﴾</span>');
+  h = h.replace(/\{([^}]+)\}/g, '<span class="ex">$1</span>');
+  return h;
+}
+function renderContent(md){
+  const lines = String(md||"").split("\n");
+  let out = "", i = 0;
+  function block(stopAtBlank){
+    let h = "";
+    while(i < lines.length){
+      const raw = lines[i], L = raw.trim();
+      if(!L){ if(stopAtBlank){ i++; return h; } i++; continue; }
+      if(stopAtBlank && L.startsWith("## ")) return h;
+      if(L.startsWith("## ")){ h += `<h3 class="sec">${inline(L.slice(3))}</h3>`; i++; continue; }
+      if(L.startsWith("!! ") || L.startsWith(">> ")){
+        const tip = L.startsWith("!!"); i++;
+        const first = `<p>${inline(L.slice(3))}</p>`;
+        const rest = block(true);
+        h += `<div class="box ${tip?"tip":"nt"}"><div class="lbl">${tip?ICON.bulb+"تنبيه":ICON.pin+"ملحوظة"}</div>${first}${rest}</div>`;
+        continue;
+      }
+      if(/^- /.test(L)){ let it=""; while(i<lines.length && /^- /.test(lines[i].trim())){ it += `<li>${inline(lines[i].trim().slice(2))}</li>`; i++; } h += `<ul>${it}</ul>`; continue; }
+      if(/^\d+\.\s/.test(L)){ let it=""; while(i<lines.length && /^\d+\.\s/.test(lines[i].trim())){ it += `<li>${inline(lines[i].trim().replace(/^\d+\.\s/,""))}</li>`; i++; } h += `<ol>${it}</ol>`; continue; }
+      if(L.startsWith("? ") || L.startsWith("= ")){ let it=""; while(i<lines.length && /^[?=] /.test(lines[i].trim())){ const t=lines[i].trim(); const q=t[0]==="?"; it += `<span class="k ${q?"":"a"}">${q?"س:":"ج:"}</span><span>${inline(t.slice(2))}</span>`; i++; } h += `<div class="qa">${it}</div>`; continue; }
+      if(L.startsWith("~ ")){ let it=""; while(i<lines.length && lines[i].trim().startsWith("~ ")){ const [a,b] = lines[i].trim().slice(2).split("||"); it += `<span>${inline(a||"")}</span><span>${inline(b||"")}</span>`; i++; } h += `<div class="poem">${it}</div>`; continue; }
+      if(L.startsWith("|")){
+        const rows=[]; while(i<lines.length && lines[i].trim().startsWith("|")){ rows.push(lines[i].trim().replace(/^\||\|$/g,"").split("|").map(c=>c.trim())); i++; }
+        const [hd,...bd] = rows;
+        h += `<div class="tbl"><table><thead><tr>${hd.map(c=>`<th>${inline(c)}</th>`).join("")}</tr></thead><tbody>${bd.map(r=>`<tr>${r.map(c=>`<td>${inline(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+        continue;
+      }
+      h += `<p>${inline(L)}</p>`; i++;
+    }
+    return h;
+  }
+  out = block(false);
+  return `<div class="ct">${out}</div>`;
+}
+const BR_COLORS = ["#e0559a","#8a55d6","#2f9e7a","#d9822b","#3a7bd5","#c2459b","#6a5acd"];
+function parseMap(md){
+  const ls = String(md||"").split("\n").filter(x=>x.trim());
+  const center = (ls.shift()||"").trim(); const br=[];
+  ls.forEach(l=>{ if(/^\s{2,}- /.test(l) && br.length) br[br.length-1].kids.push(l.trim().slice(2)); else if(/^- /.test(l.trim())) br.push({label:l.trim().slice(2),kids:[]}); });
+  return {center, br};
+}
+function renderMap(md, lid){
+  const {center, br} = parseMap(md);
+  if(!center) return `<p class="note">لا توجد خريطة ذهنية لهذا الدرس بعد.</p>`;
+  const half = Math.ceil(br.length/2);
+  const one = (b,k) => `<div class="br" style="--c:${BR_COLORS[k%BR_COLORS.length]}"><button data-act="mmtoggle" aria-expanded="true"><span class="dot"></span><span>${inline(b.label)}</span>${b.kids.length?'<span class="car">▾</span>':""}</button>${b.kids.length?`<div class="kids">${b.kids.map(x=>`<span>${inline(x)}</span>`).join("")}</div>`:""}</div>`;
+  return `<div class="mm"><div class="col r">${br.slice(0,half).map((b,k)=>one(b,k)).join("")}</div><div class="center">${esc(center)}</div><div class="col l">${br.slice(half).map((b,k)=>one(b,k+half)).join("")}</div></div><div class="mm-hint">اضغطي على أي فرع لطيّه أو فتحه.</div>`;
+}
+
+/* ============ rendering ============ */
+const app = () => $("#app");
+function topbar(){
+  const s = S.session, inApp = S.view!=="gate";
+  const SI = SD||SITE;
+  const tabs = [["home","الصفحة الرئيسية"],["deck","الدروس"],["progress",s&&s.role==="teacher"?"تقدّم الطالبات":"تقدّمي"]];
+  if(s&&s.role==="teacher") tabs.push(["panel","لوحة المعلمة"]);
+  const who = s ? (s.role==="teacher"?SI.teacher:s.name) : "زائرة";
+  return `<header class="top wrap"><div class="in">
+    ${S.view==="deck"?`<button class="btn sm rail-toggle" data-act="rail" aria-label="قائمة الدروس">☰<span class="lo-t"> الفهرس</span></button>`:""}
+    <div class="brand">${MARK}<div>${esc(SI.name)}<small>${esc(SI.sub)}</small></div></div>
+    ${inApp?`<nav class="tnav" aria-label="أقسام الموقع">${tabs.map(([v,n])=>`<button class="${S.view===v?"on":""}" data-act="view" data-v="${v}" ${S.view===v?'aria-current="page"':""}>${n}</button>`).join("")}</nav>`:`<div class="sp"></div>`}
+    ${inApp?`<div class="who" ${window.USERNAME_LOGIN&&s?`data-act="myPw" role="button" tabindex="0" title="تغيير كلمة المرور" style="cursor:pointer"`:""}><span class="av">${esc((who||"؟").trim().charAt(0))}</span><span class="nm"><small>${s?(s.role==="teacher"?"المعلمة":"الطالبة"):"تصفح بدون حساب"}</small>${esc(who)}</span>
+      <button class="btn sm ghost" data-act="logout" aria-label="${s?"تسجيل الخروج":"تسجيل الدخول"}" style="display:inline-flex;gap:6px;align-items:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="M10 17l-5-5 5-5M5 12h12"/></svg><span class="lo-t">${s?"خروج":"دخول"}</span></button></div>`:""}
+  </div></header>`;
+}
+function render(){
+  if(S.view==="gate") return renderGate();
+  if(S.view==="panel") return renderPanel();
+  if(S.view==="home") return renderHome();
+  if(S.view==="progress") return renderProgress();
+  return renderDeck();
+}
+/* ============ home & progress ============ */
+function stats(res){
+  const ls=lessons(); const done=ls.filter(l=>res[l.id]);
+  const sum=done.reduce((t,l)=>t+res[l.id].score,0), tot=done.reduce((t,l)=>t+res[l.id].total,0);
+  return {ls, done, avg: tot? Math.round(sum/tot*100):0, full: done.filter(l=>res[l.id].score===res[l.id].total).length};
+}
+function units(ls){ const u=[]; ls.forEach((l,k)=>{ let g=u.find(x=>x.name===(l.unit||"دروس")); if(!g){ g={name:l.unit||"دروس",items:[]}; u.push(g); } g.items.push({l,k}); }); return u; }
+function ringSvg(pct,label,size){ const C=2*Math.PI*40; return `<svg class="ring" style="width:${size||96}px;height:${size||96}px" viewBox="0 0 100 100" role="img" aria-label="${esc(label)}"><circle cx="50" cy="50" r="40" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--pink)" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C*pct} ${C}" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle" font-size="20" font-weight="800" fill="var(--ink)" font-family="Tajawal">${esc(label)}</text></svg>`; }
+function renderHome(){
+  const s=S.session, isT=s&&s.role==="teacher";
+  const {ls,done,avg}=stats(S.myRes); const cur=ls[Math.min(S.idx,ls.length-1)]||ls[0];
+  const first=(s?(isT?SITE.teacher:s.name):"").split(" ")[0];
+  const greet = s ? `أهلاً بكِ يا ${esc(first)}` : esc(SITE.welcomeT);
+  const sub = isT ? "من هنا تصلين لدروسكِ وطالباتكِ ونتائجهن." : s ? (done.length? `أنجزتِ ${toAr(done.length)} من ${toAr(ls.length)} دروس، استمري بارك الله فيكِ.` : "ابدئي رحلتكِ مع أحكام التجويد، درساً بعد درس.") : esc(SITE.welcomeP);
+  const tStats = isT ? `<div class="kpis"><div class="kpi"><b>${toAr(S.students.length)}</b><span>طالبة</span></div><div class="kpi"><b>${toAr(ls.length)}</b><span>درساً</span></div><div class="kpi"><b>${toAr(S.results.length)}</b><span>اختباراً محلولاً</span></div></div>` :
+    `<div class="kpis"><div class="kpi"><b>${toAr(done.length)}/${toAr(ls.length)}</b><span>دروس منجزة</span></div><div class="kpi"><b>${toAr(avg)}٪</b><span>متوسط درجاتكِ</span></div></div>`;
+  app().innerHTML = topbar() + `<main class="page wrap">
+    <section class="welcome"><div class="wtx"><h1>${greet}</h1><p>${sub}</p>
+      <div class="row">${cur?`<button class="btn wbtn" data-act="goto" data-i="${ls.indexOf(cur)}">${done.length||S.idx?"تابعي":"ابدئي"}: ${esc(cur.title)} ←</button>`:""}${isT?`<button class="btn wbtn2" data-act="view" data-v="panel">إدارة الطالبات</button>`:`<button class="btn wbtn2" data-act="view" data-v="progress">عرض تقدّمي</button>`}</div></div>
+      ${tStats}</section>
+    <h2 class="ph">الدروس</h2>
+    <div class="ugrid">${units(ls).map(u=>{ const d=u.items.filter(x=>S.myRes[x.l.id]).length; return `<div class="ucard"><div class="uh"><h3>${esc(u.name)}</h3>${isT?`<span class="note">${toAr(u.items.length)} دروس</span>`:`<span class="note">${toAr(d)}/${toAr(u.items.length)}</span>`}</div>
+      ${isT?"":`<div class="bar"><i style="width:${u.items.length?d/u.items.length*100:0}%"></i></div>`}
+      <div class="ul">${u.items.map(({l,k})=>{ const r=S.myRes[l.id]; return `<button class="li" data-act="goto" data-i="${k}"><span class="n ${r?"ok":""}">${r?"✓":toAr(k+1)}</span><span class="t">${esc(l.title)}</span>${r?`<span class="sc">${toAr(r.score)}/${toAr(r.total)}</span>`:""}${l.hidden?'<span class="badge b" style="font-size:11px">مخفي</span>':""}</button>`; }).join("")}</div></div>`; }).join("")}</div>
+  </main>`;
+}
+function renderProgress(){
+  const s=S.session, isT=s&&s.role==="teacher";
+  if(isT) return renderClassProgress();
+  const {ls,done,avg,full}=stats(S.myRes);
+  const pct = ls.length? done.length/ls.length : 0;
+  const msg = !done.length ? "لم تحلّي أي اختبار بعد. ابدئي بالدرس الأول ثم اختبري معلوماتكِ." : pct===1 ? "أتممتِ جميع الدروس، ما شاء الله تبارك الله!" : avg>=80 ? "تقدّم رائع، واصلي على هذا المستوى." : "أنتِ في الطريق الصحيح، راجعي الدروس التي تحتاج مراجعة.";
+  const status = r => !r ? `<span class="badge m">لم تبدأ</span>` : r.score===r.total ? `<span class="badge g">متقنة</span>` : r.score>=r.total-1 ? `<span class="badge g">جيد جداً</span>` : `<span class="badge b">تحتاج مراجعة</span>`;
+  app().innerHTML = topbar() + `<main class="page wrap">
+    <section class="psum">${ringSvg(pct,toAr(Math.round(pct*100))+"٪",120)}<div class="pt"><h1>تقدّمي${s?` يا ${esc(s.name.split(" ")[0])}`:""}</h1><p>${msg}</p>
+      <div class="kpis"><div class="kpi"><b>${toAr(done.length)}/${toAr(ls.length)}</b><span>دروس منجزة</span></div><div class="kpi"><b>${toAr(avg)}٪</b><span>متوسط الدرجات</span></div><div class="kpi"><b>${toAr(full)}</b><span>درجة كاملة</span></div></div></div></section>
+    ${!s?`<div class="info">أنتِ تتصفحين بدون حساب، لذلك يُحفظ تقدّمكِ على هذا الجهاز فقط ولا يصل للمعلمة.</div>`:""}
+    <h2 class="ph">حسب الوحدة</h2>
+    <div class="ubars">${units(ls).map(u=>{ const d=u.items.filter(x=>S.myRes[x.l.id]).length; return `<div class="ub"><span>${esc(u.name)}</span><div class="bar"><i style="width:${d/u.items.length*100}%"></i></div><b>${toAr(d)}/${toAr(u.items.length)}</b></div>`; }).join("")}</div>
+    <h2 class="ph">نتائج الدروس</h2>
+    <div class="dtable"><table><thead><tr><th>الدرس</th><th>الدرجة</th><th>الحالة</th><th></th></tr></thead><tbody>
+    ${ls.map((l,k)=>{ const r=S.myRes[l.id]; return `<tr><td><b>${toAr(k+1)}.</b> ${esc(l.title)}</td><td>${r?`${toAr(r.score)} / ${toAr(r.total)}`:"—"}</td><td>${status(r)}</td><td><button class="btn sm" data-act="goto" data-i="${k}" data-to="b-quiz">${r?(r.score===r.total?"مراجعة":"أعيدي الاختبار"):"ابدئي"}</button></td></tr>`; }).join("")}
+    </tbody></table></div>
+  </main>`;
+}
+function renderClassProgress(){
+  const ls=lessons(); const studs=S.students.slice().sort((a,b)=>a.name.localeCompare(b.name,"ar"));
+  const by={}; S.results.forEach(r=>{ (by[r.sid]=by[r.sid]||{})[r.lesson]=r; });
+  app().innerHTML = topbar() + `<main class="page wrap">
+    <section class="psum"><div class="pt"><h1>تقدّم الطالبات</h1><p>ملخص إنجاز كل طالبة ومتوسط درجاتها، ويتحدث تلقائياً عند حل أي اختبار.</p></div></section>${window.RESULTS_LOCAL?`<div class="info">في هذه النسخة تُحفظ درجات كل طالبة على جهازها فقط، وتراها في صفحة «تقدّمي»، ولا تصل إلى هنا.</div>`:""}
+    ${studs.length?`<div class="dtable"><table><thead><tr><th>الطالبة</th><th>الدروس المنجزة</th><th>متوسط الدرجات</th><th>درجات كاملة</th></tr></thead><tbody>
+    ${studs.map(st=>{ const st2=stats(by[st.id]||{}); const p=ls.length?st2.done.length/ls.length:0; return `<tr><td><b>${esc(st.name)}</b></td><td><div class="ub" style="grid-template-columns:1fr auto"><div class="bar"><i style="width:${p*100}%"></i></div><b>${toAr(st2.done.length)}/${toAr(ls.length)}</b></div></td><td>${st2.done.length?`<span class="badge ${st2.avg>=80?"g":st2.avg>=50?"m":"b"}">${toAr(st2.avg)}٪</span>`:"—"}</td><td>${toAr(st2.full)}</td></tr>`; }).join("")}
+    </tbody></table></div>`:`<div class="info">لم تضيفي طالبات بعد. أضيفيهن من «لوحة المعلمة».</div>`}
+    <h2 class="ph">متوسط كل درس</h2>
+    <div class="dtable"><table><thead><tr><th>الدرس</th><th>عدد من حللن</th><th>المتوسط</th></tr></thead><tbody>
+    ${ls.map((l,k)=>{ const rs=S.results.filter(r=>r.lesson===l.id); const sc=rs.reduce((t,r)=>t+r.score,0), tt=rs.reduce((t,r)=>t+r.total,0); const av=tt?Math.round(sc/tt*100):null; return `<tr><td><b>${toAr(k+1)}.</b> ${esc(l.title)}</td><td>${toAr(rs.length)}</td><td>${av===null?"—":`<span class="badge ${av>=80?"g":av>=50?"m":"b"}">${toAr(av)}٪</span>`}</td></tr>`; }).join("")}
+    </tbody></table></div>
+  </main>`;
+}
+function renderGate(){
+  const noDb = S.ready && !S.db, role = S.gateRole;
+  const opts = S.students.slice().sort((a,b)=>a.name.localeCompare(b.name,"ar")).map(s=>`<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
+  const warn = noDb ? `<div class="info" style="margin-bottom:12px">تسجيل الدخول يعمل عند فتح الموقع من رابطه في Claude. هذه النسخة لا تتصل بقاعدة البيانات، لذلك يمكنكِ تصفح الدروس فقط.</div>` : "";
+  const dis = noDb||!S.ready ? "disabled" : "";
+  const ICON_STU='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M21 7.5V13"/></svg>';
+  const ICON_TCH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 9h6M7 12h4"/></svg>';
+  let body;
+  if(!role){
+    body = `<div class="roles">
+      <button class="role" data-act="role" data-r="student"><span class="ri">${ICON_STU}</span><b>تسجيل الدخول كطالبة</b><span>ادرسي الدروس، واختبري نفسكِ، وتابعي تقدّمكِ.</span></button>
+      <button class="role" data-act="role" data-r="teacher"><span class="ri">${ICON_TCH}</span><b>تسجيل الدخول كمعلمة</b><span>أديري الطالبات والدروس والأسئلة والنتائج.</span></button>
+    </div>
+    <p class="guestl"><button class="linkb" data-act="guest">تصفح الدروس بدون تسجيل دخول</button></p>`;
+  } else if(role==="student"){
+    body = `<form class="card lform" id="stuForm"><button type="button" class="linkb back" data-act="role" data-r="">→ رجوع</button>
+      <div class="lh"><span class="ri sm">${ICON_STU}</span><h2>تسجيل الدخول كطالبة</h2></div>${warn}
+      ${window.USERNAME_LOGIN?`<div class="field"><label for="stuUser">اسم المستخدم (اسمكِ الأول واسم الأب)</label><input class="inp" id="stuUser" autocomplete="username" ${dis}></div>`:`<div class="field"><label for="stuSel">اسم الطالبة</label><select class="inp" id="stuSel" ${dis}>${opts?`<option value="">اختاري اسمكِ</option>`+opts:`<option value="">${!S.ready?"جارٍ الاتصال…":noDb?"غير متاح هنا":S.studentsLoaded?"لم تُضف المعلمة طالبات بعد":"جارٍ تحميل الأسماء…"}</option>`}</select></div>`}
+      <div class="field"><label for="stuPw">كلمة المرور</label><input class="inp" id="stuPw" type="password" autocomplete="current-password" ${dis}></div>
+      <button class="btn pri big" type="submit" ${dis}>دخول</button><p class="err" id="stuErr"></p>
+      <p class="note">نسيتِ كلمة المرور؟ اطلبيها من المعلمة.</p></form>`;
+  } else {
+    body = `<form class="card lform" id="tchForm"><button type="button" class="linkb back" data-act="role" data-r="">→ رجوع</button>
+      <div class="lh"><span class="ri sm">${ICON_TCH}</span><h2>تسجيل الدخول كمعلمة</h2></div>${warn}
+      ${!noDb&&S.ready&&!S.canEdit?`<div class="info" style="margin-bottom:12px">هذا الدخول خاص بصاحبة الموقع، ويعمل من حسابها في Claude فقط.</div>`:""}
+      <div id="tchFields">${window.USERNAME_LOGIN?`<div class="field"><label for="tchUser">اسم المستخدم</label><input class="inp" id="tchUser" autocomplete="username" ${dis}></div>`:""}<div class="field"><label for="tchPw">كلمة مرور المعلمة</label><input class="inp" id="tchPw" type="password" autocomplete="current-password" ${dis}></div></div>
+      <button class="btn pri big" type="submit" ${dis}>دخول</button><p class="err" id="tchErr"></p></form>`;
+  }
+  app().innerHTML = topbar() + `<main class="gate wrap">
+    <div class="gate-hero">${STAR}<h1>${esc(SITE.welcomeT)}</h1><p>${esc(SITE.welcomeP)}</p></div>${body}</main>`;
+  const sf=$("#stuForm"), tf=$("#tchForm");
+  if(sf) sf.addEventListener("submit", e=>{e.preventDefault(); studentLogin();});
+  if(tf) tf.addEventListener("submit", e=>{e.preventDefault(); teacherLogin();});
+  if(tf && S.canEdit && S.db) checkTeacherSetup();
+}
+let teacherHash = undefined;
+const DEFAULT_TEACHER_USER = "نهى", DEFAULT_TEACHER_PW = "12344";
+let teacherCfg = null;
+async function checkTeacherSetup(){
+  try{ const d = await S.db.doc("config/teacher").get(); teacherCfg = d.exists ? d.data() : {}; }catch(e){ teacherCfg = null; }
+  teacherHash = teacherCfg && teacherCfg.hash && teacherCfg.v===2 ? teacherCfg.hash : await sha("teacher:"+DEFAULT_TEACHER_PW);
+}
+function nameKey(s){ return norm(s).toLowerCase(); }
+async function teacherLogin(){
+  const err=$("#tchErr"); err.textContent="";
+  const u=($("#tchUser")||{value:DEFAULT_TEACHER_USER}).value.trim(), pw=$("#tchPw").value.trim();
+  if(!u){ err.textContent="اكتبي اسم المستخدم."; return; }
+  if(!pw){ err.textContent="اكتبي كلمة المرور."; return; }
+  if(!S.canEdit){ err.textContent="دخول المعلمة يعمل من حساب صاحبة الموقع فقط."; return; }
+  if(teacherHash===undefined || !teacherCfg) await checkTeacherSetup();
+  if(nameKey(u)!==nameKey((teacherCfg&&teacherCfg.user)||DEFAULT_TEACHER_USER)){ err.textContent="اسم المستخدم غير صحيح."; return; }
+  if(await sha("teacher:"+pw)!==teacherHash){ err.textContent="كلمة المرور غير صحيحة."; return; }
+  S.session={role:"teacher",name:SITE.teacher}; store.set("tj_session",S.session); startTeacher(); go("home");
+}
+/* student passwords: teacher sets students/<sid>.hash; a student's own change is kept in pwchange/<viewer>.{sid} */
+function pwEntry(sid){
+  const st=S.students.find(s=>s.id===sid); if(!st) return null;
+  const base=Date.parse(st.resetAt||st.at||0)||0; let best=null;
+  Object.values(S.pwch).forEach(doc=>{ const e=doc&&doc[sid]; if(e&&e.hash&&Date.parse(e.at)>base&&(!best||Date.parse(e.at)>Date.parse(best.at))) best=e; });
+  return best;
+}
+function pwChanged(sid){ return !!pwEntry(sid); }
+async function studentLogin(){
+  const err=$("#stuErr"); err.textContent="";
+  const u=$("#stuUser")?$("#stuUser").value.trim():"", pw=$("#stuPw").value.trim();
+  let st;
+  if($("#stuUser")){ if(!u){ err.textContent="اكتبي اسم المستخدم (اسمكِ)."; return; } st=S.students.find(s=>nameKey(s.user||"")===nameKey(u))||S.students.find(s=>nameKey(s.name)===nameKey(u)); if(!st){ err.textContent="لم يُعثر على هذا الاسم. اكتبيه كما سجّلته المعلمة."; return; } }
+  else { const id=$("#stuSel").value; if(!id){ err.textContent="اختاري اسمكِ أولاً."; return; } st=S.students.find(s=>s.id===id); if(!st){ err.textContent="لم يُعثر على الاسم."; return; } }
+  if(!pw){ err.textContent="اكتبي كلمة المرور."; return; }
+  const h=await sha(st.id+":"+pw), own=pwEntry(st.id);
+  if(h!==(own?own.hash:st.hash)){ err.textContent="كلمة المرور غير صحيحة، تأكدي منها مع المعلمة."; return; }
+  S.session={role:"student",sid:st.id,name:st.name}; store.set("tj_session",S.session); startStudent(); go("home");
+  if(st.mustChange && !own && window.USERNAME_LOGIN && !window.NO_STUDENT_PWCHANGE) openMyPw(true);
+}
+async function saveMyPw(p1){
+  const s=S.session;
+  if(s.role==="teacher"){ const h=await sha("teacher:"+p1); await S.db.doc("config/teacher").set({...(teacherCfg||{}), hash:h, v:2}); teacherHash=h; teacherCfg={...(teacherCfg||{}),hash:h,v:2}; return; }
+  if(!S.uid) throw new Error("no_uid");
+  const ref=S.db.doc("pwchange/"+S.uid), rec={[s.sid]:{hash:await sha(s.sid+":"+p1), at:new Date().toISOString()}};
+  const d=await ref.get(); if(d.exists) await ref.update(rec); else await ref.set(rec);
+  S.pwch[S.uid]={...(S.pwch[S.uid]||{}),...rec};
+}
+function openMyPw(forced){
+  if(!S.session) return;
+  showModal(`<div class="mh"><h3>${forced ? "أنشئي كلمة مرور خاصة بكِ" : "تغيير كلمة المرور"}</h3><button class="btn sm" data-act="close">${forced?"لاحقاً":"إلغاء"}</button></div>
+    <form class="mb" id="myPwForm" style="max-width:460px">
+      ${forced ? `<div class="info">أهلاً ${esc(S.session.name)}! هذه أول مرة تدخلين فيها، اختاري كلمة مرور جديدة تحفظينها وتدخلين بها من الآن.</div>` : ""}
+      <div class="field"><label for="np1">كلمة المرور الجديدة (٤ أحرف أو أرقام على الأقل)</label><input class="inp" id="np1" type="password" autocomplete="new-password"></div>
+      <div class="field"><label for="np2">أعيدي كتابتها للتأكيد</label><input class="inp" id="np2" type="password" autocomplete="new-password"></div>
+      <button class="btn pri big" type="submit">حفظ كلمة المرور</button><p class="err" id="npErr"></p>
+    </form>`);
+  $("#myPwForm").addEventListener("submit", async ev=>{
+    ev.preventDefault();
+    const p1=$("#np1").value.trim(), p2=$("#np2").value.trim(), er=$("#npErr");
+    if(p1.length<4){ er.textContent="كلمة المرور ٤ أحرف أو أرقام على الأقل."; return; }
+    if(p1!==p2){ er.textContent="الكلمتان غير متطابقتين."; return; }
+    er.textContent="جارٍ الحفظ…";
+    try{ await saveMyPw(p1); closeModal(); toast("تم حفظ كلمة المرور الجديدة"); }
+    catch(e){ er.textContent="تعذر الحفظ: حسابكِ لا يملك صلاحية الحفظ في الموقع. أخبري المعلمة لتعطيكِ صلاحية «مساهمة»."; }
+  });
+  setTimeout(()=>{ const f=$("#np1"); if(f) f.focus(); },50);
+}
+window.openMyPw = openMyPw;
+function go(v){ if(v!=="panel"&&SD){ SD=null; applySite(SITE); } S.view=v; render(); window.scrollTo({top:0}); }
+
+function renderDeck(){
+  const ls = lessons(); if(S.idx>=ls.length) S.idx=Math.max(0,ls.length-1);
+  const L = ls[S.idx]; const isT = S.session&&S.session.role==="teacher";
+  let rail = "", lastUnit = "";
+  ls.forEach((l,k)=>{ if(l.unit!==lastUnit){ rail += `<h4>${esc(l.unit||"دروس")}</h4>`; lastUnit=l.unit; }
+    const r = S.myRes[l.id]; rail += `<button class="ritem ${k===S.idx?"on":""}" data-act="goto" data-i="${k}"><span class="n">${toAr(k+1)}</span><span>${esc(l.title)}${l.hidden?' <span class="badge b" style="font-size:11px">مخفي</span>':""}</span>${r?`<span class="sc">${toAr(r.score)}/${toAr(r.total)}</span>`:""}</button>`; });
+  if(isT) rail += `<div style="padding:10px"><button class="btn sm pri" data-act="addLesson" style="width:100%">+ إضافة درس جديد</button></div>`;
+  const v = L.video||{};
+  const vidHtml = (v.url ? `<video controls preload="metadata" src="${esc(v.url)}"></video>` : "") +
+    `<div class="ytcard"><div class="play">${ICON.play}</div><div class="tx"><b>${v.yt?esc(SITE.vidT):"شرح "+esc(SITE.sheikhLbl)}</b><div class="note">${v.yt?"مقطع اختارته المعلمة لهذا الدرس.":"نتائج يوتيوب لدرس «"+esc(L.title)+"» من شروح "+esc(SITE.sheikhLbl)+"."} يفتح في نافذة جديدة.</div></div><a href="${esc(v.yt||ytSearch(L.title))}" target="_blank" rel="noopener">${v.yt&&!/youtu/.test(v.yt)?"شاهدي المقطع":"شاهدي على يوتيوب"}</a></div>`;
+  const tqHtml = isT ? `<section class="blk" id="b-tq"><h3 class="bt"><span class="ico">${ICON.lock}</span>أسئلة المعلمة <span class="secret">لا تظهر للطالبات</span></h3>${renderTQ(L)}</section>` : "";
+  app().innerHTML = topbar() + `<div class="deck wrap">
+    <nav class="rail ${S.railOpen?"open":""}" aria-label="الدروس">${rail}</nav><div class="scrim" data-act="rail" ${S.railOpen?"":"hidden"}></div>
+    <article class="slide" id="slide">
+      <div class="hero"><div class="unit">الدرس ${toAr(S.idx+1)} · ${esc(L.unit||"")}</div><h2>${esc(L.title)}</h2>
+        <div class="row">${isT?`<button data-act="edit">تعديل الدرس</button><button data-act="print">ورقة اختبار A5</button>`:""}</div></div>
+      <div class="jump">${SITE.showMap?`<button data-act="jump" data-to="b-map">${esc(SITE.mapT)}</button>`:""}<button data-act="jump" data-to="b-ct">${esc(SITE.contentT)}</button>${SITE.showVid?`<button data-act="jump" data-to="b-vid">${esc(SITE.vidT)}</button>`:""}<button data-act="jump" data-to="b-quiz">${esc(SITE.quizT)}</button>${isT?`<button data-act="jump" data-to="b-tq">أسئلة المعلمة</button>`:""}</div>
+      <div class="sbody">
+        ${SITE.showMap?`<section class="blk" id="b-map"><h3 class="bt"><span class="ico">${ICON.map}</span>${esc(SITE.mapT)}</h3>${renderMap(L.map,L.id)}</section>`:""}
+        <section class="blk" id="b-ct"><h3 class="bt"><span class="ico">${ICON.book}</span>${esc(SITE.contentT)}</h3>${renderContent(L.content)}</section>
+        ${SITE.showVid?`<section class="blk" id="b-vid"><h3 class="bt"><span class="ico">${ICON.play}</span>${esc(SITE.vidT)}</h3><div class="vid">${vidHtml}</div></section>`:""}
+        <section class="blk" id="b-quiz"><h3 class="bt"><span class="ico">${ICON.quiz}</span>${esc(SITE.quizT)}</h3>${renderQuiz(L)}</section>
+        ${tqHtml}
+      </div>
+    </article></div>
+  <div class="nav wrap"><div class="in">
+    <button class="btn" data-act="prev" ${S.idx===0?"disabled":""}>→ السابق</button>
+    <div class="dots" ${SITE.showDots?"":"hidden"}>${ls.map((l,k)=>`<i class="${k===S.idx?"on":S.myRes[l.id]?"done":""}"></i>`).join("")}</div>
+    <span class="cnt">${toAr(S.idx+1)} / ${toAr(ls.length)}</span>
+    <button class="btn pri" data-act="next" ${S.idx===ls.length-1?"disabled":""}>التالي ←</button>
+  </div></div>`;
+}
+
+/* ============ quiz ============ */
+const TY = {tf:"صح أم خطأ", mc:"اختيار من متعدد", fill:"أكملي الفراغ", w:"سؤال كتابي"};
+function qState(lid){ return S.quizState[lid] || (S.quizState[lid]={ans:{},done:false}); }
+function renderQuiz(L){
+  const qs = L.quiz||[]; if(!qs.length) return `<p class="note">لا توجد أسئلة لهذا الدرس بعد.</p>`;
+  const st = qState(L.id); let correct=0;
+  const cards = qs.map((q,k)=>{
+    const a = st.ans[k]; let ok=null, body="", fb="";
+    if(st.done) ok = grade(q,a);
+    if(ok) correct++;
+    if(q.t==="tf"){
+      body = `<div class="opts">${[true,false].map(v=>{ let c=a===v?"sel":""; if(st.done){ if(v===q.a) c="ok"; else if(a===v) c="bad"; } return `<button class="opt ${c}" data-act="ans" data-k="${k}" data-v="${v}" ${st.done?"disabled":""}><span class="bul"></span>${v?"صح":"خطأ"}</button>`; }).join("")}</div>`;
+    } else if(q.t==="mc"){
+      body = `<div class="opts">${q.o.map((o,j)=>{ let c=a===j?"sel":""; if(st.done){ if(j===q.a) c="ok"; else if(a===j) c="bad"; } return `<button class="opt ${c}" data-act="ans" data-k="${k}" data-v="${j}" ${st.done?"disabled":""}><span class="bul"></span>${inline(o)}</button>`; }).join("")}</div>`;
+    } else {
+      body = `<input class="inp fillin" data-fill="${k}" value="${esc(a||"")}" placeholder="اكتبي الإجابة هنا" ${st.done?"disabled":""}>`;
+    }
+    if(st.done){
+      const right = q.t==="tf"?(q.a?"صح":"خطأ"):q.t==="mc"?q.o[q.a]:(Array.isArray(q.a)?q.a[0]:q.a);
+      fb = ok ? `<div class="fb ok"><b>إجابة صحيحة.</b> ${q.ex?inline(q.ex):""}</div>` : `<div class="fb bad"><b>الإجابة الصحيحة:</b> ${inline(right)}${q.ex?` — ${inline(q.ex)}`:""}</div>`;
+    }
+    return `<div class="qc ${st.done?(ok?"ok":"bad"):""}"><div class="qh"><span class="qn">${toAr(k+1)}</span><span class="qt">${inline(q.q)}</span><span class="ty">${TY[q.t]}</span></div>${body}${fb}</div>`;
+  }).join("");
+  let foot;
+  if(st.done){
+    const total = qs.length, band = correct===total?5:correct>=total-1?4:correct>=Math.ceil(total/2)?3:0;
+    const pct = correct/total, C = 2*Math.PI*40;
+    foot = `<div class="score"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="var(--line)" stroke-width="10"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--pink)" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C*pct} ${C}" transform="rotate(-90 50 50)"/><text x="50" y="57" text-anchor="middle" font-size="22" font-weight="800" fill="var(--ink)" font-family="Tajawal">${toAr(correct)}/${toAr(total)}</text></svg>
+      <div class="msg"><h4>درجتكِ ${toAr(correct)} من ${toAr(total)}</h4><p style="margin:4px 0 8px">${st.msg||""}</p><button class="btn sm" data-act="retry">أعيدي المحاولة</button></div></div>`;
+  } else foot = `<div class="qfoot"><button class="btn pri" data-act="submit">صححي إجاباتي</button><span class="note" id="qwarn"></span></div>`;
+  return `<div class="quiz">${cards}${foot}</div>`;
+}
+function grade(q,a){
+  if(a===undefined||a===null||a==="") return false;
+  if(q.t==="tf") return a===q.a;
+  if(q.t==="mc") return a===q.a;
+  const alts = (Array.isArray(q.a)?q.a:String(q.a).split("/")).map(norm);
+  const n = norm(a), n2 = n.replace(/^ال/,"");
+  return alts.some(x=>x===n || x.replace(/^ال/,"")===n2);
+}
+async function submitQuiz(){
+  const L = lessons()[S.idx], st = qState(L.id), qs=L.quiz;
+  document.querySelectorAll("[data-fill]").forEach(el=>st.ans[+el.dataset.fill]=el.value);
+  const missing = qs.filter((q,k)=>st.ans[k]===undefined||st.ans[k]==="").length;
+  if(missing && !st.warned){ st.warned=true; const w=$("#qwarn"); if(w) w.textContent=`بقي ${toAr(missing)} سؤال بلا إجابة. اضغطي مرة أخرى للتصحيح على أي حال.`; return; }
+  st.done=true; const score = qs.filter((q,k)=>grade(q,st.ans[k])).length, total=qs.length;
+  const band = score===total?5:score>=total-1?4:score>=Math.ceil(total/2)?3:0; st.msg = pick(motiveFor(band));
+  renderDeck(); document.getElementById("b-quiz").scrollIntoView({behavior:"smooth",block:"start"});
+  if(!S.session||S.session.role==="student") saveResult(L,score,total,qs.map((q,k)=>grade(q,st.ans[k])?null:k).filter(x=>x!==null));
+}
+async function saveResult(L,score,total,wrong){
+  const rec = {sid:S.session?S.session.sid:"guest", name:S.session?S.session.name:"", lesson:L.id, title:L.title, score, total, wrong, at:new Date().toISOString()};
+  S.myRes[L.id]=rec;
+  if(!S.session){ store.set("tj_guest",S.myRes); return; }
+  if(!S.db||!S.uid) return;
+  const key = S.session.sid+"__"+L.id, ref = S.db.doc("results/"+S.uid);
+  try{ const d = await ref.get(); if(d.exists) await ref.update({[key]:rec}); else await ref.set({[key]:rec}); toast("حُفظت درجتكِ وأُرسلت للمعلمة"); }
+  catch(e){ toast("لم تُحفظ الدرجة: حسابكِ لا يملك صلاحية الحفظ. أخبري المعلمة."); }
+}
+
+/* ============ teacher questions ============ */
+function tqItems(L){ return (S.tq[L.id]&&S.tq[L.id].items)||[]; }
+function renderTQ(L){
+  const it = tqItems(L);
+  if(!it.length) return `<p class="note">لا توجد أسئلة خاصة لهذا الدرس بعد. أضيفيها من «تعديل الدرس».</p>`;
+  return `<div class="tqlist">${it.map((q,k)=>`<div class="tqi"><b>${toAr(k+1)}. </b>${inline(q.q)} <span class="ty" style="font-size:12px">${TY[q.t]||""}</span>
+    ${q.t==="mc"?`<div class="note">${q.o.map((o,j)=>`${"أبجد"[j]||"-"}) ${esc(o)}`).join(" · ")}</div>`:""}
+    <div class="ans">الإجابة: ${esc(q.t==="tf"?(q.a?"صح":"خطأ"):q.t==="mc"?q.o[q.a]:q.a)}</div></div>`).join("")}</div>
+    <div style="margin-top:12px"><button class="btn pri" data-act="print">تحميل ورقة اختبار A5 (PDF)</button></div>`;
+}
+
+/* ============ teacher panel ============ */
+function renderPanel(){
+  const t = S.panelTab;
+  let body = "";
+  if(t==="students"){
+    body = `<div class="card"><h2>إضافة طالبة</h2><form id="addStu" class="two" style="align-items:end">
+      <div class="field"><label for="nsName">اسم الطالبة كاملاً</label><input class="inp" id="nsName" required></div>
+      <div class="field"><label for="nsUser">اسم المستخدم للدخول</label><input class="inp" id="nsUser" placeholder="تلقائياً: الاسم الأول واسم الأب"></div>
+      <div class="field"><label for="nsPw">كلمة المرور الخاصة بها</label><input class="inp" id="nsPw" required value="${Math.floor(1000+Math.random()*9000)}"></div>
+      <div><button class="btn pri" type="submit">إضافة الطالبة</button></div></form><p class="err" id="nsErr"></p></div>
+      <div class="card"><h2>الطالبات (${toAr(S.students.length)})</h2>
+      ${S.students.length?`<div class="dtable"><table><thead><tr><th>الاسم</th><th>كلمة المرور</th><th>الدروس المنجزة</th><th></th></tr></thead><tbody>
+      ${S.students.slice().sort((a,b)=>a.name.localeCompare(b.name,"ar")).map(s=>{ const n=new Set(S.results.filter(r=>r.sid===s.id).map(r=>r.lesson)).size;
+        return `<tr><td><b>${esc(s.name)}</b>${s.user?`<div class="note">اسم المستخدم: ${esc(s.user)}</div>`:""}</td><td>${(S.pw[s.id]||{}).pw&&!(typeof pwChanged==="function"&&!window.STANDALONE&&pwChanged(s.id))?`<span class="pwd">${esc(S.pw[s.id].pw)}</span>`:`<span class="note">${window.USERNAME_LOGIN?"غيّرتها الطالبة":"—"}</span>`}</td><td>${toAr(n)}</td><td style="white-space:nowrap"><button class="btn sm" data-act="resetPw" data-id="${s.id}">كلمة مرور جديدة</button> <button class="btn sm danger" data-act="delStu" data-id="${s.id}">${S.confirmDel===s.id?"تأكيد الحذف":"حذف"}</button></td></tr>`; }).join("")}
+      </tbody></table></div>`:`<p class="note">لم تضيفي طالبات بعد. أضيفي أول طالبة من النموذج أعلاه، ثم أعطيها اسمها وكلمة المرور.</p>`}</div>`;
+  } else if(t==="results"){
+    const rows = S.results.slice().sort((a,b)=>String(b.at).localeCompare(String(a.at)));
+    body = `<div class="card"><h2>نتائج الطالبات</h2><p class="note">تُحدَّث تلقائياً عند حل أي طالبة لاختبار. تظهر آخر محاولة لكل طالبة في كل درس.</p>
+    ${rows.length?`<div class="dtable"><table><thead><tr><th>الطالبة</th><th>الدرس</th><th>الدرجة</th><th>التاريخ</th></tr></thead><tbody>
+    ${rows.map(r=>{ const c=r.score===r.total?"g":r.score>=r.total/2?"m":"b"; return `<tr><td>${esc(r.name)}</td><td>${esc(r.title)}</td><td><span class="badge ${c}">${toAr(r.score)} / ${toAr(r.total)}</span></td><td>${esc(new Date(r.at).toLocaleDateString("ar-SA",{day:"numeric",month:"short"}))}</td></tr>`; }).join("")}
+    </tbody></table></div>`:`<p class="note">لا توجد نتائج بعد. ستظهر هنا عندما تحل الطالبات اختبارات «اختبري معلوماتك».</p>`}</div>`;
+  } else body = settingsBody();
+  app().innerHTML = topbar() + `<main class="panel wrap"><div class="tabs">
+    <button class="${t==="students"?"on":""}" data-act="ptab" data-t="students">الطالبات</button>
+    <button class="${t==="results"?"on":""}" data-act="ptab" data-t="results">النتائج</button>
+    <button class="${t==="settings"?"on":""}" data-act="ptab" data-t="settings">إعدادات الموقع</button></div>${body}</main>`;
+  const f=$("#addStu"); if(f) f.addEventListener("submit",e=>{e.preventDefault(); addStudent();});
+  if(t==="settings") bindSettings();
+  const c=$("#chPw"); if(c) c.addEventListener("submit",async e=>{e.preventDefault(); const v=$("#cpw").value.trim(); if(v.length<4) return toast("كلمة المرور ٤ أحرف على الأقل"); try{ await saveMyPw(v); toast("تم تغيير كلمة المرور"); $("#cpw").value=""; }catch(err){ toast("تعذر تغيير كلمة المرور"); } });
+}
+async function addStudent(){
+  const name=$("#nsName").value.trim(), pw=$("#nsPw").value.trim(), err=$("#nsErr"); err.textContent="";
+  if(!name||pw.length<3){ err.textContent="اكتبي الاسم وكلمة مرور من ٣ أحرف أو أرقام على الأقل."; return; }
+  if(S.students.some(s=>nameKey(s.name)===nameKey(name))){ err.textContent="هذا الاسم موجود مسبقاً."; return; }
+  const user = ($("#nsUser").value.trim() || name.split(/\s+/).slice(0,2).join(" "));
+  const taken = S.students.find(s=>nameKey(s.user||"")===nameKey(user) || nameKey(s.name)===nameKey(user));
+  if(taken){ err.textContent=`اسم المستخدم «${user}» مستخدم لطالبة أخرى (${taken.name}). اكتبي اسم مستخدم مختلفاً، مثل الاسم الأول واسم العائلة.`; return; }
+  const id = uid("s");
+  try{ await S.db.doc("students/"+id).set({name, user, hash:await sha(id+":"+pw), mustChange:true, at:new Date().toISOString()}); await S.db.doc("studentpw/"+id).set({pw}); toast(`أُضيفت ${name} — اسم المستخدم: ${user} — كلمة المرور: ${pw}`); $("#nsName").value=""; $("#nsUser").value=""; }
+  catch(e){ err.textContent=window.GH_ERR||"تعذر الحفظ. تأكدي أنكِ تفتحين الموقع من حسابكِ."; window.GH_ERR=null; }
+}
+
+
+/* ============ site settings panel ============ */
+let SD=null, SD_DIRTY=false;
+const FS_OPTS=[["15","صغير"],["17","متوسط"],["19","كبير"],["21","كبير جداً"]];
+const TH_OPTS=[["auto","حسب الجهاز"],["light","فاتح"],["dark","داكن"]];
+function sIn(k,label,ph){ return `<div class="field"><label for="s_${k}">${label}</label><input class="inp" id="s_${k}" data-s="${k}" value="${esc(SD[k])}" ${ph?`placeholder="${esc(ph)}"`:""}></div>`; }
+function sTa(k,label,hint,h){ return `<div class="field"><label for="s_${k}">${label}</label><textarea class="inp" id="s_${k}" data-s="${k}" style="min-height:${h||110}px">${esc(SD[k])}</textarea>${hint?`<span class="note">${hint}</span>`:""}</div>`; }
+function sTg(k,label){ return `<label class="tgl"><input type="checkbox" data-s="${k}" ${SD[k]?"checked":""}> ${label}</label>`; }
+function settingsBody(){
+  if(!SD){ SD={...SITE}; SD_DIRTY=false; }
+  const ls=lessons();
+  return `<div class="sets">
+  <div class="info">كل ما تغيّرينه هنا يظهر لكِ فوراً للمعاينة، ولا يُنشر للطالبات إلا بعد الضغط على «حفظ ونشر الإعدادات» في الأسفل.</div>
+  <div class="card"><h2>هوية الموقع</h2><div class="two">${sIn("name","اسم الموقع")}${sIn("sub","العنوان الفرعي (تحت الاسم)")}${sIn("teacher","اسم المعلمة (يظهر في الورقة وأعلى الموقع)")}${sIn("welcomeT","عنوان صفحة الدخول")}</div>${sTa("welcomeP","نص الترحيب في صفحة الدخول","",80)}</div>
+  <div class="card"><h2>الألوان والمظهر</h2>
+    <div class="field"><label>ألوان جاهزة</label><div class="swatches">${PRESETS.map((p,k)=>`<button class="sw ${SD.c1===p.c1&&SD.c2===p.c2?"on":""}" data-act="preset" data-k="${k}"><i style="background:linear-gradient(120deg,${p.c1},${p.c2})"></i>${p.n}</button>`).join("")}</div></div>
+    <div class="field"><label>أو اختاري لونيكِ</label><div class="colors"><label>اللون الأول <input type="color" data-s="c1" value="${esc(SD.c1)}"></label><label>اللون الثاني <input type="color" data-s="c2" value="${esc(SD.c2)}"></label></div></div>
+    <div class="field"><label>حجم الخط</label><div class="seg">${FS_OPTS.map(([v,n])=>`<button class="${String(SD.fs)===v?"on":""}" data-act="sset" data-k="fs" data-v="${v}">${n}</button>`).join("")}</div></div>
+    <div class="field"><label>الوضع</label><div class="seg">${TH_OPTS.map(([v,n])=>`<button class="${SD.theme===v?"on":""}" data-act="sset" data-k="theme" data-v="${v}">${n}</button>`).join("")}</div></div>
+  </div>
+  <div class="card"><h2>أقسام الشريحة وعناوينها</h2><div class="two">${sIn("mapT","عنوان الخريطة الذهنية")}${sIn("contentT","عنوان الشرح")}${sIn("vidT","عنوان المقطع")}${sIn("quizT","عنوان الاختبار الذاتي")}</div>
+    <div style="display:grid;gap:8px">${sTg("showMap","إظهار الخريطة الذهنية")}${sTg("showVid","إظهار قسم المقطع")}${sTg("showDots","إظهار نقاط التقدم أسفل الشاشة")}</div></div>
+  <div class="card"><h2>مقاطع يوتيوب</h2><div class="two">${sIn("sheikh","كلمة البحث في يوتيوب مع عنوان الدرس","أيمن سويد")}${sIn("sheikhLbl","الاسم الظاهر على زر المقطع","د. أيمن سويد")}</div><p class="note">يُفتح يوتيوب بالبحث عن هذه الكلمة مع عنوان الدرس، إلا إذا وضعتِ رابطاً خاصاً للدرس من «تعديل الدرس».</p></div>
+  <div class="card"><h2>العبارات التحفيزية بعد الاختبار</h2><p class="note">اكتبي كل عبارة في سطر، وتظهر للطالبة عبارة عشوائية منها حسب درجتها.</p>
+    <div class="two">${sTa("m5","عند الدرجة الكاملة")}${sTa("m4","عند خطأ واحد")}${sTa("m3","عند نصف الدرجة أو أكثر")}${sTa("m0","عند أقل من النصف")}</div></div>
+  <div class="card"><h2>ورقة الاختبار A5</h2>${sIn("sheetT","السطر الصغير أعلى عنوان الدرس")}${sTa("sheetM","العبارات التحفيزية أسفل الورقة","كل عبارة في سطر، وتختارين منها عند تحميل الورقة.")}</div>
+  <div class="card"><h2>ترتيب الدروس وإظهارها</h2><p class="note">تُحفظ هذه التغييرات فوراً. الدرس المخفي لا يظهر للطالبات ويبقى ظاهراً لكِ.</p>
+    <div style="display:grid;gap:6px">${ls.map((l,k)=>`<div class="lrow ${l.hidden?"hid":""}"><b>${toAr(k+1)}</b><span class="t">${esc(l.title)}</span>
+      <button class="btn sm" data-act="lmove" data-id="${l.id}" data-d="-1" ${k===0?"disabled":""} aria-label="تقديم">↑</button><button class="btn sm" data-act="lmove" data-id="${l.id}" data-d="1" ${k===ls.length-1?"disabled":""} aria-label="تأخير">↓</button>
+      <button class="btn sm ${l.hidden?"pri":""}" data-act="lhide" data-id="${l.id}">${l.hidden?"إظهار":"إخفاء"}</button></div>`).join("")}</div></div>
+  ${window.extraSettings?window.extraSettings():""}
+  <div class="card"><h2>تغيير كلمة مرور المعلمة</h2>${window.USERNAME_LOGIN?`<p class="note" style="margin-top:0">اسم المستخدم للدخول: <b>نهى</b></p>`:""}<form id="chPw" class="two" style="align-items:end"><div class="field"><label for="cpw">كلمة المرور الجديدة</label><input class="inp" id="cpw" type="password" autocomplete="new-password"></div><div><button class="btn pri" type="submit">حفظ كلمة المرور</button></div></form></div>
+  <div class="card"><h2>مشاركة الموقع مع الطالبات</h2>${window.SUPABASE?`<p>أرسلي رابط موقعكِ للطالبات. كل طالبة تدخل باسمها (اسم المستخدم) وكلمة المرور البسيطة التي أعطيتِها، وفي أول دخول يُطلب منها إنشاء كلمة مرور خاصة بها، وتستطيع تغييرها لاحقاً بالضغط على اسمها أعلى الموقع. درجاتها تُحفظ وتصلكِ تلقائياً.</p><p class="note">جميع البيانات محفوظة في مشروعكِ على Supabase.</p>`:window.GITHUB?`<p>أرسلي رابط موقعكِ على GitHub Pages للطالبات. كل طالبة تدخل باسمها (اسم المستخدم) وكلمة المرور التي وضعتِها لها هنا، وتستطيعين تغيير كلمة مرور أي طالبة بزر «كلمة مرور جديدة». درجات كل طالبة تُحفظ على جهازها وتراها في «تقدّمي».</p><p class="note">بعد أي حفظ يحتاج GitHub دقيقة تقريباً حتى يظهر التعديل للطالبات.</p>`:window.STANDALONE?`<p>أرسلي رابط موقعكِ للطالبات. كل طالبة تدخل باسمها كما أضفتِه (اسم المستخدم) وبكلمة المرور البسيطة التي أعطيتِها، وفي أول دخول يُطلب منها إنشاء كلمة مرور خاصة بها. وتستطيع تغييرها لاحقاً بالضغط على اسمها أعلى الموقع.</p><p class="note">جميع البيانات محفوظة في الملف data/db.php على استضافتكِ. خذي منه نسخة احتياطية بين فترة وأخرى.</p>`:window.GAS?`<p>أرسلي رابط الموقع للطالبات، ويفتح لأي طالبة بدون حساب. كل طالبة تدخل باسمها وكلمة المرور التي أضفتِها لها، وتُحفظ درجاتها وتصلكِ تلقائياً. جميع البيانات محفوظة في ملف «بيانات موقع التجويد» في Google Drive الخاص بكِ.</p>`:`<p>شاركي رابط الموقع من زر المشاركة، واجعلي صلاحية الطالبات <b>«Contributor / مساهمة»</b> حتى تُحفظ درجاتهن وتصلكِ. الطالبة التي تفتح الرابط بصلاحية مشاهدة فقط تستطيع الدراسة وحل الاختبارات، لكن درجتها لا تُحفظ.</p>`}<p class="note">كلمات مرور الطالبات هنا لتنظيم الدخول داخل الفصل، وليست حماية أمنية مشددة.</p></div>
+  <div class="savebar"><button class="btn pri" data-act="ssave">حفظ ونشر الإعدادات</button><button class="btn" data-act="sundo">تراجع عن التغييرات</button><div class="sp"></div><button class="btn sm danger" data-act="sreset">${S.confirmReset?"تأكيد الاستعادة":"استعادة الإعدادات الأصلية"}</button><span class="note" id="sstat">${SD_DIRTY?"لديكِ تغييرات غير محفوظة":""}</span></div>
+  </div>`;
+}
+function bindSettings(){
+  if(window.bindExtraSettings) window.bindExtraSettings();
+  document.querySelectorAll("[data-s]").forEach(el=>{
+    const ev = el.type==="checkbox"||el.type==="color" ? "change" : "input";
+    el.addEventListener(ev,()=>{ SD[el.dataset.s] = el.type==="checkbox" ? el.checked : el.value; sChanged(el.type==="checkbox"||el.type==="color"); });
+    if(el.type==="color") el.addEventListener("input",()=>{ SD[el.dataset.s]=el.value; applySite(SD); });
+  });
+}
+function sChanged(redraw){
+  SD_DIRTY=true; applySite(SD);
+  const st=$("#sstat"); if(st) st.textContent="لديكِ تغييرات غير محفوظة";
+  const br=$(".brand"); if(br) br.innerHTML=`${MARK}<div>${esc(SD.name)}<small>${esc(SD.sub)}</small></div>`;
+  if(redraw){ const y=window.scrollY; renderPanel(); window.scrollTo({top:y}); }
+}
+async function saveSite(){
+  try{ await S.db.doc("site/main").set({...SD, savedAt:new Date().toISOString()}); SITE={...SITE_DEF,...SD}; store.set("tj_site",SITE); SD_DIRTY=false; S.session.name=SITE.teacher; store.set("tj_session",S.session); toast("حُفظت الإعدادات ونُشرت للجميع"); const y=window.scrollY; renderPanel(); window.scrollTo({top:y}); }
+  catch(e){ toast("تعذر الحفظ: تأكدي أنكِ تفتحين الموقع من حسابكِ."); }
+}
+async function patchLesson(id,patch){
+  const ref=S.db.doc("lessons/"+id);
+  if(S.over[id]) await ref.update(patch); else await ref.set(patch);
+  S.over[id]={...(S.over[id]||{}),...patch};
+}
+async function moveLesson(id,d){
+  const ls=lessons(), i=ls.findIndex(l=>l.id===id), j=i+d; if(i<0||j<0||j>=ls.length) return;
+  let oa=ls[i].order||i+1, ob=ls[j].order||j+1; if(oa===ob) ob=oa+d;
+  try{ await patchLesson(ls[i].id,{order:ob}); await patchLesson(ls[j].id,{order:oa}); const y=window.scrollY; renderPanel(); window.scrollTo({top:y}); }
+  catch(e){ toast("تعذر تغيير الترتيب"); }
+}
+
+/* ============ lesson editor ============ */
+let ED = null;
+function openEditor(L, isNew){
+  ED = { tab:"info", L: JSON.parse(JSON.stringify({id:L.id,unit:L.unit||"",title:L.title||"",content:L.content||"",map:L.map||"",quiz:L.quiz||[],video:L.video||{yt:"",url:"",asset:""},order:L.order})), tq: JSON.parse(JSON.stringify(tqItems(L))), isNew, isDefault:!!DEF_MAP[L.id] };
+  drawEditor();
+}
+function qEditor(list, kind){
+  return list.map((q,k)=>`<div class="qed" data-kind="${kind}" data-k="${k}">
+    <div class="row"><b>${toAr(k+1)}.</b><select class="inp" style="width:auto" data-f="t">${Object.entries(TY).filter(([t])=>kind==="tq"||t!=="w").map(([t,n])=>`<option value="${t}" ${q.t===t?"selected":""}>${n}</option>`).join("")}</select><div class="sp"></div><button class="btn sm danger" data-act="qdel" data-kind="${kind}" data-k="${k}">حذف السؤال</button></div>
+    <input class="inp" data-f="q" value="${esc(q.q)}" placeholder="نص السؤال (للفراغ اكتبي ____)">
+    ${q.t==="tf"?`<div class="row"><span>الإجابة الصحيحة:</span><select class="inp" style="width:auto" data-f="a"><option value="true" ${q.a===true?"selected":""}>صح</option><option value="false" ${q.a===false?"selected":""}>خطأ</option></select></div>`:""}
+    ${q.t==="mc"?`${(q.o||["","","",""]).map((o,j)=>`<div class="row"><input type="radio" name="c_${kind}_${k}" data-f="a" value="${j}" ${q.a===j?"checked":""} aria-label="الإجابة الصحيحة"><input class="inp" style="flex:1" data-f="o" data-j="${j}" value="${esc(o)}" placeholder="الخيار ${toAr(j+1)}"></div>`).join("")}<p class="note" style="margin:0">حددي الدائرة بجانب الإجابة الصحيحة.</p>`:""}
+    ${q.t==="fill"?`<input class="inp" data-f="a" value="${esc(Array.isArray(q.a)?q.a.join(" / "):q.a||"")}" placeholder="الإجابة (ويمكن كتابة أكثر من صيغة بينها /)">`:""}
+    ${q.t==="w"?`<input class="inp" data-f="a" value="${esc(q.a||"")}" placeholder="الإجابة النموذجية (تظهر لكِ فقط)">`:""}
+    ${kind==="quiz"?`<input class="inp" data-f="ex" value="${esc(q.ex||"")}" placeholder="توضيح يظهر بعد التصحيح (اختياري)">`:""}
+  </div>`).join("");
+}
+function readQEditors(){
+  document.querySelectorAll(".qed").forEach(box=>{
+    const kind=box.dataset.kind, k=+box.dataset.k, list = kind==="quiz"?ED.L.quiz:ED.tq, q=list[k];
+    q.q = box.querySelector('[data-f="q"]').value;
+    const ex = box.querySelector('[data-f="ex"]'); if(ex) q.ex = ex.value;
+    if(q.t==="tf") q.a = box.querySelector('[data-f="a"]').value==="true";
+    if(q.t==="mc"){ q.o=[...box.querySelectorAll('[data-f="o"]')].map(x=>x.value); const r=box.querySelector('[data-f="a"]:checked'); q.a = r?+r.value:0; }
+    if(q.t==="fill") q.a = box.querySelector('[data-f="a"]').value.split("/").map(s=>s.trim()).filter(Boolean);
+    if(q.t==="w") q.a = box.querySelector('[data-f="a"]').value;
+  });
+}
+function readEditorFields(){
+  const g = id => { const el=document.getElementById(id); return el?el.value:undefined; };
+  if(g("edTitle")!==undefined){ ED.L.title=g("edTitle"); ED.L.unit=g("edUnit"); ED.L.video.yt=g("edYt").trim(); }
+  if(g("edContent")!==undefined) ED.L.content=g("edContent");
+  if(g("edMap")!==undefined) ED.L.map=g("edMap");
+  readQEditors();
+}
+function drawEditor(){
+  const t=ED.tab, L=ED.L; let b="";
+  if(t==="info") b = `<div class="two"><div class="field"><label for="edTitle">عنوان الدرس</label><input class="inp" id="edTitle" value="${esc(L.title)}"></div><div class="field"><label for="edUnit">الوحدة</label><input class="inp" id="edUnit" value="${esc(L.unit)}"></div></div>
+    <div class="field"><label for="edYt">رابط مقطع الدرس: يوتيوب أو Google Drive أو أي رابط (اختياري، بدون حد للحجم)</label><input class="inp" id="edYt" dir="ltr" value="${esc(L.video.yt)}" placeholder="https://www.youtube.com/watch?v=..."><span class="note">إذا تركتِه فارغاً يظهر زر يفتح دروس د. أيمن سويد بعنوان الدرس نفسه. يفتح يوتيوب في نافذة جديدة.</span></div>
+    ${window.GAS?"":`<div class="field"><label for="edFile">أو ارفعي مقطع الدرس من جهازكِ (يُعرض داخل الشريحة)</label><input class="inp" id="edFile" type="file" accept="video/*">${L.video.url?`<div class="row" style="display:flex;gap:8px;align-items:center;margin-top:6px"><span class="badge g">مقطع مرفوع</span><button class="btn sm danger" data-act="rmVid">إزالة المقطع</button></div>`:""}<span class="note" id="upMsg">${S.assets?"الحد الأقصى للرفع المباشر ٢٠ ميغابايت. للمقاطع الأكبر ارفعيها على يوتيوب (غير مدرج) أو Google Drive وضعي رابطها في الحقل أعلاه.":"رفع المقاطع متاح لصاحبة الموقع فقط."}</span></div>`}`;
+  if(t==="content") b = `<div class="note">صيغة الكتابة: <b>## عنوان فقرة</b> · <b>- نقطة</b> · <b>1. ترقيم</b> · <b>!! تنبيه</b> · <b>&gt;&gt; ملحوظة</b> · <b>? سؤال</b> و<b>= جواب</b> · <b>~ شطر || شطر</b> · <b>| خلية | خلية |</b> للجداول · <b>**غامق**</b> · {مثال} · ﴿آية﴾</div>
+    <div class="two"><textarea class="inp" id="edContent" style="min-height:420px">${esc(L.content)}</textarea><div class="prev" id="edPrev">${renderContent(L.content)}</div></div>`;
+  if(t==="map") b = `<div class="note">السطر الأول: الفكرة المركزية. ثم <b>- فرع</b>، وتحته <b>&nbsp;&nbsp;- تفصيل</b> (بمسافتين).</div><div class="two"><textarea class="inp" id="edMap" style="min-height:380px">${esc(L.map)}</textarea><div class="prev" id="edMapPrev">${renderMap(L.map)}</div></div>`;
+  if(t==="quiz") b = `<div class="info">أسئلة «${esc(SITE.quizT)}» تظهر للطالبات وتُصحَّح تلقائياً. المقترح ٥ أسئلة (درجة لكل سؤال).</div>${qEditor(L.quiz,"quiz")}<button class="btn" data-act="qadd" data-kind="quiz">+ إضافة سؤال</button>`;
+  if(t==="tq") b = `<div class="info"><span class="secret">${ICON.lock} خاصة بكِ</span> هذه الأسئلة لا تظهر للطالبات، وتُطبع في ورقة A5. المقترح ٣ أو ٤ أسئلة.</div>${qEditor(ED.tq,"tq")}<button class="btn" data-act="qadd" data-kind="tq">+ إضافة سؤال</button>`;
+  const tabs=[["info","البيانات والمقطع"],["content","الشرح"],["map","الخريطة الذهنية"],["quiz",SITE.quizT],["tq","أسئلة المعلمة"]];
+  showModal(`<div class="mh"><h3>${ED.isNew?"درس جديد":"تعديل: "+esc(L.title)}</h3>${ED.isDefault&&!ED.isNew&&S.over[L.id]?`<button class="btn sm" data-act="restore">${S.confirmRestore?"تأكيد الاستعادة":"استعادة النص الأصلي"}</button>`:""}${!ED.isDefault&&!ED.isNew?`<button class="btn sm danger" data-act="delLesson">${S.confirmDelLesson?"تأكيد حذف الدرس":"حذف الدرس"}</button>`:""}<button class="btn sm" data-act="close">إلغاء</button><button class="btn sm pri" data-act="saveLesson">حفظ ونشر</button></div>
+    <div class="mb"><div class="tabs">${tabs.map(([k,n])=>`<button class="${t===k?"on":""}" data-act="etab" data-t="${k}">${n}</button>`).join("")}</div>${b}</div>`);
+  const c=$("#edContent"); if(c) c.addEventListener("input",()=>{ $("#edPrev").innerHTML=renderContent(c.value); });
+  const m=$("#edMap"); if(m) m.addEventListener("input",()=>{ $("#edMapPrev").innerHTML=renderMap(m.value); });
+  const f=$("#edFile"); if(f) f.addEventListener("change",uploadVideo);
+}
+async function uploadVideo(e){
+  const file=e.target.files[0]; if(!file) return; const msg=$("#upMsg");
+  if(!S.assets){ msg.textContent="رفع المقاطع غير متاح في هذه النافذة."; return; }
+  msg.textContent="جارٍ رفع المقطع…";
+  try{ const r = await S.assets.upload(file); ED.L.video.url=r.url; ED.L.video.asset=r.id; msg.textContent="تم رفع المقطع. اضغطي «حفظ ونشر»."; }
+  catch(err){ msg.textContent = err&&err.code==="too_large" ? "المقطع أكبر من ٢٠ ميغابايت. ارفعيه على يوتيوب (غير مدرج) أو Google Drive وضعي رابطه في حقل الرابط أعلاه." : "تعذر رفع المقطع، حاولي مرة أخرى."; }
+}
+async function saveLesson(){
+  readEditorFields(); const L=ED.L;
+  if(!L.title.trim()) return toast("اكتبي عنوان الدرس");
+  try{
+    await S.db.doc("lessons/"+L.id).set({...L, savedAt:new Date().toISOString()});
+    await S.db.doc("tq/"+L.id).set({items:ED.tq});
+    S.over[L.id]=L; S.tq[L.id]={items:ED.tq}; closeModal(); toast("حُفظ الدرس ونُشر للجميع");
+    const i = lessons().findIndex(x=>x.id===L.id); if(i>=0) S.idx=i; renderDeck();
+  }catch(e){ toast("تعذر الحفظ: تأكدي أنكِ تفتحين الموقع من حسابكِ."); }
+}
+function showModal(html){ let m=$("#modal"); if(!m){ m=document.createElement("div"); m.id="modal"; m.className="modal"; m.setAttribute("role","dialog"); document.body.appendChild(m); m.addEventListener("click",e=>{ if(e.target===m) closeModal(); }); } m.innerHTML=`<div class="box2">${html}</div>`; }
+function closeModal(){ const m=$("#modal"); if(m) m.remove(); ED=null; S.confirmRestore=S.confirmDelLesson=false; }
+
+/* ============ A5 sheet (canvas → PDF) ============ */
+const SW=1240, SH=1760;
+function wrapText(ctx, text, maxW){
+  const words=String(text).split(/\s+/); const lines=[]; let cur="";
+  words.forEach(w=>{ const t=cur?cur+" "+w:w; if(ctx.measureText(t).width>maxW && cur){ lines.push(cur); cur=w; } else cur=t; });
+  if(cur) lines.push(cur); return lines;
+}
+function rr(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function strip(s){ return String(s||"").replace(/\*\*/g,"").replace(/[{}]/g,""); }
+async function drawSheet(L, items, studentName, motive){
+  await Promise.all(['800 40px "Noto Kufi Arabic"','700 40px "Tajawal"','400 40px "Tajawal"'].map(f=>document.fonts.load(f).catch(()=>{})));
+  const cv=document.createElement("canvas"); cv.width=SW; cv.height=SH; const c=cv.getContext("2d"); c.direction="rtl";
+  const KUFI='"Noto Kufi Arabic", "Tajawal", sans-serif', TAJ='"Tajawal", sans-serif';
+  // background
+  const bg=c.createLinearGradient(0,0,SW,SH); bg.addColorStop(0,"#fff5fa"); bg.addColorStop(1,"#f5efff"); c.fillStyle=bg; c.fillRect(0,0,SW,SH);
+  c.globalAlpha=.35; c.fillStyle="#f8c9df"; c.beginPath(); c.arc(SW-40,60,170,0,7); c.fill(); c.fillStyle="#dcc9fa"; c.beginPath(); c.arc(30,SH-50,200,0,7); c.fill(); c.globalAlpha=1;
+  const gr=c.createLinearGradient(0,0,SW,0); gr.addColorStop(0,SITE.c2||"#9b6ee0"); gr.addColorStop(1,SITE.c1||"#f07bb0");
+  c.lineWidth=6; c.strokeStyle=gr; rr(c,40,40,SW-80,SH-80,48); c.stroke();
+  c.lineWidth=2; c.strokeStyle="#ecc3dc"; rr(c,58,58,SW-116,SH-116,38); c.stroke();
+  // header band
+  c.fillStyle=gr; rr(c,90,90,SW-180,200,34); c.fill();
+  c.fillStyle="rgba(255,255,255,.85)"; c.font=`700 30px ${TAJ}`; c.textAlign="center"; c.fillText(SITE.sheetT||"",SW/2,140);
+  c.fillStyle="#fff"; c.font=`800 46px ${KUFI}`; let tl=wrapText(c,strip(L.title),SW-260); if(tl.length>2){ c.font=`800 38px ${KUFI}`; tl=wrapText(c,strip(L.title),SW-260); }
+  tl.slice(0,2).forEach((ln,k)=>c.fillText(ln,SW/2,205+k*54-(tl.length>1?22:0)));
+  // name row
+  c.textAlign="right"; c.fillStyle="#3b2342"; c.font=`700 34px ${TAJ}`;
+  c.fillText("اسم الطالبة:",SW-110,370);
+  if(studentName){ c.fillStyle=SITE.c2||"#8a55d6"; c.font=`800 36px ${KUFI}`; c.fillText(studentName,SW-320,370); }
+  else { c.strokeStyle="#c9a9d6"; c.setLineDash([6,8]); c.lineWidth=2; c.beginPath(); c.moveTo(SW-320,378); c.lineTo(520,378); c.stroke(); c.setLineDash([]); }
+  c.fillStyle="#3b2342"; c.font=`700 34px ${TAJ}`; c.textAlign="left"; c.fillText(`الدرجة:  ____ / ${toAr(items.length)}`,110,370);
+  // questions
+  const top=430, bottom=SH-260, maxW=SW-300, xR=SW-110;
+  let fs=34; let layout;
+  const plan=(fs)=>{ c.font=`700 ${fs}px ${TAJ}`; let y=top; const L2=[];
+    items.forEach((q,k)=>{ const qt=wrapText(c,strip(q.q),maxW); const h0=qt.length*fs*1.55; let extra=0;
+      if(q.t==="mc") extra = Math.ceil(q.o.length/2)*fs*1.7+10; else if(q.t==="tf") extra=fs*1.9; else extra = (q.t==="w"?3:1)*fs*1.9+10;
+      L2.push({q,qt,y,h0}); y+=h0+extra+fs*1.1; });
+    return {L2,end:y}; };
+  while(true){ layout=plan(fs); if(layout.end<=bottom||fs<=22) break; fs-=2; }
+  layout.L2.forEach(({q,qt,y,h0},k)=>{
+    // number bubble
+    c.fillStyle=gr; c.beginPath(); c.arc(xR-22,y+fs*.55,26,0,7); c.fill();
+    c.fillStyle="#fff"; c.font=`800 28px ${KUFI}`; c.textAlign="center"; c.fillText(toAr(k+1),xR-22,y+fs*.55+10);
+    c.textAlign="right"; c.fillStyle="#3b2342"; c.font=`700 ${fs}px ${TAJ}`;
+    qt.forEach((ln,j)=>c.fillText(ln,xR-66,y+fs+j*fs*1.55));
+    let yy=y+h0+fs*.6;
+    c.font=`500 ${fs-2}px ${TAJ}`;
+    if(q.t==="mc"){ const colW=(maxW)/2; q.o.forEach((o,j)=>{ const col=j%2, row=Math.floor(j/2); const x=xR-66-col*colW, yv=yy+row*fs*1.7+fs*.4;
+        c.strokeStyle="#b48ae6"; c.lineWidth=3; c.beginPath(); c.arc(x-14,yv-fs*.32,13,0,7); c.stroke();
+        c.fillStyle="#8a55d6"; c.font=`800 ${fs-6}px ${KUFI}`; c.fillText("أبجد"[j]||"",x-40,yv);
+        c.fillStyle="#3b2342"; c.font=`500 ${fs-2}px ${TAJ}`; c.fillText(strip(o),x-80,yv); }); }
+    else if(q.t==="tf"){ c.fillStyle="#3b2342"; c.fillText("صح (     )          خطأ (     )",xR-66,yy+fs*.6); }
+    else { c.strokeStyle="#d6b6e6"; c.setLineDash([4,9]); c.lineWidth=2; const n=q.t==="w"?3:1; for(let r=0;r<n;r++){ const ly=yy+fs*.7+r*fs*1.9; c.beginPath(); c.moveTo(xR-66,ly); c.lineTo(150,ly); c.stroke(); } c.setLineDash([]); }
+  });
+  // footer
+  c.fillStyle="rgba(255,255,255,.75)"; rr(c,90,SH-230,SW-180,140,30); c.fill(); c.lineWidth=3; c.strokeStyle=gr; rr(c,90,SH-230,SW-180,140,30); c.stroke();
+  c.textAlign="right"; c.fillStyle="#8a55d6"; c.font=`800 44px ${KUFI}`; c.fillText(SITE.teacher||"",SW-130,SH-145);
+  c.textAlign="left"; c.fillStyle="#d6408c"; c.font=`700 32px ${TAJ}`; c.fillText(String(motive).replace(/[«»]/g,''),130,SH-145);
+  return cv;
+}
+function pdfFromJpegs(pages){ // pages: [{bytes:Uint8Array,w,h}]
+  const enc=new TextEncoder(); const parts=[]; let len=0; const offs=[];
+  const push=x=>{ const b=typeof x==="string"?enc.encode(x):x; parts.push(b); len+=b.length; };
+  const PW=419.53, PH=595.28; const n=pages.length; const objCount=2+n*3;
+  push("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n");
+  const obj=(id,body)=>{ offs[id]=len; push(`${id} 0 obj\n`); body(); push("\nendobj\n"); };
+  obj(1,()=>push("<< /Type /Catalog /Pages 2 0 R >>"));
+  obj(2,()=>push(`<< /Type /Pages /Count ${n} /Kids [${pages.map((p,i)=>`${3+i*3} 0 R`).join(" ")}] >>`));
+  pages.forEach((p,i)=>{ const pid=3+i*3, cid=pid+1, iid=pid+2;
+    obj(pid,()=>push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PW} ${PH}] /Resources << /XObject << /Im${i} ${iid} 0 R >> >> /Contents ${cid} 0 R >>`));
+    const cs=`q ${PW} 0 0 ${PH} 0 0 cm /Im${i} Do Q`;
+    obj(cid,()=>push(`<< /Length ${cs.length} >>\nstream\n${cs}\nendstream`));
+    obj(iid,()=>{ push(`<< /Type /XObject /Subtype /Image /Width ${p.w} /Height ${p.h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${p.bytes.length} >>\nstream\n`); push(p.bytes); push("\nendstream"); });
+  });
+  const xref=len; push(`xref\n0 ${objCount+1}\n0000000000 65535 f \n`);
+  for(let i=1;i<=objCount;i++) push(String(offs[i]).padStart(10,"0")+" 00000 n \n");
+  push(`trailer\n<< /Size ${objCount+1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`);
+  return new Blob(parts,{type:"application/pdf"});
+}
+function canvasJpeg(cv){ const d=cv.toDataURL("image/jpeg",.92).split(",")[1]; const bin=atob(d); const u=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i); return {bytes:u,w:cv.width,h:cv.height}; }
+let PR=null;
+function openPrint(){
+  const L=lessons()[S.idx]; const items=tqItems(L);
+  if(!items.length){ toast("أضيفي أسئلة المعلمة لهذا الدرس أولاً من «تعديل الدرس»"); return; }
+  PR={L, sel:items.map((_,k)=>k<4), who:"blank", motive:pick(sheetMotives())};
+  drawPrint();
+}
+async function drawPrint(){
+  const {L}=PR, items=tqItems(L);
+  const studs=S.students.slice().sort((a,b)=>a.name.localeCompare(b.name,"ar"));
+  showModal(`<div class="mh"><h3>ورقة اختبار A5: ${esc(L.title)}</h3><button class="btn sm" data-act="close">إغلاق</button><button class="btn sm pri" data-act="dlpdf">تحميل PDF</button></div>
+  <div class="mb"><div class="two"><div style="display:grid;gap:12px;align-content:start">
+    <div class="field"><label for="prWho">اسم الطالبة في أعلى الورقة</label><select class="inp" id="prWho">
+      <option value="blank" ${PR.who==="blank"?"selected":""}>خط فارغ تكتب عليه الطالبة</option>
+      ${studs.length?`<option value="all" ${PR.who==="all"?"selected":""}>نسخة لكل طالبة باسمها (${toAr(studs.length)} صفحة)</option>`:""}
+      ${studs.map(s=>`<option value="${s.id}" ${PR.who===s.id?"selected":""}>${esc(s.name)}</option>`).join("")}</select></div>
+    <div class="field"><label>الأسئلة المطبوعة (المقترح ٣ أو ٤)</label>${items.map((q,k)=>`<label style="display:flex;gap:8px;align-items:flex-start;font-weight:500;color:var(--ink)"><input type="checkbox" data-prq="${k}" ${PR.sel[k]?"checked":""}> <span>${inline(q.q)} <span class="ty" style="font-size:12px">${TY[q.t]}</span></span></label>`).join("")}</div>
+    <div class="field"><label for="prMot">العبارة التحفيزية</label><select class="inp" id="prMot">${sheetMotives().map(m=>`<option ${m===PR.motive?"selected":""}>${esc(m)}</option>`).join("")}</select></div>
+    <p class="note" id="prMsg">ألوان الورقة باستيل وردي وبنفسجي، جاهزة للطباعة الملونة على مقاس A5.</p>
+  </div><div class="sheetprev" id="prPrev"><div class="loading">جارٍ تجهيز المعاينة…</div></div></div></div>`);
+  $("#prWho").addEventListener("change",e=>{PR.who=e.target.value; drawPrint();});
+  $("#prMot").addEventListener("change",e=>{PR.motive=e.target.value; drawPrint();});
+  document.querySelectorAll("[data-prq]").forEach(cb=>cb.addEventListener("change",()=>{PR.sel[+cb.dataset.prq]=cb.checked; drawPrint();}));
+  const chosen=items.filter((_,k)=>PR.sel[k]); if(!chosen.length){ $("#prPrev").innerHTML='<p class="note">اختاري سؤالاً واحداً على الأقل.</p>'; return; }
+  const name = PR.who==="blank"?"":PR.who==="all"?(studs[0]||{}).name||"":(studs.find(s=>s.id===PR.who)||{}).name||"";
+  const cv=await drawSheet(L,chosen,name,PR.motive); const p=$("#prPrev"); if(p) p.innerHTML=`<img alt="معاينة ورقة الاختبار" src="${cv.toDataURL("image/png")}">`;
+}
+async function downloadPdf(){
+  const {L}=PR, items=tqItems(L).filter((_,k)=>PR.sel[k]); if(!items.length) return toast("اختاري سؤالاً واحداً على الأقل");
+  const studs=S.students.slice().sort((a,b)=>a.name.localeCompare(b.name,"ar"));
+  const names = PR.who==="blank"?[""]:PR.who==="all"?studs.map(s=>s.name):[(studs.find(s=>s.id===PR.who)||{}).name||""];
+  const msg=$("#prMsg"); if(msg) msg.textContent="جارٍ إنشاء الملف…";
+  const pages=[]; for(const n of names) pages.push(canvasJpeg(await drawSheet(L,items,n,PR.motive)));
+  const blob=pdfFromJpegs(pages);
+  if(!S.dl){ if(msg) msg.textContent="التحميل غير متاح في هذه النافذة. افتحي الموقع داخل Claude لتحميل الملف."; return; }
+  try{ await S.dl.save({filename:`اختبار ${strip(L.title).replace(/[\\/:*?"<>|]/g,"").slice(0,60)}.pdf`, data:blob}); if(msg) msg.textContent="تم تجهيز الملف للتحميل."; }
+  catch(e){ if(msg) msg.textContent = e&&e.code==="declined" ? "أُلغي التحميل." : "تعذر التحميل في هذه النافذة."; }
+}
+
+/* ============ events ============ */
+document.addEventListener("click", async e=>{
+  const b=e.target.closest("[data-act]"); if(!b) return; const a=b.dataset.act;
+  if(a==="goto"){ S.idx=+b.dataset.i; S.railOpen=false; store.set("tj_idx",S.idx); if(S.view!=="deck"&&SD){ SD=null; applySite(SITE); } S.view="deck"; renderDeck(); const to=b.dataset.to&&document.getElementById(b.dataset.to); if(to) to.scrollIntoView({block:"start"}); else window.scrollTo({top:0}); }
+  else if(a==="next"||a==="prev"){ const n=lessons().length; S.idx=Math.min(n-1,Math.max(0,S.idx+(a==="next"?1:-1))); store.set("tj_idx",S.idx); renderDeck(); window.scrollTo({top:0}); }
+  else if(a==="rail"){ S.railOpen=!S.railOpen; $(".rail").classList.toggle("open",S.railOpen); const sc=$(".scrim"); if(sc) sc.hidden=!S.railOpen; }
+  else if(a==="jump"){ const el=document.getElementById(b.dataset.to); if(el) el.scrollIntoView({behavior:"smooth",block:"start"}); }
+  else if(a==="mmtoggle"){ const br=b.parentElement; br.classList.toggle("closed"); b.setAttribute("aria-expanded",!br.classList.contains("closed")); }
+  else if(a==="ans"){ const L=lessons()[S.idx], st=qState(L.id); if(st.done) return; document.querySelectorAll("[data-fill]").forEach(el=>st.ans[+el.dataset.fill]=el.value); const v=b.dataset.v; st.ans[+b.dataset.k] = v==="true"?true:v==="false"?false:+v; const y=window.scrollY; renderDeck(); window.scrollTo({top:y}); }
+  else if(a==="submit") submitQuiz();
+  else if(a==="retry"){ const L=lessons()[S.idx]; S.quizState[L.id]={ans:{},done:false}; renderDeck(); document.getElementById("b-quiz").scrollIntoView({block:"start"}); }
+  else if(a==="logout"){ S.gateRole=null; S.session=null; store.del("tj_session"); S.myRes={};
+    ["tq","res","pw","my"].forEach(k=>{ if(subs[k]){ try{ subs[k](); }catch(err){} delete subs[k]; } });
+    S.tq={}; S.pw={}; S.results=[]; if(S.db&&S.db.refresh) S.db.refresh(); go("gate"); }
+  else if(a==="role"){ S.gateRole=b.dataset.r||null; renderGate(); const f=$("#stuSel")||$("#tchPw"); if(f&&!f.disabled) f.focus(); }
+  else if(a==="guest"){ S.myRes=store.get("tj_guest")||{}; go("home"); }
+  else if(a==="view"){ go(b.dataset.v); }
+  else if(a==="ptab"){ if(S.panelTab==="settings"&&b.dataset.t!=="settings"){ SD=null; applySite(SITE); } S.panelTab=b.dataset.t; renderPanel(); }
+  else if(a==="delStu"){ const id=b.dataset.id; if(S.confirmDel!==id){ S.confirmDel=id; renderPanel(); return; } S.confirmDel=null; try{ await S.db.doc("students/"+id).delete(); await S.db.doc("studentpw/"+id).delete(); toast("حُذفت الطالبة"); }catch(err){ toast("تعذر الحذف"); } }
+  else if(a==="resetPw"){ const id=b.dataset.id, pw=String(Math.floor(1000+Math.random()*9000)); try{ await S.db.doc("students/"+id).update({hash:await sha(id+":"+pw), mustChange:true, resetAt:new Date().toISOString()}); await S.db.doc("studentpw/"+id).set({pw}); toast("كلمة المرور الجديدة: "+pw); }catch(err){ toast("تعذر التغيير"); } }
+  else if(a==="edit"){ openEditor(lessons()[S.idx],false); }
+  else if(a==="addLesson"){ const ls=lessons(); openEditor({id:uid("c"),unit:ls.length?ls[ls.length-1].unit:"",title:"",content:"## عنوان الفقرة الأولى\nاكتبي الشرح هنا.",map:"الفكرة المركزية\n- فرع\n  - تفصيل",quiz:[{t:"tf",q:"",a:true,ex:""},{t:"mc",q:"",o:["","","",""],a:0,ex:""},{t:"fill",q:"",a:[],ex:""}],order:(ls[ls.length-1]||{order:0}).order+1},true); }
+  else if(a==="etab"){ readEditorFields(); ED.tab=b.dataset.t; drawEditor(); }
+  else if(a==="qadd"){ readEditorFields(); (b.dataset.kind==="quiz"?ED.L.quiz:ED.tq).push({t:"mc",q:"",o:["","","",""],a:0,ex:""}); drawEditor(); }
+  else if(a==="qdel"){ readEditorFields(); (b.dataset.kind==="quiz"?ED.L.quiz:ED.tq).splice(+b.dataset.k,1); drawEditor(); }
+  else if(a==="rmVid"){ readEditorFields(); ED.L.video.url=""; ED.L.video.asset=""; drawEditor(); }
+  else if(a==="saveLesson") saveLesson();
+  else if(a==="close") closeModal();
+  else if(a==="restore"){ if(!S.confirmRestore){ S.confirmRestore=true; drawEditor(); return; } try{ await S.db.doc("lessons/"+ED.L.id).delete(); delete S.over[ED.L.id]; closeModal(); renderDeck(); toast("استُعيد النص الأصلي"); }catch(err){ toast("تعذرت الاستعادة"); } }
+  else if(a==="delLesson"){ if(!S.confirmDelLesson){ S.confirmDelLesson=true; drawEditor(); return; } try{ await S.db.doc("lessons/"+ED.L.id).delete(); delete S.over[ED.L.id]; S.idx=0; closeModal(); renderDeck(); toast("حُذف الدرس"); }catch(err){ toast("تعذر الحذف"); } }
+  else if(a==="print") openPrint();
+  else if(a==="myPw"){ if(window.openMyPw && !e.target.closest('[data-act="logout"]')) window.openMyPw(false); }
+  else if(a==="preset"){ const p=PRESETS[+b.dataset.k]; SD.c1=p.c1; SD.c2=p.c2; sChanged(true); }
+  else if(a==="sset"){ SD[b.dataset.k]=b.dataset.v; sChanged(true); }
+  else if(a==="ssave") saveSite();
+  else if(a==="sundo"){ SD={...SITE}; SD_DIRTY=false; S.confirmReset=false; applySite(SITE); const y=window.scrollY; renderPanel(); window.scrollTo({top:y}); }
+  else if(a==="sreset"){ if(!S.confirmReset){ S.confirmReset=true; const y=window.scrollY; renderPanel(); window.scrollTo({top:y}); return; } S.confirmReset=false; SD={...SITE_DEF}; sChanged(true); toast("عادت الإعدادات الأصلية، اضغطي «حفظ ونشر» لتثبيتها"); }
+  else if(a==="lmove") moveLesson(b.dataset.id,+b.dataset.d);
+  else if(a==="lhide"){ const l=lessons().find(x=>x.id===b.dataset.id); try{ await patchLesson(l.id,{hidden:!l.hidden}); const y=window.scrollY; renderPanel(); window.scrollTo({top:y}); toast(l.hidden?"أصبح الدرس ظاهراً للطالبات":"أُخفي الدرس عن الطالبات"); }catch(e){ toast("تعذر الحفظ"); } }
+  else if(a==="dlpdf") downloadPdf();
+});
+document.addEventListener("change", e=>{ const t=e.target; if(t.matches && t.matches("select[data-f='t']")){ readEditorFields(); const box=t.closest(".qed"); const list=box.dataset.kind==="quiz"?ED.L.quiz:ED.tq; const q=list[+box.dataset.k]; q.t=t.value; if(q.t==="mc"){ q.o=q.o||["","","",""]; q.a=0; } else if(q.t==="tf") q.a=true; else if(q.t==="fill") q.a=[]; else q.a=""; drawEditor(); } });
+document.addEventListener("input", e=>{ if(e.target.matches("[data-fill]")){ const L=lessons()[S.idx]; qState(L.id).ans[+e.target.dataset.fill]=e.target.value; } });
+document.addEventListener("keydown", e=>{
+  if(S.view!=="deck"||$("#modal")||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+  if(e.key==="ArrowLeft"){ $('[data-act="next"]')?.click(); } if(e.key==="ArrowRight"){ $('[data-act="prev"]')?.click(); }
+  if(e.key==="Escape" && S.railOpen){ S.railOpen=false; $(".rail").classList.remove("open"); const sc=$(".scrim"); if(sc) sc.hidden=true; }
+});
+
+/* ============ data wiring ============ */
+let subs = {};
+function rerenderSoft(){
+  if($("#modal")) return; // don't clobber editors
+  if(S.view==="panel"&&S.panelTab==="settings"&&/INPUT|TEXTAREA/.test((document.activeElement||{}).tagName||"")) return;
+  const y=window.scrollY;
+  if(S.view==="deck"){ // keep typed fill answers
+    const L=lessons()[S.idx]; if(L) document.querySelectorAll("[data-fill]").forEach(el=>qState(L.id).ans[+el.dataset.fill]=el.value);
+    renderDeck(); window.scrollTo({top:y});
+  } else if(S.view==="panel"){ renderPanel(); window.scrollTo({top:y}); }
+  else if(S.view==="home"||S.view==="progress"){ render(); window.scrollTo({top:y}); }
+  else if(S.view==="gate"){ const sel=$("#stuSel"), v=sel?sel.value:"", pw=$("#stuPw")?$("#stuPw").value:""; renderGate(); if($("#stuSel")) $("#stuSel").value=v; if($("#stuPw")) $("#stuPw").value=pw; }
+}
+function startTeacher(){
+  if(!S.db) return;
+  if(!subs.tq) subs.tq = S.db.collection("tq").onSnapshot(s=>{ S.tq={}; s.docs.forEach(d=>S.tq[d.id]=d.data()); rerenderSoft(); }, ()=>{});
+  if(!subs.res) subs.res = S.db.collection("results").onSnapshot(s=>{ const out=[]; s.docs.forEach(d=>Object.values(d.data()||{}).forEach(r=>{ if(r&&r.sid) out.push(r); })); S.results=out; rerenderSoft(); }, ()=>{});
+  if(!subs.pw) subs.pw = S.db.collection("studentpw").onSnapshot(s=>{ S.pw={}; s.docs.forEach(d=>S.pw[d.id]=d.data()); rerenderSoft(); }, ()=>{});
+}
+function startStudent(){
+  if(!S.db||!S.uid||!S.session) return;
+  if(subs.my) subs.my();
+  subs.my = S.db.doc("results/"+S.uid).onSnapshot(d=>{ S.myRes={}; const data=d.exists?d.data():{}; Object.values(data||{}).forEach(r=>{ if(r&&r.sid===S.session?.sid) S.myRes[r.lesson]=r; }); rerenderSoft(); }, ()=>{});
+}
+async function boot(){
+  const cs=store.get("tj_site"); if(cs){ SITE={...SITE_DEF,...cs}; } applySite(SITE);
+  render();
+  const use = n => (window.claude && window.claude.use) ? window.claude.use(n).catch(()=>null) : Promise.resolve(null);
+  const [db,user,dl,assets] = await Promise.all([use("db"),use("user"),use("downloads"),use("assets")]);
+  S.db=db; S.user=user; S.dl=dl; S.assets=assets;
+  try{ S.canEdit = user ? !!(await user.canEdit()) : false; }catch(e){ S.canEdit=false; }
+  try{ S.uid = user ? await user.id() : null; }catch(e){ S.uid=null; }
+  S.ready=true;
+  if(db){
+    const timer=setTimeout(()=>{ if(!S.studentsLoaded){ S.studentsLoaded=true; rerenderSoft(); } },10000);
+    db.doc("site/main").onSnapshot(d=>{ SITE={...SITE_DEF,...(d.exists?d.data():{})}; store.set("tj_site",SITE); if(!SD) applySite(SITE); rerenderSoft(); }, ()=>{});
+    if(!window.GAS) db.collection("pwchange").onSnapshot(s=>{ S.pwch={}; s.docs.forEach(d=>S.pwch[d.id]=d.data()); rerenderSoft(); }, ()=>{});
+    db.collection("lessons").onSnapshot(s=>{ S.over={}; s.docs.forEach(d=>S.over[d.id]=d.data()); rerenderSoft(); }, ()=>{});
+    db.collection("students").onSnapshot(s=>{ clearTimeout(timer); S.studentsLoaded=true; S.students=s.docs.map(d=>({id:d.id,...d.data()}));
+      if(S.session&&S.session.role==="student"&&!S.students.find(x=>x.id===S.session.sid)){ S.session=null; store.del("tj_session"); S.view="gate"; }
+      rerenderSoft(); }, ()=>{ clearTimeout(timer); S.studentsLoaded=true; rerenderSoft(); });
+  }
+  if(S.session){
+    if(S.session.role==="teacher" && (!S.canEdit||!db)){ S.session=null; store.del("tj_session"); }
+    else if(S.session.role==="student" && !db){ S.session=null; store.del("tj_session"); }
+  }
+  if(S.session){ S.view="home"; if(S.session.role==="teacher") startTeacher(); else startStudent(); }
+  render();
+}
+boot();
+</script>
+
+<script>
+/* ===== Standalone version: username + password logins ===== */
+checkTeacherSetup = async function(){};
+async function doLogin(user, pw, errEl, expect){
+  errEl.textContent = "";
+  if(!user){ errEl.textContent = "اكتبي اسم المستخدم."; return; }
+  if(!pw){ errEl.textContent = "اكتبي كلمة المرور."; return; }
+  errEl.textContent = "جارٍ التحقق…";
+  try{
+    const r = await gasRun("login", {user, pw});
+    errEl.textContent = "";
+    if(r.role==="teacher"){
+      AUTH = {t:r.token}; saveAuth();
+      S.session = {role:"teacher", name:SITE.teacher}; store.set("tj_session", S.session); startTeacher(); go("home");
+    } else {
+      AUTH = {s:r.token, sid:r.sid}; saveAuth(); S.uid = r.sid;
+      S.session = {role:"student", sid:r.sid, name:r.name}; store.set("tj_session", S.session); startStudent();
+      if(r.mustChange){ go("home"); openMyPw(true); } else go("home");
+    }
+  }catch(e){
+    errEl.textContent = e.code==="bad_pw" ? "كلمة المرور غير صحيحة." :
+      e.code==="no_user" ? (expect==="teacher" ? "اسم المستخدم غير صحيح." : "لم يُعثر على هذا الاسم. اكتبيه كما سجّلته المعلمة.") :
+      "تعذر الاتصال بالخادم، حاولي مرة أخرى.";
+  }
+}
+teacherLogin = function(){ doLogin($("#tchUser").value.trim(), $("#tchPw").value, $("#tchErr"), "teacher"); };
+studentLogin = function(){ doLogin($("#stuUser").value.trim(), $("#stuPw").value, $("#stuErr"), "student"); };
+
+window.openMyPw = function(forced){
+  if(!S.session) return;
+  showModal(`<div class="mh"><h3>${forced ? "أنشئي كلمة مرور خاصة بكِ" : "تغيير كلمة المرور"}</h3>${forced ? "" : `<button class="btn sm" data-act="close">إلغاء</button>`}</div>
+    <form class="mb" id="myPwForm" style="max-width:460px">
+      ${forced ? `<div class="info">أهلاً ${esc(S.session.name)}! هذه أول مرة تدخلين فيها، فاختاري كلمة مرور جديدة تحفظينها، وتدخلين بها من الآن.</div>` : ""}
+      <div class="field"><label for="np1">كلمة المرور الجديدة (٤ أحرف أو أرقام على الأقل)</label><input class="inp" id="np1" type="password" autocomplete="new-password"></div>
+      <div class="field"><label for="np2">أعيدي كتابتها للتأكيد</label><input class="inp" id="np2" type="password" autocomplete="new-password"></div>
+      <button class="btn pri big" type="submit">حفظ كلمة المرور</button><p class="err" id="npErr"></p>
+    </form>`);
+  if(forced){ const m=$("#modal"); m.replaceWith(m.cloneNode(true)); }
+  $("#myPwForm").addEventListener("submit", async ev=>{
+    ev.preventDefault();
+    const p1=$("#np1").value.trim(), p2=$("#np2").value.trim(), er=$("#npErr");
+    if(p1.length<4){ er.textContent="كلمة المرور ٤ أحرف أو أرقام على الأقل."; return; }
+    if(p1!==p2){ er.textContent="الكلمتان غير متطابقتين."; return; }
+    er.textContent="جارٍ الحفظ…";
+    try{ await gasRun("changePw",{pw:p1}); closeModal(); toast("تم حفظ كلمة المرور الجديدة"); if(S.db.refresh) S.db.refresh(); }
+    catch(e){ er.textContent="تعذر الحفظ، حاولي مرة أخرى."; }
+  });
+  setTimeout(()=>{ const f=$("#np1"); if(f) f.focus(); },50);
+};
+document.addEventListener("click", e=>{ const b=e.target.closest('[data-act="logout"]'); if(b){ AUTH={}; saveAuth(); S.uid=null; } }, true);
+
+</script>
+
+</body>
+</html>
